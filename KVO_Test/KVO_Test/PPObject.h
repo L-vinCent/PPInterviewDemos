@@ -11,4 +11,5 @@
 @interface PPObject : NSObject
 @property (nonatomic, assign) int value;
 
+-(void)sayHi;
 @end

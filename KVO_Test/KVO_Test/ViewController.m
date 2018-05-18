@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "PPObject.h"
 #import "PPObserver.h"
+#import "subObject.h"
 @interface ViewController ()
 {
     PPObject *obj;
@@ -20,18 +21,20 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    subObject *sub = [[subObject alloc]init];
     // Do any additional setup after loading the view, typically from a nib.
-    obj = [[PPObject alloc] init];
-    observer = [[PPObserver alloc] init];
-    
-    //调用kvo方法监听obj的value属性的变化
-    [obj addObserver:observer forKeyPath:@"value" options:NSKeyValueObservingOptionNew context:NULL];
-    
-    //通过setter方法修改value
-    obj.value = 1;
-    
-    // 1 通过kvc设置value能否生效？
-    [obj setValue:@2 forKey:@"value"];
+//    obj = [[PPObject alloc] init];
+//    observer = [[PPObserver alloc] init];
+//
+//    //调用kvo方法监听obj的value属性的变化
+//    [obj addObserver:observer forKeyPath:@"value" options:NSKeyValueObservingOptionNew context:NULL];
+//
+//    //通过setter方法修改value
+//    obj.value = 1;
+//
+//    // 1 通过kvc设置value能否生效？
+//    [obj setValue:@2 forKey:@"value"];
     
   
     

@@ -19,4 +19,9 @@
     return self;
 }
 
+-(void)sayHi
+{
+    
+    NSLog(@"ppobject_hi");
+}
 @end

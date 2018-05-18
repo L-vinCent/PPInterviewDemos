@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		675E556A20AD25A300972BA8 /* subObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 675E556920AD25A300972BA8 /* subObject.m */; };
 		67811DCE20AA879C00B1D737 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 67811DCD20AA879C00B1D737 /* AppDelegate.m */; };
 		67811DD120AA879D00B1D737 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67811DD020AA879D00B1D737 /* ViewController.m */; };
 		67811DD420AA879D00B1D737 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 67811DD220AA879D00B1D737 /* Main.storyboard */; };
@@ -37,6 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		675E556820AD25A300972BA8 /* subObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = subObject.h; sourceTree = "<group>"; };
+		675E556920AD25A300972BA8 /* subObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = subObject.m; sourceTree = "<group>"; };
 		67811DC920AA879C00B1D737 /* KVO_Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KVO_Test.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		67811DCC20AA879C00B1D737 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		67811DCD20AA879C00B1D737 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -120,6 +123,8 @@
 				67811E0220AA87D800B1D737 /* PPObserver.m */,
 				67811E0420AA8C7400B1D737 /* PPObject.h */,
 				67811E0520AA8C7400B1D737 /* PPObject.m */,
+				675E556820AD25A300972BA8 /* subObject.h */,
+				675E556920AD25A300972BA8 /* subObject.m */,
 			);
 			path = KVO_Test;
 			sourceTree = "<group>";
@@ -276,6 +281,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				67811DD120AA879D00B1D737 /* ViewController.m in Sources */,
+				675E556A20AD25A300972BA8 /* subObject.m in Sources */,
 				67811E0320AA87D800B1D737 /* PPObserver.m in Sources */,
 				67811DDC20AA879D00B1D737 /* main.m in Sources */,
 				67811DCE20AA879C00B1D737 /* AppDelegate.m in Sources */,
