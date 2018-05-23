@@ -1,0 +1,24 @@
+PODS:
+  - MBProgressHUD (1.0.0)
+  - WebViewJavascriptBridge (5.2.0)
+  - WechatOpenSDK (1.8.1)
+
+DEPENDENCIES:
+  - MBProgressHUD (~> 1.0.0)
+  - WebViewJavascriptBridge (~> 5.0)
+  - WechatOpenSDK
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - MBProgressHUD
+    - WebViewJavascriptBridge
+    - WechatOpenSDK
+
+SPEC CHECKSUMS:
+  MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
+  WebViewJavascriptBridge: a00b2d61252aec5207e3263d46fd0fd3cfaf7895
+  WechatOpenSDK: 491d965d79335070328571d3e79f714549e79a5e
+
+PODFILE CHECKSUM: 116eb2e6b484e1e95666be317956a69450a12fc8
+
+COCOAPODS: 1.5.2
