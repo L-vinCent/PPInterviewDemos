@@ -100,14 +100,14 @@
         // 在这里执行分享的操作
         NSString *title = [tempDic objectForKey:@"title"];
 //        NSString *content = [tempDic objectForKey:@"content"];
-//        NSString *url = [tempDic objectForKey:@"url"];
+        NSString *url = [tempDic objectForKey:@"url"];
         
-        NSArray *titles = @[@"购物车",@"分类",@"消息",@"艾美e族商城",@"我的"];
+        NSArray *urls = @[@"/mine",@"/",@"/shoppingCart",@"/newsIndex",@"/showPClass"];
       
-        [self hiddenLeftBarItem:[titles containsObject:title]?YES:NO];
+        [self hiddenLeftBarItem:[urls containsObject:url]?YES:NO];
         // 将分享的结果返回到JS中
         self.navItem.title = title;
-        
+        NSLog(@"------%@",url);
 //        responseCallback(result);
         
     }];

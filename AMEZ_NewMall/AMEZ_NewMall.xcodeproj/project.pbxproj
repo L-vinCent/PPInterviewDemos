@@ -715,7 +715,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = K4YX79HD2P;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = /Users/liaopanpan/Desktop/AMEZ_NewMall/AMEZ_NewMall/amez_newMall.pch;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/AMEZ_NewMall/amez_newMall.pch";
 				INFOPLIST_FILE = AMEZ_NewMall/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -733,7 +733,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = K4YX79HD2P;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = /Users/liaopanpan/Desktop/AMEZ_NewMall/AMEZ_NewMall/amez_newMall.pch;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/AMEZ_NewMall/amez_newMall.pch";
 				INFOPLIST_FILE = AMEZ_NewMall/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
