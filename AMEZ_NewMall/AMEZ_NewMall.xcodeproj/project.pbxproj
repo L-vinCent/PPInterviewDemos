@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		675E558020AD2D5100972BA8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 675E557F20AD2D5100972BA8 /* AppDelegate.m */; };
-		675E558620AD2D5100972BA8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 675E558420AD2D5100972BA8 /* Main.storyboard */; };
 		675E558820AD2D5100972BA8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 675E558720AD2D5100972BA8 /* Assets.xcassets */; };
 		675E558E20AD2D5100972BA8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 675E558D20AD2D5100972BA8 /* main.m */; };
 		675E559820AD2D5100972BA8 /* AMEZ_NewMallTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 675E559720AD2D5100972BA8 /* AMEZ_NewMallTests.m */; };
@@ -41,6 +40,7 @@
 		675E561720AD4E0100972BA8 /* PPBaseWebController.m in Sources */ = {isa = PBXBuildFile; fileRef = 675E561620AD4E0100972BA8 /* PPBaseWebController.m */; };
 		675E561A20AD4E8C00972BA8 /* PPMainWebVIewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 675E561920AD4E8C00972BA8 /* PPMainWebVIewVC.m */; };
 		675E561E20AD58F200972BA8 /* PPHudLoading.m in Sources */ = {isa = PBXBuildFile; fileRef = 675E561D20AD58F200972BA8 /* PPHudLoading.m */; };
+		67C5509920B7AF2C0078EB37 /* HYBNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 67C5509820B7AF2B0078EB37 /* HYBNetworking.m */; };
 		A2A15E205F4E889038B54978 /* Pods_AMEZ_NewMall.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1605179B39A3AE0B75279037 /* Pods_AMEZ_NewMall.framework */; };
 /* End PBXBuildFile section */
 
@@ -67,7 +67,6 @@
 		675E557B20AD2D5100972BA8 /* AMEZ_NewMall.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AMEZ_NewMall.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		675E557E20AD2D5100972BA8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		675E557F20AD2D5100972BA8 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		675E558520AD2D5100972BA8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		675E558720AD2D5100972BA8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		675E558C20AD2D5100972BA8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		675E558D20AD2D5100972BA8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -137,6 +136,8 @@
 		675E561920AD4E8C00972BA8 /* PPMainWebVIewVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PPMainWebVIewVC.m; sourceTree = "<group>"; };
 		675E561C20AD58F200972BA8 /* PPHudLoading.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PPHudLoading.h; sourceTree = "<group>"; };
 		675E561D20AD58F200972BA8 /* PPHudLoading.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PPHudLoading.m; sourceTree = "<group>"; };
+		67C5509720B7AF2B0078EB37 /* HYBNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYBNetworking.h; sourceTree = "<group>"; };
+		67C5509820B7AF2B0078EB37 /* HYBNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYBNetworking.m; sourceTree = "<group>"; };
 		A8E4302F4725B6F420CB368A /* Pods-AMEZ_NewMall.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AMEZ_NewMall.release.xcconfig"; path = "Pods/Target Support Files/Pods-AMEZ_NewMall/Pods-AMEZ_NewMall.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -195,7 +196,6 @@
 				675E55B020AD2E4400972BA8 /* Tools */,
 				675E557E20AD2D5100972BA8 /* AppDelegate.h */,
 				675E557F20AD2D5100972BA8 /* AppDelegate.m */,
-				675E558420AD2D5100972BA8 /* Main.storyboard */,
 				675E558720AD2D5100972BA8 /* Assets.xcassets */,
 				675E558C20AD2D5100972BA8 /* Info.plist */,
 				675E558D20AD2D5100972BA8 /* main.m */,
@@ -225,6 +225,7 @@
 		675E55B020AD2E4400972BA8 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				67C5509620B7AF2B0078EB37 /* NetWork */,
 				675E561B20AD589500972BA8 /* PPHUD */,
 				675E55BC20AD32A800972BA8 /* Additions */,
 				675E55B120AD2E4400972BA8 /* Constant */,
@@ -333,6 +334,15 @@
 				675E561D20AD58F200972BA8 /* PPHudLoading.m */,
 			);
 			path = PPHUD;
+			sourceTree = "<group>";
+		};
+		67C5509620B7AF2B0078EB37 /* NetWork */ = {
+			isa = PBXGroup;
+			children = (
+				67C5509720B7AF2B0078EB37 /* HYBNetworking.h */,
+				67C5509820B7AF2B0078EB37 /* HYBNetworking.m */,
+			);
+			path = NetWork;
 			sourceTree = "<group>";
 		};
 		9414FADAAC61D9A5B3F24E4C /* Pods */ = {
@@ -461,7 +471,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				675E558820AD2D5100972BA8 /* Assets.xcassets in Resources */,
-				675E558620AD2D5100972BA8 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -507,11 +516,13 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-AMEZ_NewMall/Pods-AMEZ_NewMall-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/WebViewJavascriptBridge/WebViewJavascriptBridge.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WebViewJavascriptBridge.framework",
 			);
@@ -540,6 +551,7 @@
 				675E560C20AD32A900972BA8 /* UILabel+CZAddition.m in Sources */,
 				675E560D20AD32A900972BA8 /* UIScreen+CZAddition.m in Sources */,
 				675E561120AD32A900972BA8 /* UIView+PPAddition.m in Sources */,
+				67C5509920B7AF2C0078EB37 /* HYBNetworking.m in Sources */,
 				675E560A20AD32A900972BA8 /* UIImage+PPBornQRCode.m in Sources */,
 				675E55FA20AD32A900972BA8 /* NSAttributedString+CZAdditon.m in Sources */,
 				675E560620AD32A900972BA8 /* UIColor+CZAddition.m in Sources */,
@@ -590,17 +602,6 @@
 			targetProxy = 675E559F20AD2D5100972BA8 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		675E558420AD2D5100972BA8 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				675E558520AD2D5100972BA8 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		675E55A520AD2D5100972BA8 /* Debug */ = {
@@ -712,14 +713,15 @@
 			baseConfigurationReference = 1504F4BEA651515F76C6D0CD /* Pods-AMEZ_NewMall.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = K4YX79HD2P;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/AMEZ_NewMall/amez_newMall.pch";
 				INFOPLIST_FILE = AMEZ_NewMall/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.amez.AMEZ-NewMall";
+				PRODUCT_BUNDLE_IDENTIFIER = com.amez.mall;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -730,14 +732,15 @@
 			baseConfigurationReference = A8E4302F4725B6F420CB368A /* Pods-AMEZ_NewMall.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = K4YX79HD2P;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/AMEZ_NewMall/amez_newMall.pch";
 				INFOPLIST_FILE = AMEZ_NewMall/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.amez.AMEZ-NewMall";
+				PRODUCT_BUNDLE_IDENTIFIER = com.amez.mall;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

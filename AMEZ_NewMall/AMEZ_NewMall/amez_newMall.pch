@@ -12,4 +12,6 @@
 #import "API_interface.h"
 #import "Amez_const.h"
 #import "UIView+PPAddition.h"
+
+#import "HYBNetworking.h"
 #endif /* amez_newMall_pch */

@@ -39,7 +39,7 @@
     
     self.navigationBar.items=@[self.navItem];
     
-    [self hiddenLeftBarItem:YES];
+    [self hiddenLeftBarItem:NO];
     
     self.isCanSideBack = YES;
 

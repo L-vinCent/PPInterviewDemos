@@ -73,7 +73,6 @@
 
 
 #define DoorFixScale 0.5
-
 //rgb颜色转换（16进制->10进制）
 #define ColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
@@ -85,7 +84,9 @@
 
 #define Door_Global_title  RGB(255,199,60)  //主题色
 
-#define Door_BGGlobal_color RGB(78,83,108) //主题背景色
+#define Door_BGGlobal_color RGB(253,87,141) //主题背景色
+//#define Door_BGGlobal_color WPHexColorA(0xfd578d,0)
+
 
 #define Door_BtnGray_color RGB(143,146,161) //按钮背景色_灰
 
@@ -95,7 +96,7 @@
 
 #define Door_BGWhite_color RGB(255,255,255)  //背景白
 
-
+#define WPHexColorA(hex,a) [UIColor colorWithRed:((float)((hex & 0xFF0000) >> 16)) / 255.0 green:((float)((hex & 0xFF00) >> 8)) / 255.0 blue:((float)(hex & 0xFF)) / 255.0 alpha:(a)]
 // 通知
 
 #define POST_NOTIFY(__NAME, __OBJ, __INFO) [[NSNotificationCenter defaultCenter] postNotificationName:__NAME object:__OBJ userInfo:__INFO];

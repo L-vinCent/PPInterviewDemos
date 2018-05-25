@@ -1,24 +1,42 @@
 PODS:
+  - AFNetworking (3.2.0):
+    - AFNetworking/NSURLSession (= 3.2.0)
+    - AFNetworking/Reachability (= 3.2.0)
+    - AFNetworking/Security (= 3.2.0)
+    - AFNetworking/Serialization (= 3.2.0)
+    - AFNetworking/UIKit (= 3.2.0)
+  - AFNetworking/NSURLSession (3.2.0):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (3.2.0)
+  - AFNetworking/Security (3.2.0)
+  - AFNetworking/Serialization (3.2.0)
+  - AFNetworking/UIKit (3.2.0):
+    - AFNetworking/NSURLSession
   - MBProgressHUD (1.0.0)
   - WebViewJavascriptBridge (5.2.0)
   - WechatOpenSDK (1.8.1)
 
 DEPENDENCIES:
+  - AFNetworking (~> 3.2.0)
   - MBProgressHUD (~> 1.0.0)
   - WebViewJavascriptBridge (~> 5.0)
   - WechatOpenSDK
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - AFNetworking
     - MBProgressHUD
     - WebViewJavascriptBridge
     - WechatOpenSDK
 
 SPEC CHECKSUMS:
+  AFNetworking: 8ac6017b94ea105479f7776e5288e48ae9c59bb4
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   WebViewJavascriptBridge: a00b2d61252aec5207e3263d46fd0fd3cfaf7895
   WechatOpenSDK: 491d965d79335070328571d3e79f714549e79a5e
 
-PODFILE CHECKSUM: 116eb2e6b484e1e95666be317956a69450a12fc8
+PODFILE CHECKSUM: b757f474ad744a526a126b770adae4218a425863
 
 COCOAPODS: 1.5.2

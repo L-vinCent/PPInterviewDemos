@@ -5,5 +5,5 @@ target 'AMEZ_NewMall' do
    pod 'MBProgressHUD', '~> 1.0.0'
    pod 'WebViewJavascriptBridge', '~> 5.0'
    pod 'WechatOpenSDK'
-			 
+   pod 'AFNetworking', '~> 3.2.0'			  	 
 end

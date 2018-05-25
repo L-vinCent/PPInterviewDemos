@@ -12,7 +12,7 @@
 #import <UIKit/UIKit.h>
 #import <WXApi.h>
 
-@interface PPMainWebVIewVC ()<UIWebViewDelegate>
+@interface PPMainWebVIewVC ()<UIWebViewDelegate,WXApiDelegate>
 
 @property (nonatomic, strong) WebViewJavascriptBridge *bridge;
 
@@ -24,7 +24,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
+//    [self hiddenLeftBarItem:YES];
     [self webviewConfig];
     [self registShareFunction];
     [self registAPPGetInfoFunction:self.bridge];
@@ -32,8 +32,6 @@
     self.navItem.title = @"艾美e族商城";
     self.isCanSideBack = YES;
  
-    
-    
 }
 
 
@@ -63,6 +61,22 @@
     
 }
 
+#pragma mark--WX
+-(void)sendAuthRequest
+{
+    //构造SendAuthReq结构体
+    SendAuthReq* req =[[SendAuthReq alloc]init];
+    req.scope = @"snsapi_userinfo";
+    req.state = @"wexin";
+    //第三方向微信终端发送一个SendAuthReq消息结构
+    [WXApi sendReq:req];
+}
+
+
+
+
+
+#pragma mark -- registWebFuntion
 -(void)regist_wxPayFunction
 {
     
@@ -74,19 +88,24 @@
             [self message_setAlertCT:@"请先安装微信" alertBlock:nil];
             return ;
         }
-        
-        NSDictionary *payDic = (NSDictionary *)data;
-        if (kObjectIsEmpty(payDic)) return ;
-        
-        NSMutableString *stamp  = [data objectForKey:@"timestamp"];
-        PayReq* req             = [[PayReq alloc] init];
-        req.partnerId           = [payDic objectForKey:@"partnerid"];
-        req.prepayId            = [payDic objectForKey:@"prepayid"];
-        req.nonceStr            = [payDic objectForKey:@"noncestr"];
-        req.timeStamp           = stamp.intValue;
-        req.package             = [payDic objectForKey:@"package"];
-        req.sign                = [payDic objectForKey:@"sign"];
-        [WXApi sendReq:req];
+        /*
+         "orderNo" : "012018052410551871858129",
+         "tradeNo" : "012018052410552258507971",
+         "params" : "wxPay"
+         */
+        [self sendAuthRequest];
+//        NSDictionary *payDic = (NSDictionary *)data;
+//        if (kObjectIsEmpty(payDic)) return ;
+//
+//        NSMutableString *stamp  = [data objectForKey:@"timestamp"];
+//        PayReq* req             = [[PayReq alloc] init];
+//        req.partnerId           = [payDic objectForKey:@"partnerid"];
+//        req.prepayId            = [payDic objectForKey:@"prepayid"];
+//        req.nonceStr            = [payDic objectForKey:@"noncestr"];
+//        req.timeStamp           = stamp.intValue;
+//        req.package             = [payDic objectForKey:@"package"];
+//        req.sign                = [payDic objectForKey:@"sign"];
+//        [WXApi sendReq:req];
         
     }];
     
