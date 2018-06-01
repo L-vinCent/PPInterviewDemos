@@ -61,7 +61,6 @@
         NSString *authUrl = [NSString stringWithFormat:@"https://api.weixin.qq.com/sns/oauth2/access_token?appid=%@secret=%@&code=%@&grant_type=authorization_code",Third_WXAppid,THird_WXAppsecret,authResp.code];
         [HYBNetworking getWithUrl:authUrl refreshCache:NO success:^(id response) {
 
-
             NSLog(@"------%@",response);
 
         } fail:^(NSError *error) {

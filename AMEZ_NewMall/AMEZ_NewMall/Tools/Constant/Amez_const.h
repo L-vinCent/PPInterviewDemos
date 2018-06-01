@@ -87,6 +87,8 @@
 #define Door_BGGlobal_color RGB(253,87,141) //主题背景色
 //#define Door_BGGlobal_color WPHexColorA(0xfd578d,0)
 
+#define Door_progressLine_color RGB(248,76,132) //进度条颜色
+
 
 #define Door_BtnGray_color RGB(143,146,161) //按钮背景色_灰
 

@@ -11,15 +11,17 @@
 #import <WebViewJavascriptBridge/WebViewJavascriptBridge.h>
 #import <UIKit/UIKit.h>
 #import <WXApi.h>
-
+#import "webProgressLine.h"
 @interface PPMainWebVIewVC ()<UIWebViewDelegate,WXApiDelegate>
 
 @property (nonatomic, strong) WebViewJavascriptBridge *bridge;
-
+@property(nonatomic,strong)webProgressLine *progressLine;
 
 @end
 
 @implementation PPMainWebVIewVC
+
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -32,6 +34,7 @@
     self.navItem.title = @"艾美e族商城";
     self.isCanSideBack = YES;
  
+    
 }
 
 
@@ -41,6 +44,7 @@
     if (@available(iOS 11.0, *)) {
         self.webView.scrollView.contentInsetAdjustmentBehavior = UIApplicationBackgroundFetchIntervalNever;
     }
+    self.view.backgroundColor = [UIColor whiteColor];
     self.webView= [[UIWebView alloc] initWithFrame:CGRectMake(0, kDoorNavStatusHeight, SCREEN_WIDTH, SCREEN_HEIGHT-kDoorNavStatusHeight)];
     self.webView.delegate = self;
     self.webView.scrollView.bounces = NO;
@@ -51,6 +55,10 @@
     [WebViewJavascriptBridge enableLogging];
     self.bridge = [WebViewJavascriptBridge bridgeForWebView:self.webView];
     [self.bridge setWebViewDelegate:self];
+    
+    self.progressLine = [[webProgressLine alloc]initWithFrame:CGRectMake(0, kDoorNavStatusHeight, SCREEN_WIDTH, 2)];
+    self.progressLine.lineColor = Door_progressLine_color;
+    [self.view addSubview:self.progressLine];
     
     
     [self backBtnClickEvent:^{
@@ -154,7 +162,7 @@
 
 -(void)webViewDidStartLoad:(UIWebView *)webView
 {
-    
+    [self.progressLine startLoadingAnimation];
 }
 
 -(void)webViewDidFinishLoad:(UIWebView *)webView
@@ -176,6 +184,11 @@
     self.navItem.title = titleHtmlInfo;
     
 
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        
+        [self.progressLine endLoadingAnimation];
+
+    });
   
 }
 
@@ -192,7 +205,8 @@
 
 -(void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
 {
-    
+    [self.progressLine endLoadingAnimation];
+
     
 }
 
