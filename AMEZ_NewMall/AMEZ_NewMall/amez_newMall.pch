@@ -14,4 +14,6 @@
 #import "UIView+PPAddition.h"
 
 #import "HYBNetworking.h"
+
+#import "PPHUDHelp.h"
 #endif /* amez_newMall_pch */

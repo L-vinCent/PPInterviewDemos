@@ -8,6 +8,13 @@
 
 #import "PPBaseWebController.h"
 
+
+//@protocol  WXApiManagerDelegate <NSObject>
+//
+//@required
+//-(void)managerDidRecvPaymentResponse:(PayResp *)response;
+//@end
+
 @interface PPMainWebVIewVC : PPBaseWebController
 
 @end

@@ -33,7 +33,6 @@
 #define LOADING_SHOW  [PPHUDHelp showLoading];
 #define LOADING_HIDE  [PPHUDHelp hide];
 #define LoADING_FAIL  [PPHUDHelp showMsgWithImage:@"抱歉，出错了噢" imageName:@"fail"];
-#define USER_SYN [PPUserOBJ sharedUserOBJ]  //用户
 
 #ifdef DEBUG
 #define NSLog(...) NSLog(@"%s 第%d行 \n %@\n\n",__func__,__LINE__,[NSString stringWithFormat:__VA_ARGS__])
@@ -84,6 +83,10 @@
 
 #define Door_Global_title  RGB(255,199,60)  //主题色
 
+#define Door_title_color WPRGBColor(34,34,34)
+
+#define Door_title_color RGB(34,34,34)
+
 #define Door_BGGlobal_color RGB(253,87,141) //主题背景色
 //#define Door_BGGlobal_color WPHexColorA(0xfd578d,0)
 
@@ -107,6 +110,7 @@
 
 #define REMOVE_NOTIFY(__OBSERVER) [[NSNotificationCenter defaultCenter] removeObserver:__OBSERVER];
 
+#define noti_PayResult @"noti_PayResult"
 
 //容错处理宏
  #define kStringIsEmpty(str) ([str isKindOfClass:[NSNull class]] || str == nil || [str length] < 1 ? YES : NO )

@@ -9,7 +9,10 @@
 #import "AppDelegate.h"
 #import "PPMainWebVIewVC.h"
 #import <WXApi.h>
+#import "HYBNetworking.h"
 @interface AppDelegate ()<WXApiDelegate>
+
+//@property(nonatomic,assign)
 
 @end
 
@@ -21,10 +24,16 @@
     [WXApi registerApp:Third_WXAppid];
 
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds]; //创建新的窗口
+    [self.window makeKeyAndVisible];
+
     [self setUserAgentForWoapp];
     PPMainWebVIewVC *main=[[PPMainWebVIewVC alloc]init];
+    
     [self.window setRootViewController:main];
-    [self.window makeKeyAndVisible];
+
+    
+    NSLog(@"----%@",[UIApplication sharedApplication].keyWindow);
+    
     return YES;
 }
 
@@ -47,29 +56,24 @@
     
 }
 
+-(void)onResp:(BaseResp *)resp{
+    
+    if ([resp isKindOfClass:[PayResp class]]) {
+        
+        PayResp *response = (PayResp *)resp;
+
+        POST_NOTIFY(noti_PayResult, response, nil);
+        
+    }
+    
+}
 
 -(BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options
 {
     return [WXApi handleOpenURL:url delegate:self];
 }
 
--(void)onResp:(BaseResp *)resp
-{
-    if ([resp isKindOfClass:[SendAuthResp class]]) {
-        
-        SendAuthResp* authResp = (SendAuthResp*)resp;
-        NSString *authUrl = [NSString stringWithFormat:@"https://api.weixin.qq.com/sns/oauth2/access_token?appid=%@secret=%@&code=%@&grant_type=authorization_code",Third_WXAppid,THird_WXAppsecret,authResp.code];
-        [HYBNetworking getWithUrl:authUrl refreshCache:NO success:^(id response) {
 
-            NSLog(@"------%@",response);
-
-        } fail:^(NSError *error) {
-
-
-        }];
-    }
-  
-}
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.

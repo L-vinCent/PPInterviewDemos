@@ -12,11 +12,13 @@
 #import <UIKit/UIKit.h>
 #import <WXApi.h>
 #import "webProgressLine.h"
+
+#import <AFNetworking/AFNetworking.h>
 @interface PPMainWebVIewVC ()<UIWebViewDelegate,WXApiDelegate>
 
 @property (nonatomic, strong) WebViewJavascriptBridge *bridge;
 @property(nonatomic,strong)webProgressLine *progressLine;
-
+@property(nonatomic,copy)WVJBResponseCallback callBack;
 @end
 
 @implementation PPMainWebVIewVC
@@ -27,6 +29,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 //    [self hiddenLeftBarItem:YES];
+    
+
+    
     [self webviewConfig];
     [self registShareFunction];
     [self registAPPGetInfoFunction:self.bridge];
@@ -34,10 +39,29 @@
     self.navItem.title = @"艾美e族商城";
     self.isCanSideBack = YES;
  
+    LISTEN_NOTIFY(noti_PayResult, self, @selector(payResult:));
+    LOADING_SHOW
+    
+   
+    
     
 }
 
+-(void)payResult:(NSNotification *)noti
+{
+    PayResp *resp = (PayResp *)noti.object;
+    
+    NSString *result = [NSString stringWithFormat:@"%d",resp.errCode];
+    
+    if (self.callBack) {
+        
+        self.callBack(@{@"result":result});
+        
+    }
+    
 
+    
+}
 
 -(void)webviewConfig
 {
@@ -67,6 +91,12 @@
         
     }];
     
+    [self.bridge callHandler:@"payResult" data:@{@"result":@"1"} responseCallback:^(id responseData) {
+        
+        NSLog(@"------------%@",responseData);
+        
+    }];
+    
 }
 
 #pragma mark--WX
@@ -82,7 +112,12 @@
 
 
 
-
+-(void)managerDidRecvPaymentResponse:(PayResp *)response
+{
+    
+    NSLog(@"---%@",response);
+    
+}
 
 #pragma mark -- registWebFuntion
 -(void)regist_wxPayFunction
@@ -91,33 +126,78 @@
     
     [_bridge registerHandler:@"wxPayFuntion" handler:^(id data, WVJBResponseCallback responseCallback) {
        
+        self.callBack = responseCallback;
         if(![WXApi isWXAppInstalled])
         {
             [self message_setAlertCT:@"请先安装微信" alertBlock:nil];
             return ;
         }
+        
         /*
          "orderNo" : "012018052410551871858129",
          "tradeNo" : "012018052410552258507971",
          "params" : "wxPay"
          */
-        [self sendAuthRequest];
-//        NSDictionary *payDic = (NSDictionary *)data;
-//        if (kObjectIsEmpty(payDic)) return ;
-//
-//        NSMutableString *stamp  = [data objectForKey:@"timestamp"];
-//        PayReq* req             = [[PayReq alloc] init];
-//        req.partnerId           = [payDic objectForKey:@"partnerid"];
-//        req.prepayId            = [payDic objectForKey:@"prepayid"];
-//        req.nonceStr            = [payDic objectForKey:@"noncestr"];
-//        req.timeStamp           = stamp.intValue;
-//        req.package             = [payDic objectForKey:@"package"];
-//        req.sign                = [payDic objectForKey:@"sign"];
-//        [WXApi sendReq:req];
+
         
+        LOADING_SHOW
+        NSDictionary *payDic = (NSDictionary *)data;
+        if (kObjectIsEmpty(payDic)) return ;
+        
+        NSString *orderNo = [data objectForKey:@"orderNo"];
+        NSString *tradeNo = [data objectForKey:@"tradeNo"];
+        NSString *token = [data objectForKey:@"token"];
+        
+        
+        NSDictionary *Dic = @{@"orderNo":orderNo,
+                              @"tradeNo":tradeNo,
+                              };
+        
+
+        
+        AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+        manager.requestSerializer = [AFJSONRequestSerializer new];
+        manager.requestSerializer = [AFJSONRequestSerializer serializer];//请求
+        manager.responseSerializer = [AFHTTPResponseSerializer serializer];//响应
+        [manager.requestSerializer setValue:token forHTTPHeaderField:@"token"];
+        
+  
+        [manager POST:Third_WXPay parameters:Dic progress:^(NSProgress * _Nonnull uploadProgress) {
+            
+            
+        } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            
+            NSDictionary *Dic = [NSJSONSerialization JSONObjectWithData:responseObject options:0 error:nil];
+            if([[Dic objectForKey:@"code"] isEqualToString:@"0"])
+            {
+                LOADING_HIDE
+                NSDictionary *payDic = [[Dic objectForKey:@"data"]objectForKey:@"resultData"];
+                NSMutableString *stamp  = [payDic objectForKey:@"timestamp"];
+                PayReq* req             = [[PayReq alloc] init];
+                req.partnerId           = [payDic objectForKey:@"partnerid"];
+                req.prepayId            = [payDic objectForKey:@"prepayid"];
+                req.nonceStr            = [payDic objectForKey:@"noncestr"];
+                req.timeStamp           = stamp.intValue;
+                req.package             = [payDic objectForKey:@"package"];
+                req.sign                = [payDic objectForKey:@"sign"];
+                [WXApi sendReq:req];
+            }else
+            {
+                [PPHUDHelp showMessage:[Dic objectForKey:@"msg"]];
+            }
+           
+            
+            
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            
+            LoADING_FAIL
+            
+        }];
+      
     }];
     
 }
+
 
 - (void)registShareFunction
 {
@@ -162,11 +242,13 @@
 
 -(void)webViewDidStartLoad:(UIWebView *)webView
 {
+    LOADING_HIDE
     [self.progressLine startLoadingAnimation];
 }
 
 -(void)webViewDidFinishLoad:(UIWebView *)webView
 {
+    
     UIWebView *web = webView;
 
 //    NSString *allHtml = @"document.documentElement.innerHTML";
@@ -206,7 +288,7 @@
 -(void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
 {
     [self.progressLine endLoadingAnimation];
-
+    LoADING_FAIL
     
 }
 

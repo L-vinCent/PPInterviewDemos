@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		67321EA420C65A5C00030845 /* PPHUDHelp.m in Sources */ = {isa = PBXBuildFile; fileRef = 67321EA220C65A5B00030845 /* PPHUDHelp.m */; };
 		6752C01920C0E8FA00246A50 /* webProgressLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 6752C01820C0E8FA00246A50 /* webProgressLine.m */; };
 		675E558020AD2D5100972BA8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 675E557F20AD2D5100972BA8 /* AppDelegate.m */; };
 		675E558820AD2D5100972BA8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 675E558720AD2D5100972BA8 /* Assets.xcassets */; };
@@ -65,6 +66,8 @@
 /* Begin PBXFileReference section */
 		1504F4BEA651515F76C6D0CD /* Pods-AMEZ_NewMall.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AMEZ_NewMall.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AMEZ_NewMall/Pods-AMEZ_NewMall.debug.xcconfig"; sourceTree = "<group>"; };
 		1605179B39A3AE0B75279037 /* Pods_AMEZ_NewMall.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AMEZ_NewMall.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		67321EA220C65A5B00030845 /* PPHUDHelp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPHUDHelp.m; sourceTree = "<group>"; };
+		67321EA320C65A5C00030845 /* PPHUDHelp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPHUDHelp.h; sourceTree = "<group>"; };
 		6752C01720C0E8FA00246A50 /* webProgressLine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = webProgressLine.h; sourceTree = "<group>"; };
 		6752C01820C0E8FA00246A50 /* webProgressLine.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = webProgressLine.m; sourceTree = "<group>"; };
 		675E557B20AD2D5100972BA8 /* AMEZ_NewMall.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AMEZ_NewMall.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -333,6 +336,8 @@
 		675E561B20AD589500972BA8 /* PPHUD */ = {
 			isa = PBXGroup;
 			children = (
+				67321EA320C65A5C00030845 /* PPHUDHelp.h */,
+				67321EA220C65A5B00030845 /* PPHUDHelp.m */,
 				675E561C20AD58F200972BA8 /* PPHudLoading.h */,
 				675E561D20AD58F200972BA8 /* PPHudLoading.m */,
 				6752C01720C0E8FA00246A50 /* webProgressLine.h */,
@@ -544,6 +549,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				675E55F920AD32A900972BA8 /* NSArray+Log.m in Sources */,
+				67321EA420C65A5C00030845 /* PPHUDHelp.m in Sources */,
 				675E560020AD32A900972BA8 /* NSString+CZPath.m in Sources */,
 				675E560320AD32A900972BA8 /* UIActionSheet+Front.m in Sources */,
 				675E558E20AD2D5100972BA8 /* main.m in Sources */,
