@@ -1,0 +1,26 @@
+//
+//  YZPrefix.pch
+//  YZ_Four
+//
+//  Created by Liao PanPan on 2018/6/4.
+//  Copyright © 2018年 Liao PanPan. All rights reserved.
+//
+
+#ifndef YZPrefix_pch
+#define YZPrefix_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+
+#import "Amez_const.h"
+
+#import "UIView+PPAddition.h"
+#import "UIButton+CZAddition.h"
+#import "UIView+PPRedPoint.h"
+
+#import "PPHUDHelp.h"
+
+
+
+#endif /* YZPrefix_pch */

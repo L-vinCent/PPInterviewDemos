@@ -55,7 +55,7 @@
     
     if (self.callBack) {
         
-        self.callBack(@{@"result":result});
+        self.callBack(result);
         
     }
     
@@ -242,13 +242,13 @@
 
 -(void)webViewDidStartLoad:(UIWebView *)webView
 {
-    LOADING_HIDE
+    
     [self.progressLine startLoadingAnimation];
 }
 
 -(void)webViewDidFinishLoad:(UIWebView *)webView
 {
-    
+    LOADING_HIDE
     UIWebView *web = webView;
 
 //    NSString *allHtml = @"document.documentElement.innerHTML";
