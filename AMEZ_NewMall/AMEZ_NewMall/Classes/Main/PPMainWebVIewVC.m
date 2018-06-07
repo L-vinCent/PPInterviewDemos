@@ -12,12 +12,19 @@
 #import <UIKit/UIKit.h>
 #import <WXApi.h>
 #import "webProgressLine.h"
-
+#import "PPShowPayView.h"
 #import <AFNetworking/AFNetworking.h>
+#import "shareView.h"
+
+static const CGFloat VHeight = 180;
 @interface PPMainWebVIewVC ()<UIWebViewDelegate,WXApiDelegate>
 
 @property (nonatomic, strong) WebViewJavascriptBridge *bridge;
 @property(nonatomic,strong)webProgressLine *progressLine;
+@property(nonatomic,strong)PPShowPayView *showV;
+@property(nonatomic,strong)NSString *pushUrl;  //跳转链接
+@property(nonatomic,strong)NSString *pushTitle;  //跳转链接
+
 @property(nonatomic,copy)WVJBResponseCallback callBack;
 @end
 
@@ -31,6 +38,8 @@
 //    [self hiddenLeftBarItem:YES];
     
 
+    self.navItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"gd_icon"] style:UIBarButtonItemStylePlain target:self action:@selector(rightClick)];
+    
     
     [self webviewConfig];
     [self registShareFunction];
@@ -42,8 +51,87 @@
     LISTEN_NOTIFY(noti_PayResult, self, @selector(payResult:));
     LOADING_SHOW
     
-   
+    shareView *shareV = [[shareView alloc]initWithFrame:CGRectMake(0, SCREEN_HEIGHT - VHeight, SCREEN_WIDTH, VHeight)];
     
+    _showV = [[PPShowPayView alloc]initWithDelListView:shareV frame:self.view.bounds];
+    
+    __weak PPMainWebVIewVC *weakSelf = self;
+    shareV.btnClickBlock = ^(NSInteger tag) {
+      
+        NSLog(@"%ld",(long)tag);
+        [weakSelf.showV exitClick];
+        [weakSelf shareEventDeal:tag];
+        
+    };
+    [self.view addSubview:_showV];
+    
+}
+
+-(void)shareEventDeal:(NSInteger )tag
+{
+    
+    switch (tag) {
+        case 0:
+        {
+            //刷新
+            [self.webView reload];
+          
+        }
+            break;
+        case 1:
+        {
+            //分享给朋友
+            [self shareToScene:WXSceneSession];
+           
+        }
+            break;
+        case 2:
+        {
+            //分享给朋友圈
+            
+            [self shareToScene:WXSceneTimeline];
+        }
+            break;
+        default:
+        {
+            //复制链接
+//            NSLog(@"%@",)
+            UIPasteboard *pab = [UIPasteboard generalPasteboard];
+            [pab setURL:[NSURL URLWithString:self.pushUrl]];
+            if(nil != pab) [PPHUDHelp showMessage:@"复制成功"];
+        }
+            break;
+    }
+}
+
+-(void)shareToScene:(NSInteger)scene
+{
+    WXMediaMessage *messsage = [WXMediaMessage message];
+    [messsage setThumbImage:[UIImage imageNamed:@"fzlj_icon"]];
+    //            WXImageObject *imageObject = [WXImageObject object];
+    messsage.title = self.pushTitle;
+    messsage.description = self.pushUrl;
+    
+    WXWebpageObject *obj = [WXWebpageObject object];
+    obj.webpageUrl = self.pushUrl;
+    
+    
+    
+    SendMessageToWXReq *req = [[SendMessageToWXReq alloc]init];
+    req.message = messsage;
+    req.bText = NO;
+    
+    messsage.mediaObject = obj;
+    req.scene = scene;
+    [WXApi sendReq:req];
+    
+}
+
+-(void)rightClick
+{
+   
+    [_showV showWithHeight:VHeight];
+
     
 }
 
@@ -207,7 +295,16 @@
         // 在这里执行分享的操作
         NSString *title = [tempDic objectForKey:@"title"];
 //        NSString *content = [tempDic objectForKey:@"content"];
+        self.pushTitle = title;
         NSString *url = [tempDic objectForKey:@"url"];
+        
+        NSMutableString *urlmut = url.mutableCopy;
+        if([urlmut hasPrefix:@"/"]){
+            [urlmut deleteCharactersInRange: [urlmut rangeOfString:@"/"]];
+        }
+        
+        self.pushUrl = [NSString stringWithFormat:@"%@%@",Base_H5URL,urlmut];
+        
         
         NSArray *urls = @[@"/mine",@"/",@"/shoppingCart",@"/newsIndex",@"/showPClass"];
       

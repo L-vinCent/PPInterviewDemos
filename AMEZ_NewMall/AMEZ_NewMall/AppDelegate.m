@@ -66,7 +66,23 @@
         
     }
     
+    if ([resp isKindOfClass:[SendMessageToWXResp class]]) {
+        if (resp.errCode == 0) {
+        
+            [PPHUDHelp showMessage:@"分享成功" afterDelayTime:1.5];
+            
+        }else{
+            
+            [PPHUDHelp showMessage:@"分享失败" afterDelayTime:1.5];
+            
+        }
+    }
+  
+    
 }
+
+
+
 
 -(BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options
 {

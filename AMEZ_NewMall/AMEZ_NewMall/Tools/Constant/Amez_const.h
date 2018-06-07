@@ -83,8 +83,6 @@
 
 #define Door_Global_title  RGB(255,199,60)  //主题色
 
-#define Door_title_color WPRGBColor(34,34,34)
-
 #define Door_title_color RGB(34,34,34)
 
 #define Door_BGGlobal_color RGB(253,87,141) //主题背景色

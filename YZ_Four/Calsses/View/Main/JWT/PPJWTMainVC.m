@@ -32,7 +32,7 @@ static NSString * const kCellIdentify_PPJWTMainCell= @"kCellIdentify_PPJWTMainCe
 - (void)createTableView {
     if (!self.tableView) {
         
-        self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, kDoorNavStatusHeight, SCREEN_WIDTH,SCREEN_HEIGHT-kDoorNavStatusHeight) style:UITableViewStylePlain];
+        self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, kDoorNavStatusHeight, SCREEN_WIDTH,SCREEN_HEIGHT-kDoorNavStatusHeight-kDoorTabBarHeight) style:UITableViewStylePlain];
         
         self.tableView.delegate = self;
         self.tableView.dataSource = self;
@@ -48,13 +48,13 @@ static NSString * const kCellIdentify_PPJWTMainCell= @"kCellIdentify_PPJWTMainCe
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 57;
+    return 67;
 }
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     UIView *new = [[[NSBundle mainBundle]loadNibNamed:@"PPJWTHeadVIew" owner:self options:0]lastObject];
-    new.frame = CGRectMake(0, 0, SCREEN_WIDTH, 57);
+    new.frame = CGRectMake(0, 0, SCREEN_WIDTH, 67);
     return  new;
 }
 

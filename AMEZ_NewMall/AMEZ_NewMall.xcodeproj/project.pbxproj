@@ -42,6 +42,8 @@
 		675E561720AD4E0100972BA8 /* PPBaseWebController.m in Sources */ = {isa = PBXBuildFile; fileRef = 675E561620AD4E0100972BA8 /* PPBaseWebController.m */; };
 		675E561A20AD4E8C00972BA8 /* PPMainWebVIewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 675E561920AD4E8C00972BA8 /* PPMainWebVIewVC.m */; };
 		675E561E20AD58F200972BA8 /* PPHudLoading.m in Sources */ = {isa = PBXBuildFile; fileRef = 675E561D20AD58F200972BA8 /* PPHudLoading.m */; };
+		6786F01C20C8D2A000848F7B /* PPShowPayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6786F01B20C8D2A000848F7B /* PPShowPayView.m */; };
+		6786F01F20C8D3D600848F7B /* shareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6786F01E20C8D3D600848F7B /* shareView.m */; };
 		67C5509920B7AF2C0078EB37 /* HYBNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 67C5509820B7AF2B0078EB37 /* HYBNetworking.m */; };
 		A2A15E205F4E889038B54978 /* Pods_AMEZ_NewMall.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1605179B39A3AE0B75279037 /* Pods_AMEZ_NewMall.framework */; };
 /* End PBXBuildFile section */
@@ -142,6 +144,10 @@
 		675E561920AD4E8C00972BA8 /* PPMainWebVIewVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PPMainWebVIewVC.m; sourceTree = "<group>"; };
 		675E561C20AD58F200972BA8 /* PPHudLoading.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PPHudLoading.h; sourceTree = "<group>"; };
 		675E561D20AD58F200972BA8 /* PPHudLoading.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PPHudLoading.m; sourceTree = "<group>"; };
+		6786F01A20C8D2A000848F7B /* PPShowPayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPShowPayView.h; sourceTree = "<group>"; };
+		6786F01B20C8D2A000848F7B /* PPShowPayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPShowPayView.m; sourceTree = "<group>"; };
+		6786F01D20C8D3D600848F7B /* shareView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = shareView.h; sourceTree = "<group>"; };
+		6786F01E20C8D3D600848F7B /* shareView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = shareView.m; sourceTree = "<group>"; };
 		67C5509720B7AF2B0078EB37 /* HYBNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYBNetworking.h; sourceTree = "<group>"; };
 		67C5509820B7AF2B0078EB37 /* HYBNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYBNetworking.m; sourceTree = "<group>"; };
 		A8E4302F4725B6F420CB368A /* Pods-AMEZ_NewMall.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AMEZ_NewMall.release.xcconfig"; path = "Pods/Target Support Files/Pods-AMEZ_NewMall/Pods-AMEZ_NewMall.release.xcconfig"; sourceTree = "<group>"; };
@@ -271,8 +277,12 @@
 		675E55B720AD309800972BA8 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				6786F01A20C8D2A000848F7B /* PPShowPayView.h */,
+				6786F01B20C8D2A000848F7B /* PPShowPayView.m */,
 				675E561820AD4E8C00972BA8 /* PPMainWebVIewVC.h */,
 				675E561920AD4E8C00972BA8 /* PPMainWebVIewVC.m */,
+				6786F01D20C8D3D600848F7B /* shareView.h */,
+				6786F01E20C8D3D600848F7B /* shareView.m */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -552,6 +562,7 @@
 				67321EA420C65A5C00030845 /* PPHUDHelp.m in Sources */,
 				675E560020AD32A900972BA8 /* NSString+CZPath.m in Sources */,
 				675E560320AD32A900972BA8 /* UIActionSheet+Front.m in Sources */,
+				6786F01C20C8D2A000848F7B /* PPShowPayView.m in Sources */,
 				675E558E20AD2D5100972BA8 /* main.m in Sources */,
 				675E560520AD32A900972BA8 /* UIButton+LCAlignment.m in Sources */,
 				675E561220AD32A900972BA8 /* UIView+PPRedPoint.m in Sources */,
@@ -568,6 +579,7 @@
 				675E55FA20AD32A900972BA8 /* NSAttributedString+CZAdditon.m in Sources */,
 				675E560620AD32A900972BA8 /* UIColor+CZAddition.m in Sources */,
 				675E560F20AD32A900972BA8 /* UIView+CZAddition.m in Sources */,
+				6786F01F20C8D3D600848F7B /* shareView.m in Sources */,
 				675E55FC20AD32A900972BA8 /* NSObject+CZRuntime.m in Sources */,
 				675E561A20AD4E8C00972BA8 /* PPMainWebVIewVC.m in Sources */,
 				675E55B920AD30EE00972BA8 /* PPBaseViewController.m in Sources */,
