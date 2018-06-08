@@ -8,6 +8,6 @@
 
 #import "PPBaseViewController.h"
 
-@interface PPJWTMainVC : PPBaseViewController
+@interface PPScoreMainVC : PPBaseViewController
 
 @end

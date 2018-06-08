@@ -35,7 +35,8 @@
     
     self.isCanSideBack = YES;
     
-    self.view.backgroundColor=[UIColor whiteColor];
+//    self.view.backgroundColor=[UIColor whiteColor];
+    self.view.backgroundColor = Door_BGGray_color;
     
     self.automaticallyAdjustsScrollViewInsets=NO;
     

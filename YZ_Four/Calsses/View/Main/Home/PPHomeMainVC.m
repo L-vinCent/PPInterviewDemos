@@ -24,6 +24,7 @@ static NSString * const kCellIdentify_PPHomeMainCell= @"kCellIdentify_PPHomeMain
  
     
     self.navItem.title = @"首页";
+    [self hiddenLeftBarItem:YES];
     
     [self.tableView registerNib:[UINib nibWithNibName:@"PPHomeMainCell" bundle:nil] forCellReuseIdentifier:kCellIdentify_PPHomeMainCell];
 
@@ -31,7 +32,7 @@ static NSString * const kCellIdentify_PPHomeMainCell= @"kCellIdentify_PPHomeMain
 //    self.isNeedPullUpToRefreshAction = YES;
     
     self.tableView.tableFooterView = [[UIView alloc]initWithFrame:CGRectZero];
-    
+    self.tableView.separatorColor = [UIColor clearColor];
     
     
 //    [self triggerRefreshing];

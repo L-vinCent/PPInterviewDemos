@@ -41,5 +41,5 @@ typedef void(^alertCancelBlock)(void);
 
 -(void)message_setAlertCTSure:(NSString *)msg cancelMsg:(NSString *)cancelMsg alertBlock:(alertBlock)block cancelBlock:(alertCancelBlock)cancelBlock;
 
-
+- (void)setStatusBarBackgroundColor:(UIColor *)color;
 @end

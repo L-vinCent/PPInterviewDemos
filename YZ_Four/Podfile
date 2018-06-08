@@ -8,4 +8,5 @@ target 'YZ_Four' do
    pod 'MJRefresh'
    pod 'MJExtension'		  	 
    pod 'DZNEmptyDataSet'
+   pod 'ReactiveObjC', '~> 2.1.0'
 end

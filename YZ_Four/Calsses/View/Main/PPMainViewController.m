@@ -8,7 +8,8 @@
 
 #import "PPMainViewController.h"
 #import "PPBaseViewController.h"
-
+#import "PPNavViewController.h"
+#import "PPLoginMainVC.h"
 @interface PPMainViewController ()
 
 @property(nonatomic,strong)UIButton *composeButton;
@@ -44,9 +45,16 @@
     NSString *title = dic[@"title"];
     NSString *imageName=dic[@"imageName"];
 
-    Class class = NSClassFromString(clsName);
+  
     
+    Class class = NSClassFromString(clsName);
     PPBaseViewController *baseVC=(PPBaseViewController *)[[class alloc]init];
+    
+    if ([clsName isEqualToString:@"PPLoginMainVC"]) {
+        
+         baseVC = [[PPLoginMainVC alloc]initWithNibName:@"PPLoginMainVC" bundle:0];
+        
+    }
     
     NSString *tabImage=[NSString stringWithFormat:@"tabbar_%@.png",imageName];
     
@@ -61,10 +69,9 @@
     [UITabBar appearance].translucent=NO;
     [[UITabBar appearance]setBarTintColor:RGB(254, 254, 254)];
     baseVC.tabBarItem.selectedImage=[[UIImage imageNamed:selectImageName] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    
     [baseVC.tabBarItem setTitleTextAttributes:@{NSForegroundColorAttributeName:Door_Global_title} forState:UIControlStateSelected];
 
-    UINavigationController *nav=[[UINavigationController alloc]initWithRootViewController:baseVC];
+    PPNavViewController *nav=[[PPNavViewController alloc]initWithRootViewController:baseVC];
     
     return nav;
     
@@ -76,10 +83,10 @@
 {
     NSArray *array=@[
                     @{@"clsName":@"PPHomeMainVC",@"title":@"赛事",@"imageName":@"home"},
-                    @{@"clsName":@"PPHomeMainVC",@"title":@"礼品中心",@"imageName":@"message_center"},
-                    @{@"clsName":@"PPHomeMainVC",@"title":@"奖武堂",@"imageName":@"discover"},
-                    @{@"clsName":@"PPJWTMainVC",@"title":@"战绩",@"imageName":@"profile"},
-                    @{@"clsName":@"PPHomeMainVC",@"title":@"我的",@"imageName":@"profile"},
+                    @{@"clsName":@"PPLoginMainVC",@"title":@"礼品中心",@"imageName":@"message_center"},
+                    @{@"clsName":@"PPJWTMainHomeVC",@"title":@"奖武堂",@"imageName":@"discover"},
+                    @{@"clsName":@"PPScoreMainVC",@"title":@"战绩",@"imageName":@"profile"},
+                    @{@"clsName":@"PPMineMainVC",@"title":@"我的",@"imageName":@"profile"},
     ];
     
     NSMutableArray *vcArray=@[].mutableCopy;

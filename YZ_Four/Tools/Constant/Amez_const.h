@@ -63,13 +63,18 @@
 #define kDoorStatusBarHeight (DeviceIsiPhoneX() ? (44.0) : (20.0))
 #define kDoorTabBarHeight (DeviceIsiPhoneX() ? (83.0) : (49.0))
 #define kDoorNavStatusHeight (DeviceIsiPhoneX() ? (88.0) : (64.0))
+#define Open_Order_kTopY (kDoorNavStatusHeight+44.0)
 
 #define NavigationBar_HEIGHT 44.0f
 #define TabBar_HEIGHT kDoorTabBarHeight
 #define StatusBar_HEIGHT kDoorStatusBarHeight
 #define ToolsBar_HEIGHT 44.0f
-
 #define Bottom_FitHEIGHT 50.0f
+
+#define Open_Order_kMySegmentControl_Height 44.0
+#define Open_Order_kBottomCartHeight 50
+#define Open_Order_kTopY (kDoorNavStatusHeight+44.0)
+#define Open_Order_kTotalHeight  (SCREEN_HEIGHT-Open_Order_kMySegmentControl_Height-Open_Order_kBottomCartHeight-kDoorNavStatusHeight)
 
 
 #define DoorFixScale 0.5
@@ -86,8 +91,8 @@
 
 #define Door_Global_title  RGB(255,199,60)  //主题色
 
-#define Door_BGGlobal_color RGB(78,83,108) //主题背景色
-//#define Door_BGGlobal_color WPHexColorA(0xfd578d,0)
+//#define Door_BGGlobal_color RGB(78,83,108) //主题背景色
+#define Door_BGGlobal_color RGB(43,101,102) //主题背景色
 
 #define Door_progressLine_color RGB(248,76,132) //进度条颜色
 

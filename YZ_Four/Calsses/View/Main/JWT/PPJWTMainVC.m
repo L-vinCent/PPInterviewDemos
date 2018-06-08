@@ -23,7 +23,7 @@ static NSString * const kCellIdentify_PPJWTMainCell= @"kCellIdentify_PPJWTMainCe
     
     [super viewDidLoad];
     
-    self.navItem.title = @"详情";
+    self.navItem.title = @"战绩";
     [self createTableView];
     [self.tableView registerNib:[UINib nibWithNibName:@"PPJWTMainCell" bundle:nil] forCellReuseIdentifier:kCellIdentify_PPJWTMainCell];
     

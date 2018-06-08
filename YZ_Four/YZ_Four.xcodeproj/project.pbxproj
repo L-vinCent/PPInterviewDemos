@@ -14,11 +14,32 @@
 		672BB79E20C7D226006C06CC /* PPDetailTwoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 672BB79C20C7D226006C06CC /* PPDetailTwoCell.xib */; };
 		672BB7A220C7D792006C06CC /* PPDetailThreeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 672BB7A020C7D792006C06CC /* PPDetailThreeCell.m */; };
 		672BB7A320C7D792006C06CC /* PPDetailThreeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 672BB7A120C7D792006C06CC /* PPDetailThreeCell.xib */; };
-		672BB7A620C7E0AC006C06CC /* PPJWTMainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 672BB7A520C7E0AC006C06CC /* PPJWTMainVC.m */; };
+		672BB7A620C7E0AC006C06CC /* PPScoreMainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 672BB7A520C7E0AC006C06CC /* PPScoreMainVC.m */; };
 		672BB7AA20C7E15A006C06CC /* PPJWTMainCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 672BB7A820C7E15A006C06CC /* PPJWTMainCell.m */; };
 		672BB7AB20C7E15A006C06CC /* PPJWTMainCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 672BB7A920C7E15A006C06CC /* PPJWTMainCell.xib */; };
 		672BB7AE20C7E38C006C06CC /* PPJWTHeadVIew.m in Sources */ = {isa = PBXBuildFile; fileRef = 672BB7AD20C7E38C006C06CC /* PPJWTHeadVIew.m */; };
 		672BB7B020C7E394006C06CC /* PPJWTHeadVIew.xib in Resources */ = {isa = PBXBuildFile; fileRef = 672BB7AF20C7E394006C06CC /* PPJWTHeadVIew.xib */; };
+		673ADF3120CA1AE3006334EA /* PPMineRecordCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 673ADF2F20CA1AE3006334EA /* PPMineRecordCell.m */; };
+		673ADF3220CA1AE3006334EA /* PPMineRecordCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 673ADF3020CA1AE3006334EA /* PPMineRecordCell.xib */; };
+		673ADF3520CA1B33006334EA /* PPMineRecordVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 673ADF3420CA1B33006334EA /* PPMineRecordVC.m */; };
+		673ADF3920CA24D0006334EA /* PPMineOrderVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 673ADF3820CA24D0006334EA /* PPMineOrderVC.m */; };
+		673ADF3D20CA24EA006334EA /* PPMineOrderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 673ADF3B20CA24EA006334EA /* PPMineOrderCell.m */; };
+		673ADF3E20CA24EA006334EA /* PPMineOrderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 673ADF3C20CA24EA006334EA /* PPMineOrderCell.xib */; };
+		673ADF4220CA2A92006334EA /* XTSegmentControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 673ADF4120CA2A92006334EA /* XTSegmentControl.m */; };
+		673ADF4520CA52A6006334EA /* PPNavViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 673ADF4420CA52A6006334EA /* PPNavViewController.m */; };
+		673ADF4820CA542A006334EA /* PPGlobaBottomBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 673ADF4620CA5429006334EA /* PPGlobaBottomBar.m */; };
+		673ADF4D20CA5D65006334EA /* PPJWTMainHomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 673ADF4C20CA5D65006334EA /* PPJWTMainHomeVC.m */; };
+		673ADF5120CA5DD1006334EA /* PPJWTMainHomeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 673ADF4F20CA5DD1006334EA /* PPJWTMainHomeCell.m */; };
+		673ADF5220CA5DD1006334EA /* PPJWTMainHomeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 673ADF5020CA5DD1006334EA /* PPJWTMainHomeCell.xib */; };
+		673ADF5720CA6DDB006334EA /* PPLoginMainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 673ADF5520CA6DDB006334EA /* PPLoginMainVC.m */; };
+		673ADF5820CA6DDB006334EA /* PPLoginMainVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 673ADF5620CA6DDB006334EA /* PPLoginMainVC.xib */; };
+		673ADF5C20CA7B49006334EA /* PPRegistVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 673ADF5A20CA7B49006334EA /* PPRegistVC.m */; };
+		673ADF5D20CA7B49006334EA /* PPRegistVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 673ADF5B20CA7B49006334EA /* PPRegistVC.xib */; };
+		6786F02220C9272B00848F7B /* PPMineMainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6786F02120C9272B00848F7B /* PPMineMainVC.m */; };
+		6786F02620C9281600848F7B /* PPMineMainCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6786F02420C9281600848F7B /* PPMineMainCell.m */; };
+		6786F02720C9281600848F7B /* PPMineMainCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6786F02520C9281600848F7B /* PPMineMainCell.xib */; };
+		6786F02B20C92B1A00848F7B /* PPMainTopUserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6786F02920C92B1A00848F7B /* PPMainTopUserCell.m */; };
+		6786F02C20C92B1A00848F7B /* PPMainTopUserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6786F02A20C92B1A00848F7B /* PPMainTopUserCell.xib */; };
 		6790D7A420C5181D00D5B791 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6790D7A320C5181D00D5B791 /* AppDelegate.m */; };
 		6790D7AC20C5181D00D5B791 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6790D7AB20C5181D00D5B791 /* Assets.xcassets */; };
 		6790D7B220C5181D00D5B791 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6790D7B120C5181D00D5B791 /* main.m */; };
@@ -91,14 +112,49 @@
 		672BB79F20C7D792006C06CC /* PPDetailThreeCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PPDetailThreeCell.h; sourceTree = "<group>"; };
 		672BB7A020C7D792006C06CC /* PPDetailThreeCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PPDetailThreeCell.m; sourceTree = "<group>"; };
 		672BB7A120C7D792006C06CC /* PPDetailThreeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PPDetailThreeCell.xib; sourceTree = "<group>"; };
-		672BB7A420C7E0AC006C06CC /* PPJWTMainVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PPJWTMainVC.h; sourceTree = "<group>"; };
-		672BB7A520C7E0AC006C06CC /* PPJWTMainVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PPJWTMainVC.m; sourceTree = "<group>"; };
+		672BB7A420C7E0AC006C06CC /* PPScoreMainVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PPScoreMainVC.h; sourceTree = "<group>"; };
+		672BB7A520C7E0AC006C06CC /* PPScoreMainVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PPScoreMainVC.m; sourceTree = "<group>"; };
 		672BB7A720C7E15A006C06CC /* PPJWTMainCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PPJWTMainCell.h; sourceTree = "<group>"; };
 		672BB7A820C7E15A006C06CC /* PPJWTMainCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PPJWTMainCell.m; sourceTree = "<group>"; };
 		672BB7A920C7E15A006C06CC /* PPJWTMainCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PPJWTMainCell.xib; sourceTree = "<group>"; };
 		672BB7AC20C7E38C006C06CC /* PPJWTHeadVIew.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PPJWTHeadVIew.h; sourceTree = "<group>"; };
 		672BB7AD20C7E38C006C06CC /* PPJWTHeadVIew.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PPJWTHeadVIew.m; sourceTree = "<group>"; };
 		672BB7AF20C7E394006C06CC /* PPJWTHeadVIew.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PPJWTHeadVIew.xib; sourceTree = "<group>"; };
+		673ADF2E20CA1AE3006334EA /* PPMineRecordCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PPMineRecordCell.h; sourceTree = "<group>"; };
+		673ADF2F20CA1AE3006334EA /* PPMineRecordCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PPMineRecordCell.m; sourceTree = "<group>"; };
+		673ADF3020CA1AE3006334EA /* PPMineRecordCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PPMineRecordCell.xib; sourceTree = "<group>"; };
+		673ADF3320CA1B33006334EA /* PPMineRecordVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PPMineRecordVC.h; sourceTree = "<group>"; };
+		673ADF3420CA1B33006334EA /* PPMineRecordVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PPMineRecordVC.m; sourceTree = "<group>"; };
+		673ADF3720CA24D0006334EA /* PPMineOrderVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PPMineOrderVC.h; sourceTree = "<group>"; };
+		673ADF3820CA24D0006334EA /* PPMineOrderVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PPMineOrderVC.m; sourceTree = "<group>"; };
+		673ADF3A20CA24EA006334EA /* PPMineOrderCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PPMineOrderCell.h; sourceTree = "<group>"; };
+		673ADF3B20CA24EA006334EA /* PPMineOrderCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PPMineOrderCell.m; sourceTree = "<group>"; };
+		673ADF3C20CA24EA006334EA /* PPMineOrderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PPMineOrderCell.xib; sourceTree = "<group>"; };
+		673ADF4020CA2A92006334EA /* XTSegmentControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XTSegmentControl.h; sourceTree = "<group>"; };
+		673ADF4120CA2A92006334EA /* XTSegmentControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XTSegmentControl.m; sourceTree = "<group>"; };
+		673ADF4320CA52A5006334EA /* PPNavViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPNavViewController.h; sourceTree = "<group>"; };
+		673ADF4420CA52A6006334EA /* PPNavViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPNavViewController.m; sourceTree = "<group>"; };
+		673ADF4620CA5429006334EA /* PPGlobaBottomBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPGlobaBottomBar.m; sourceTree = "<group>"; };
+		673ADF4720CA5429006334EA /* PPGlobaBottomBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPGlobaBottomBar.h; sourceTree = "<group>"; };
+		673ADF4B20CA5D65006334EA /* PPJWTMainHomeVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PPJWTMainHomeVC.h; sourceTree = "<group>"; };
+		673ADF4C20CA5D65006334EA /* PPJWTMainHomeVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PPJWTMainHomeVC.m; sourceTree = "<group>"; };
+		673ADF4E20CA5DD1006334EA /* PPJWTMainHomeCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PPJWTMainHomeCell.h; sourceTree = "<group>"; };
+		673ADF4F20CA5DD1006334EA /* PPJWTMainHomeCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PPJWTMainHomeCell.m; sourceTree = "<group>"; };
+		673ADF5020CA5DD1006334EA /* PPJWTMainHomeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PPJWTMainHomeCell.xib; sourceTree = "<group>"; };
+		673ADF5420CA6DDB006334EA /* PPLoginMainVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PPLoginMainVC.h; sourceTree = "<group>"; };
+		673ADF5520CA6DDB006334EA /* PPLoginMainVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PPLoginMainVC.m; sourceTree = "<group>"; };
+		673ADF5620CA6DDB006334EA /* PPLoginMainVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PPLoginMainVC.xib; sourceTree = "<group>"; };
+		673ADF5920CA7B49006334EA /* PPRegistVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PPRegistVC.h; sourceTree = "<group>"; };
+		673ADF5A20CA7B49006334EA /* PPRegistVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PPRegistVC.m; sourceTree = "<group>"; };
+		673ADF5B20CA7B49006334EA /* PPRegistVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PPRegistVC.xib; sourceTree = "<group>"; };
+		6786F02020C9272B00848F7B /* PPMineMainVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PPMineMainVC.h; sourceTree = "<group>"; };
+		6786F02120C9272B00848F7B /* PPMineMainVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PPMineMainVC.m; sourceTree = "<group>"; };
+		6786F02320C9281600848F7B /* PPMineMainCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PPMineMainCell.h; sourceTree = "<group>"; };
+		6786F02420C9281600848F7B /* PPMineMainCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PPMineMainCell.m; sourceTree = "<group>"; };
+		6786F02520C9281600848F7B /* PPMineMainCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PPMineMainCell.xib; sourceTree = "<group>"; };
+		6786F02820C92B1A00848F7B /* PPMainTopUserCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PPMainTopUserCell.h; sourceTree = "<group>"; };
+		6786F02920C92B1A00848F7B /* PPMainTopUserCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PPMainTopUserCell.m; sourceTree = "<group>"; };
+		6786F02A20C92B1A00848F7B /* PPMainTopUserCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PPMainTopUserCell.xib; sourceTree = "<group>"; };
 		6790D79F20C5181D00D5B791 /* YZ_Four.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YZ_Four.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6790D7A220C5181D00D5B791 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		6790D7A320C5181D00D5B791 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -230,6 +286,52 @@
 			path = Detail;
 			sourceTree = "<group>";
 		};
+		673ADF2D20CA1AAD006334EA /* Record */ = {
+			isa = PBXGroup;
+			children = (
+				673ADF3320CA1B33006334EA /* PPMineRecordVC.h */,
+				673ADF3420CA1B33006334EA /* PPMineRecordVC.m */,
+				673ADF2E20CA1AE3006334EA /* PPMineRecordCell.h */,
+				673ADF2F20CA1AE3006334EA /* PPMineRecordCell.m */,
+				673ADF3020CA1AE3006334EA /* PPMineRecordCell.xib */,
+			);
+			path = Record;
+			sourceTree = "<group>";
+		};
+		673ADF3620CA24AA006334EA /* Order */ = {
+			isa = PBXGroup;
+			children = (
+				673ADF3720CA24D0006334EA /* PPMineOrderVC.h */,
+				673ADF3820CA24D0006334EA /* PPMineOrderVC.m */,
+				673ADF3A20CA24EA006334EA /* PPMineOrderCell.h */,
+				673ADF3B20CA24EA006334EA /* PPMineOrderCell.m */,
+				673ADF3C20CA24EA006334EA /* PPMineOrderCell.xib */,
+			);
+			path = Order;
+			sourceTree = "<group>";
+		};
+		673ADF3F20CA2A92006334EA /* XTSegmentControl */ = {
+			isa = PBXGroup;
+			children = (
+				673ADF4020CA2A92006334EA /* XTSegmentControl.h */,
+				673ADF4120CA2A92006334EA /* XTSegmentControl.m */,
+			);
+			path = XTSegmentControl;
+			sourceTree = "<group>";
+		};
+		673ADF5320CA6AC2006334EA /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				673ADF5420CA6DDB006334EA /* PPLoginMainVC.h */,
+				673ADF5520CA6DDB006334EA /* PPLoginMainVC.m */,
+				673ADF5620CA6DDB006334EA /* PPLoginMainVC.xib */,
+				673ADF5920CA7B49006334EA /* PPRegistVC.h */,
+				673ADF5A20CA7B49006334EA /* PPRegistVC.m */,
+				673ADF5B20CA7B49006334EA /* PPRegistVC.xib */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
 		6790D79620C5181C00D5B791 = {
 			isa = PBXGroup;
 			children = (
@@ -288,6 +390,9 @@
 		6790D7D420C5198F00D5B791 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				673ADF4720CA5429006334EA /* PPGlobaBottomBar.h */,
+				673ADF4620CA5429006334EA /* PPGlobaBottomBar.m */,
+				673ADF3F20CA2A92006334EA /* XTSegmentControl */,
 				6790D7D520C5198F00D5B791 /* Additions */,
 				6790D80720C5198F00D5B791 /* Constant */,
 				6790D80A20C5198F00D5B791 /* NetWork */,
@@ -395,6 +500,8 @@
 		6790D82E20C51A0000D5B791 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				673ADF4320CA52A5006334EA /* PPNavViewController.h */,
+				673ADF4420CA52A6006334EA /* PPNavViewController.m */,
 				6790D84120C52A0900D5B791 /* PPTBBaseVC.h */,
 				6790D84220C52A0900D5B791 /* PPTBBaseVC.m */,
 				6790D83020C51A7000D5B791 /* PPBaseViewController.h */,
@@ -414,6 +521,7 @@
 		6790D83820C528B000D5B791 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				673ADF5320CA6AC2006334EA /* Login */,
 				6790D84020C529E500D5B791 /* Score */,
 				6790D83F20C529DE00D5B791 /* JWT */,
 				6790D83E20C529CF00D5B791 /* LPCenter */,
@@ -441,6 +549,16 @@
 		6790D83D20C529C000D5B791 /* Mine */ = {
 			isa = PBXGroup;
 			children = (
+				673ADF3620CA24AA006334EA /* Order */,
+				673ADF2D20CA1AAD006334EA /* Record */,
+				6786F02020C9272B00848F7B /* PPMineMainVC.h */,
+				6786F02120C9272B00848F7B /* PPMineMainVC.m */,
+				6786F02320C9281600848F7B /* PPMineMainCell.h */,
+				6786F02420C9281600848F7B /* PPMineMainCell.m */,
+				6786F02520C9281600848F7B /* PPMineMainCell.xib */,
+				6786F02820C92B1A00848F7B /* PPMainTopUserCell.h */,
+				6786F02920C92B1A00848F7B /* PPMainTopUserCell.m */,
+				6786F02A20C92B1A00848F7B /* PPMainTopUserCell.xib */,
 			);
 			path = Mine;
 			sourceTree = "<group>";
@@ -455,14 +573,11 @@
 		6790D83F20C529DE00D5B791 /* JWT */ = {
 			isa = PBXGroup;
 			children = (
-				672BB7A420C7E0AC006C06CC /* PPJWTMainVC.h */,
-				672BB7A520C7E0AC006C06CC /* PPJWTMainVC.m */,
-				672BB7A720C7E15A006C06CC /* PPJWTMainCell.h */,
-				672BB7A820C7E15A006C06CC /* PPJWTMainCell.m */,
-				672BB7A920C7E15A006C06CC /* PPJWTMainCell.xib */,
-				672BB7AC20C7E38C006C06CC /* PPJWTHeadVIew.h */,
-				672BB7AD20C7E38C006C06CC /* PPJWTHeadVIew.m */,
-				672BB7AF20C7E394006C06CC /* PPJWTHeadVIew.xib */,
+				673ADF4B20CA5D65006334EA /* PPJWTMainHomeVC.h */,
+				673ADF4C20CA5D65006334EA /* PPJWTMainHomeVC.m */,
+				673ADF4E20CA5DD1006334EA /* PPJWTMainHomeCell.h */,
+				673ADF4F20CA5DD1006334EA /* PPJWTMainHomeCell.m */,
+				673ADF5020CA5DD1006334EA /* PPJWTMainHomeCell.xib */,
 			);
 			path = JWT;
 			sourceTree = "<group>";
@@ -470,6 +585,14 @@
 		6790D84020C529E500D5B791 /* Score */ = {
 			isa = PBXGroup;
 			children = (
+				672BB7A420C7E0AC006C06CC /* PPScoreMainVC.h */,
+				672BB7A520C7E0AC006C06CC /* PPScoreMainVC.m */,
+				672BB7A720C7E15A006C06CC /* PPJWTMainCell.h */,
+				672BB7A820C7E15A006C06CC /* PPJWTMainCell.m */,
+				672BB7A920C7E15A006C06CC /* PPJWTMainCell.xib */,
+				672BB7AC20C7E38C006C06CC /* PPJWTHeadVIew.h */,
+				672BB7AD20C7E38C006C06CC /* PPJWTHeadVIew.m */,
+				672BB7AF20C7E394006C06CC /* PPJWTHeadVIew.xib */,
 			);
 			path = Score;
 			sourceTree = "<group>";
@@ -600,12 +723,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				672BB7B020C7E394006C06CC /* PPJWTHeadVIew.xib in Resources */,
+				6786F02720C9281600848F7B /* PPMineMainCell.xib in Resources */,
 				6790D7AC20C5181D00D5B791 /* Assets.xcassets in Resources */,
 				672BB79E20C7D226006C06CC /* PPDetailTwoCell.xib in Resources */,
 				672BB7AB20C7E15A006C06CC /* PPJWTMainCell.xib in Resources */,
+				673ADF5220CA5DD1006334EA /* PPJWTMainHomeCell.xib in Resources */,
+				673ADF5D20CA7B49006334EA /* PPRegistVC.xib in Resources */,
+				673ADF3220CA1AE3006334EA /* PPMineRecordCell.xib in Resources */,
 				6790D84B20C5349A00D5B791 /* PPHomeMainCell.xib in Resources */,
+				673ADF5820CA6DDB006334EA /* PPLoginMainVC.xib in Resources */,
+				673ADF3E20CA24EA006334EA /* PPMineOrderCell.xib in Resources */,
 				672BB7A320C7D792006C06CC /* PPDetailThreeCell.xib in Resources */,
 				672BB79920C7CAAF006C06CC /* PPDetailTypeOneCell.xib in Resources */,
+				6786F02C20C92B1A00848F7B /* PPMainTopUserCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -656,6 +786,7 @@
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/MJExtension/MJExtension.framework",
 				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
+				"${BUILT_PRODUCTS_DIR}/ReactiveObjC/ReactiveObjC.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -664,6 +795,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJExtension.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveObjC.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -681,30 +813,43 @@
 				6790D81320C5198F00D5B791 /* NSArray+Log.m in Sources */,
 				6790D81C20C5198F00D5B791 /* UIActionSheet+Front.m in Sources */,
 				6790D84320C52A0900D5B791 /* PPTBBaseVC.m in Sources */,
+				673ADF4820CA542A006334EA /* PPGlobaBottomBar.m in Sources */,
+				673ADF5720CA6DDB006334EA /* PPLoginMainVC.m in Sources */,
 				6790D84A20C5349A00D5B791 /* PPHomeMainCell.m in Sources */,
 				672BB7AA20C7E15A006C06CC /* PPJWTMainCell.m in Sources */,
 				672BB79320C7874F006C06CC /* PPHomeDetailVC.m in Sources */,
 				6790D82320C5198F00D5B791 /* UIImage+PPBornQRCode.m in Sources */,
+				673ADF5120CA5DD1006334EA /* PPJWTMainHomeCell.m in Sources */,
 				6790D82620C5198F00D5B791 /* UIView+CZAddition.m in Sources */,
 				6790D82020C5198F00D5B791 /* UIColor+expanded.m in Sources */,
+				6786F02220C9272B00848F7B /* PPMineMainVC.m in Sources */,
+				673ADF3120CA1AE3006334EA /* PPMineRecordCell.m in Sources */,
 				6790D82820C5198F00D5B791 /* UIView+PPRedPoint.m in Sources */,
 				6790D81820C5198F00D5B791 /* NSString+CZHash.m in Sources */,
-				672BB7A620C7E0AC006C06CC /* PPJWTMainVC.m in Sources */,
+				672BB7A620C7E0AC006C06CC /* PPScoreMainVC.m in Sources */,
 				672BB79D20C7D226006C06CC /* PPDetailTwoCell.m in Sources */,
 				6790D81F20C5198F00D5B791 /* UIColor+CZAddition.m in Sources */,
 				6790D82920C5198F00D5B791 /* UIViewController+CZAddition.m in Sources */,
+				6786F02620C9281600848F7B /* PPMineMainCell.m in Sources */,
+				673ADF5C20CA7B49006334EA /* PPRegistVC.m in Sources */,
 				6790D82420C5198F00D5B791 /* UILabel+CZAddition.m in Sources */,
 				6790D81E20C5198F00D5B791 /* UIButton+LCAlignment.m in Sources */,
 				672BB79820C7CAAF006C06CC /* PPDetailTypeOneCell.m in Sources */,
+				673ADF3520CA1B33006334EA /* PPMineRecordVC.m in Sources */,
 				6790D81620C5198F00D5B791 /* NSObject+PPCommon.m in Sources */,
+				673ADF4D20CA5D65006334EA /* PPJWTMainHomeVC.m in Sources */,
+				6786F02B20C92B1A00848F7B /* PPMainTopUserCell.m in Sources */,
 				672BB7AE20C7E38C006C06CC /* PPJWTHeadVIew.m in Sources */,
 				6790D82120C5198F00D5B791 /* UIControl+PPClick.m in Sources */,
 				6790D81A20C5198F00D5B791 /* NSString+PPValidStr.m in Sources */,
 				6790D83720C51D4500D5B791 /* PPHUDHelp.m in Sources */,
+				673ADF4520CA52A6006334EA /* PPNavViewController.m in Sources */,
 				6790D81720C5198F00D5B791 /* NSString+CZBase64.m in Sources */,
 				6790D84620C5326D00D5B791 /* PPHomeMainVC.m in Sources */,
 				6790D83220C51A7600D5B791 /* PPBaseViewController.m in Sources */,
 				6790D81D20C5198F00D5B791 /* UIButton+CZAddition.m in Sources */,
+				673ADF4220CA2A92006334EA /* XTSegmentControl.m in Sources */,
+				673ADF3D20CA24EA006334EA /* PPMineOrderCell.m in Sources */,
 				6790D82520C5198F00D5B791 /* UIScreen+CZAddition.m in Sources */,
 				6790D81520C5198F00D5B791 /* NSObject+CZRuntime.m in Sources */,
 				6790D83B20C5294500D5B791 /* PPMainViewController.m in Sources */,
@@ -712,6 +857,7 @@
 				672BB7A220C7D792006C06CC /* PPDetailThreeCell.m in Sources */,
 				6790D7B220C5181D00D5B791 /* main.m in Sources */,
 				6790D81220C5198F00D5B791 /* FXLabel.m in Sources */,
+				673ADF3920CA24D0006334EA /* PPMineOrderVC.m in Sources */,
 				6790D81920C5198F00D5B791 /* NSString+CZPath.m in Sources */,
 				6790D82720C5198F00D5B791 /* UIView+PPAddition.m in Sources */,
 				6790D82C20C5198F00D5B791 /* webProgressLine.m in Sources */,
@@ -874,7 +1020,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.amez.YZ-Four";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -892,7 +1038,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.amez.YZ-Four";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

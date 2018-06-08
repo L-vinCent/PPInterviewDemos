@@ -1,0 +1,93 @@
+//
+//  PPJWTMainVC.m
+//  YZ_Four
+//
+//  Created by Liao PanPan on 2018/6/6.
+//  Copyright © 2018年 Liao PanPan. All rights reserved.
+//
+
+#import "PPScoreMainVC.h"
+#import "PPJWTMainCell.h"
+#import "PPJWTHeadVIew.h"
+static NSString * const kCellIdentify_PPJWTMainCell= @"kCellIdentify_PPJWTMainCell";
+
+@interface PPScoreMainVC ()<UITableViewDataSource,UITableViewDelegate>
+
+@property(nonatomic,strong)UITableView *tableView;
+
+@end
+
+@implementation PPScoreMainVC
+
+- (void)viewDidLoad {
+    
+    [super viewDidLoad];
+    
+    self.navItem.title = @"战绩";
+    [self hiddenLeftBarItem:YES];
+    [self createTableView];
+    [self.tableView registerNib:[UINib nibWithNibName:@"PPJWTMainCell" bundle:nil] forCellReuseIdentifier:kCellIdentify_PPJWTMainCell];
+    
+}
+
+- (void)createTableView {
+    if (!self.tableView) {
+        
+        self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, kDoorNavStatusHeight, SCREEN_WIDTH,SCREEN_HEIGHT-kDoorNavStatusHeight-kDoorTabBarHeight) style:UITableViewStylePlain];
+        
+        self.tableView.delegate = self;
+        self.tableView.dataSource = self;
+        self.tableView.backgroundColor = Door_BGGray_color;
+        
+        self.tableView.separatorColor = RGB(216, 216, 216);
+        
+        [self.view addSubview:self.tableView];
+        
+    }
+}
+
+
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 67;
+}
+
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UIView *new = [[[NSBundle mainBundle]loadNibNamed:@"PPJWTHeadVIew" owner:self options:0]lastObject];
+    new.frame = CGRectMake(0, 0, SCREEN_WIDTH, 67);
+    return  new;
+}
+
+
+
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 3;
+}
+
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+   
+    return 71;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+   
+    return 3;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+        
+        PPJWTMainCell *cell = [tableView dequeueReusableCellWithIdentifier:kCellIdentify_PPJWTMainCell forIndexPath:indexPath];
+        return cell;
+
+}
+
+
+
+
+@end

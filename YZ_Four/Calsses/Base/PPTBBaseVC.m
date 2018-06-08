@@ -29,6 +29,7 @@
         self.isNeedPullDownToRefreshAction = NO;
         self.isNeedPullUpToRefreshAction = NO;
         self.tableViewStyle=UITableViewStylePlain;
+        
     }
     return self;
 }
@@ -107,6 +108,9 @@
         
         self.tableView.emptyDataSetSource = self;
         self.tableView.emptyDataSetDelegate=self;
+        
+        self.tableView.showsVerticalScrollIndicator = NO;
+        self.tableView.showsHorizontalScrollIndicator = NO;
         
         [self.view addSubview:self.tableView];
         
