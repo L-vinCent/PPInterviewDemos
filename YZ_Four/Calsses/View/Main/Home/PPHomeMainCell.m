@@ -15,6 +15,7 @@
     // Initialization code
     
     [self.bgView borderCorlor_set:Door_TitleGray_color width:0.5 radius:5.0f];
+    self.contentView.backgroundColor = Door_BGGray_color;
 
 }
 

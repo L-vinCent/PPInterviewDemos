@@ -19,6 +19,11 @@ PODS:
   - MJExtension (3.0.13)
   - MJRefresh (3.1.15.3)
   - ReactiveObjC (2.1.2)
+  - SDCycleScrollView (1.75):
+    - SDWebImage (>= 4.0.0)
+  - SDWebImage (4.3.0):
+    - SDWebImage/Core (= 4.3.0)
+  - SDWebImage/Core (4.3.0)
 
 DEPENDENCIES:
   - AFNetworking (~> 3.2.0)
@@ -27,6 +32,7 @@ DEPENDENCIES:
   - MJExtension
   - MJRefresh
   - ReactiveObjC (~> 2.1.0)
+  - SDCycleScrollView (~> 1.75)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -36,6 +42,8 @@ SPEC REPOS:
     - MJExtension
     - MJRefresh
     - ReactiveObjC
+    - SDCycleScrollView
+    - SDWebImage
 
 SPEC CHECKSUMS:
   AFNetworking: 8ac6017b94ea105479f7776e5288e48ae9c59bb4
@@ -44,7 +52,9 @@ SPEC CHECKSUMS:
   MJExtension: 5932755f451458eefa24239358817f8d291240c7
   MJRefresh: b48380ae2b927b46c4ef000de9adb8dc748e1df7
   ReactiveObjC: 7b6782ae39f9ac0f57205c3b0c0b69b9dd7048c0
+  SDCycleScrollView: 884b88f0266dd4708a0e1934975c69cb971707b1
+  SDWebImage: 6da6c8bca115addc4de8613362e1b15f66333825
 
-PODFILE CHECKSUM: 2850448b226409d4a3b6f3ce32854e7507593e4a
+PODFILE CHECKSUM: 5c610d1ddd5f79313f3aafa42ff26f5188ae3cda
 
 COCOAPODS: 1.5.2

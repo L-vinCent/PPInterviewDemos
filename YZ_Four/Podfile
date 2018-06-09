@@ -9,4 +9,5 @@ target 'YZ_Four' do
    pod 'MJExtension'		  	 
    pod 'DZNEmptyDataSet'
    pod 'ReactiveObjC', '~> 2.1.0'
+   pod 'SDCycleScrollView','~> 1.75'
 end

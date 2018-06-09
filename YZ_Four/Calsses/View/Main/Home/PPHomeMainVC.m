@@ -9,9 +9,13 @@
 #import "PPHomeMainVC.h"
 #import "PPHomeMainCell.h"
 #import "PPHomeDetailVC.h"
+#import <SDCycleScrollView/SDCycleScrollView.h>
+
 static NSString * const kCellIdentify_PPHomeMainCell= @"kCellIdentify_PPHomeMainCell";
 
-@interface PPHomeMainVC ()
+static CGFloat const kTopScrollowH = 180.0f;
+
+@interface PPHomeMainVC ()<SDCycleScrollViewDelegate>
 
 @end
 
@@ -22,17 +26,30 @@ static NSString * const kCellIdentify_PPHomeMainCell= @"kCellIdentify_PPHomeMain
     [super viewDidLoad];
     
  
-    
+    [self setStatusBarBackgroundColor:[UIColor clearColor]];
     self.navItem.title = @"首页";
     [self hiddenLeftBarItem:YES];
     
+    NSMutableArray *imageArr = @[].mutableCopy;
+
+    for (int i =0; i<3; i++) {
+        NSString *imageName = [NSString stringWithFormat:@"lb_%d",i];
+        UIImage *image = [UIImage imageNamed:imageName];
+        [imageArr addObject:image];
+    }
+    
+    SDCycleScrollView *cycleScrollView= [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, SCREEN_WIDTH,kTopScrollowH) imageNamesGroup:imageArr];
+    
+//    [self.view addSubview:cycleScrollView];
+    self.tableView.frame = CGRectMake(0, 0 , SCREEN_WIDTH,SCREEN_HEIGHT-TabBar_HEIGHT);
     [self.tableView registerNib:[UINib nibWithNibName:@"PPHomeMainCell" bundle:nil] forCellReuseIdentifier:kCellIdentify_PPHomeMainCell];
 
 //    self.isNeedPullDownToRefreshAction =YES;
 //    self.isNeedPullUpToRefreshAction = YES;
     
+    self.tableView.tableHeaderView = cycleScrollView;
     self.tableView.tableFooterView = [[UIView alloc]initWithFrame:CGRectZero];
-    self.tableView.separatorColor = [UIColor clearColor];
+    self.tableView.separatorColor = Door_BGGray_color;
     
     
 //    [self triggerRefreshing];
@@ -55,6 +72,11 @@ static NSString * const kCellIdentify_PPHomeMainCell= @"kCellIdentify_PPHomeMain
     
 }
 
+-(void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didSelectItemAtIndex:(NSInteger)index
+{
+    
+    NSLog(@"---%d",index);
+}
 -(void)freshData_BSYVipList
 {
 //    [self.dataArray removeAllObjects];
@@ -146,7 +168,7 @@ static NSString * const kCellIdentify_PPHomeMainCell= @"kCellIdentify_PPHomeMain
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    return 158;
+    return 196;
     
 }
 
