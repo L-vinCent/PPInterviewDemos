@@ -10,6 +10,7 @@
 #import "PPMainWebVIewVC.h"
 #import <WXApi.h>
 #import "HYBNetworking.h"
+#import "PPHudLoading.h"
 @interface AppDelegate ()<WXApiDelegate>
 
 //@property(nonatomic,assign)
@@ -22,16 +23,19 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     [WXApi registerApp:Third_WXAppid];
-
+    
+    
+    
+    
+    
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds]; //创建新的窗口
     [self.window makeKeyAndVisible];
 
     [self setUserAgentForWoapp];
     PPMainWebVIewVC *main=[[PPMainWebVIewVC alloc]init];
-    
     [self.window setRootViewController:main];
-
     
+    [PPHudLoading show];
     NSLog(@"----%@",[UIApplication sharedApplication].keyWindow);
     
     return YES;
@@ -116,5 +120,8 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
-
+-(void)applicationDidReceiveMemoryWarning:(UIApplication *)application
+{
+       [[NSURLCache sharedURLCache] removeAllCachedResponses];
+}
 @end

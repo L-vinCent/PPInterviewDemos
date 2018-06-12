@@ -49,7 +49,7 @@ static const CGFloat VHeight = 180;
     self.isCanSideBack = YES;
  
     LISTEN_NOTIFY(noti_PayResult, self, @selector(payResult:));
-    LOADING_SHOW
+    
     
     shareView *shareV = [[shareView alloc]initWithFrame:CGRectMake(0, SCREEN_HEIGHT - VHeight, SCREEN_WIDTH, VHeight)];
     
@@ -75,7 +75,11 @@ static const CGFloat VHeight = 180;
         {
             //刷新
             [self.webView reload];
-          
+            [[NSURLCache sharedURLCache] removeAllCachedResponses];
+            NSURLCache * cache = [NSURLCache sharedURLCache];
+            [cache removeAllCachedResponses];
+            [cache setDiskCapacity:0];
+            [cache setMemoryCapacity:0]; 
         }
             break;
         case 1:
@@ -179,11 +183,11 @@ static const CGFloat VHeight = 180;
         
     }];
     
-    [self.bridge callHandler:@"payResult" data:@{@"result":@"1"} responseCallback:^(id responseData) {
-        
-        NSLog(@"------------%@",responseData);
-        
-    }];
+//    [self.bridge callHandler:@"payResult" data:@{@"result":@"1"} responseCallback:^(id responseData) {
+//
+//        NSLog(@"------------%@",responseData);
+//
+//    }];
     
 }
 
@@ -345,8 +349,9 @@ static const CGFloat VHeight = 180;
 
 -(void)webViewDidFinishLoad:(UIWebView *)webView
 {
-    LOADING_HIDE
+//    LOADING_HIDE
     UIWebView *web = webView;
+    [PPHudLoading closeLoading];
 
 //    NSString *allHtml = @"document.documentElement.innerHTML";
 //    NSString *htmlNum = @"document.getElementById('title').innerText";

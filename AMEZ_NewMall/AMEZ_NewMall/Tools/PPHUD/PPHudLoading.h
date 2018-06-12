@@ -11,5 +11,6 @@
 @interface PPHudLoading : UIView
 
 +(void)show;
++ (void)closeLoading;
 
 @end

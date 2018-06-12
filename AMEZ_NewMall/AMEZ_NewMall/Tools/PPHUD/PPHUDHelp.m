@@ -143,6 +143,7 @@
 
 
 +(void)showLoading {
+//    NSLog(@"--------%@",kKeyWindow);
     [self show:@"" inView:kKeyWindow mode:YJProgressModeLoading];
 }
 
