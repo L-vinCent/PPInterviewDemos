@@ -24,7 +24,7 @@ static const CGFloat VHeight = 180;
 @property(nonatomic,strong)PPShowPayView *showV;
 @property(nonatomic,strong)NSString *pushUrl;  //跳转链接
 @property(nonatomic,strong)NSString *pushTitle;  //跳转链接
-
+@property(nonatomic,strong)NSURLRequest *globalRequest;
 @property(nonatomic,copy)WVJBResponseCallback callBack;
 @end
 
@@ -67,6 +67,19 @@ static const CGFloat VHeight = 180;
     
 }
 
+-(void)reloadWebview
+{
+    
+    [[NSURLCache sharedURLCache] removeCachedResponseForRequest:self.globalRequest];
+    [self.webView reload];
+    [[NSURLCache sharedURLCache] removeAllCachedResponses];
+    NSURLCache * cache = [NSURLCache sharedURLCache];
+    
+    [cache removeAllCachedResponses];
+    [cache setDiskCapacity:0];
+    [cache setMemoryCapacity:0];
+ 
+}
 -(void)shareEventDeal:(NSInteger )tag
 {
     
@@ -74,12 +87,7 @@ static const CGFloat VHeight = 180;
         case 0:
         {
             //刷新
-            [self.webView reload];
-            [[NSURLCache sharedURLCache] removeAllCachedResponses];
-            NSURLCache * cache = [NSURLCache sharedURLCache];
-            [cache removeAllCachedResponses];
-            [cache setDiskCapacity:0];
-            [cache setMemoryCapacity:0]; 
+            [self reloadWebview];
         }
             break;
         case 1:
@@ -161,12 +169,21 @@ static const CGFloat VHeight = 180;
         self.webView.scrollView.contentInsetAdjustmentBehavior = UIApplicationBackgroundFetchIntervalNever;
     }
     self.view.backgroundColor = [UIColor whiteColor];
-    self.webView= [[UIWebView alloc] initWithFrame:CGRectMake(0, kDoorNavStatusHeight, SCREEN_WIDTH, SCREEN_HEIGHT-kDoorNavStatusHeight)];
+ 
+    CGFloat webHeight = DeviceIsiPhoneX()?SCREEN_HEIGHT-kDoorNavStatusHeight-0:SCREEN_HEIGHT-kDoorNavStatusHeight;
+    
+    CGRect rect = CGRectMake(0, kDoorNavStatusHeight, SCREEN_WIDTH, webHeight);
+    
+    
+    
+    self.webView= [[UIWebView alloc] initWithFrame:rect];
     self.webView.delegate = self;
     self.webView.scrollView.bounces = NO;
     [self.view addSubview:self.webView];
-//    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:Base_H5URL] cachePolicy:NSURLRequestReturnCacheDataElseLoad timeoutInterval:5.0];
-    NSURLRequest *request  = [[NSURLRequest alloc]initWithURL:[NSURL URLWithString:Base_H5URL]];
+
+//    NSURLRequest *request  = [[NSURLRequest alloc]initWithURL:[NSURL URLWithString:Base_H5URL]];
+     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:Base_H5URL] cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:5.0];
+    self.globalRequest = request;
     [self.webView loadRequest:request];
     [WebViewJavascriptBridge enableLogging];
     self.bridge = [WebViewJavascriptBridge bridgeForWebView:self.webView];
