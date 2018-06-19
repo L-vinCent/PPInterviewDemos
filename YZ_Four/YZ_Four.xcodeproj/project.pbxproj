@@ -19,6 +19,7 @@
 		672BB7AB20C7E15A006C06CC /* PPJWTMainCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 672BB7A920C7E15A006C06CC /* PPJWTMainCell.xib */; };
 		672BB7AE20C7E38C006C06CC /* PPJWTHeadVIew.m in Sources */ = {isa = PBXBuildFile; fileRef = 672BB7AD20C7E38C006C06CC /* PPJWTHeadVIew.m */; };
 		672BB7B020C7E394006C06CC /* PPJWTHeadVIew.xib in Resources */ = {isa = PBXBuildFile; fileRef = 672BB7AF20C7E394006C06CC /* PPJWTHeadVIew.xib */; };
+		672D7D3820D8A56D00CA0957 /* PPLoginViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 672D7D3720D8A56D00CA0957 /* PPLoginViewModel.m */; };
 		673ADF3120CA1AE3006334EA /* PPMineRecordCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 673ADF2F20CA1AE3006334EA /* PPMineRecordCell.m */; };
 		673ADF3220CA1AE3006334EA /* PPMineRecordCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 673ADF3020CA1AE3006334EA /* PPMineRecordCell.xib */; };
 		673ADF3520CA1B33006334EA /* PPMineRecordVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 673ADF3420CA1B33006334EA /* PPMineRecordVC.m */; };
@@ -120,6 +121,8 @@
 		672BB7AC20C7E38C006C06CC /* PPJWTHeadVIew.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PPJWTHeadVIew.h; sourceTree = "<group>"; };
 		672BB7AD20C7E38C006C06CC /* PPJWTHeadVIew.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PPJWTHeadVIew.m; sourceTree = "<group>"; };
 		672BB7AF20C7E394006C06CC /* PPJWTHeadVIew.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PPJWTHeadVIew.xib; sourceTree = "<group>"; };
+		672D7D3620D8A56D00CA0957 /* PPLoginViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PPLoginViewModel.h; sourceTree = "<group>"; };
+		672D7D3720D8A56D00CA0957 /* PPLoginViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PPLoginViewModel.m; sourceTree = "<group>"; };
 		673ADF2E20CA1AE3006334EA /* PPMineRecordCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PPMineRecordCell.h; sourceTree = "<group>"; };
 		673ADF2F20CA1AE3006334EA /* PPMineRecordCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PPMineRecordCell.m; sourceTree = "<group>"; };
 		673ADF3020CA1AE3006334EA /* PPMineRecordCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PPMineRecordCell.xib; sourceTree = "<group>"; };
@@ -328,6 +331,8 @@
 				673ADF5920CA7B49006334EA /* PPRegistVC.h */,
 				673ADF5A20CA7B49006334EA /* PPRegistVC.m */,
 				673ADF5B20CA7B49006334EA /* PPRegistVC.xib */,
+				672D7D3620D8A56D00CA0957 /* PPLoginViewModel.h */,
+				672D7D3720D8A56D00CA0957 /* PPLoginViewModel.m */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -852,6 +857,7 @@
 				6790D84620C5326D00D5B791 /* PPHomeMainVC.m in Sources */,
 				6790D83220C51A7600D5B791 /* PPBaseViewController.m in Sources */,
 				6790D81D20C5198F00D5B791 /* UIButton+CZAddition.m in Sources */,
+				672D7D3820D8A56D00CA0957 /* PPLoginViewModel.m in Sources */,
 				673ADF4220CA2A92006334EA /* XTSegmentControl.m in Sources */,
 				673ADF3D20CA24EA006334EA /* PPMineOrderCell.m in Sources */,
 				6790D82520C5198F00D5B791 /* UIScreen+CZAddition.m in Sources */,
