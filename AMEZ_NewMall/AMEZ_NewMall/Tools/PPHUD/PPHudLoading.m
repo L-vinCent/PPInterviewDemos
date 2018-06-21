@@ -83,7 +83,7 @@
     [_loadingView addSubview:imageView];
   
     imageView.contentMode = UIViewContentModeScaleAspectFit;
-    imageView.animationImages = @[[UIImage imageNamed:@"loading_f"],[UIImage imageNamed:@"loading_s"]];
+    imageView.animationImages = @[[UIImage imageNamed:@"share_1"],[UIImage imageNamed:@"share_2"],[UIImage imageNamed:@"share_3"]];
     imageView.animationDuration = 0.5;//设置动画时间
     imageView.animationRepeatCount = 0;//设置动画次数 0 表示无限
     

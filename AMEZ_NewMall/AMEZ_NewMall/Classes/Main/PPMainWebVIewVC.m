@@ -15,6 +15,8 @@
 #import "PPShowPayView.h"
 #import <AFNetworking/AFNetworking.h>
 #import "shareView.h"
+#import "UIImage+compressIMG.h"
+#import "UIImageView+WebCache.h"
 
 static const CGFloat VHeight = 180;
 @interface PPMainWebVIewVC ()<UIWebViewDelegate,WXApiDelegate>
@@ -23,7 +25,11 @@ static const CGFloat VHeight = 180;
 @property(nonatomic,strong)webProgressLine *progressLine;
 @property(nonatomic,strong)PPShowPayView *showV;
 @property(nonatomic,strong)NSString *pushUrl;  //跳转链接
+@property(nonatomic,strong)NSString *pushDesc;  //跳转描述
+@property(nonatomic,strong)UIImage *pushImage; //跳转图片
 @property(nonatomic,strong)NSString *pushTitle;  //跳转链接
+@property(nonatomic,strong)NSString *produtId;  //产品ID
+@property(nonatomic,strong)NSString *productName;  //产品名称
 @property(nonatomic,strong)NSURLRequest *globalRequest;
 @property(nonatomic,copy)WVJBResponseCallback callBack;
 @end
@@ -118,24 +124,109 @@ static const CGFloat VHeight = 180;
 
 -(void)shareToScene:(NSInteger)scene
 {
-    WXMediaMessage *messsage = [WXMediaMessage message];
-    [messsage setThumbImage:[UIImage imageNamed:@"fzlj_icon"]];
-    //            WXImageObject *imageObject = [WXImageObject object];
-    messsage.title = self.pushTitle;
-    messsage.description = self.pushUrl;
+ 
+    self.pushDesc = @"";
+    self.pushImage = [UIImage IMGCompressed:[UIImage imageNamed:@"share_home_icon"] targetWidth:200];
+    self.productName = @"";
+    NSArray *desArray = [self shareArr];
+    for (NSDictionary *dic in desArray) {
+        [self setShareValue:dic];
+    }
     
-    WXWebpageObject *obj = [WXWebpageObject object];
-    obj.webpageUrl = self.pushUrl;
+    //如果是详情页，需要获取详情页图片，这里的分享放到获取到图片之后
+    if ([self.pushTitle isEqualToString:@"产品详情"]) {
+        
+        [self ProductDetailInfo:scene];
+        return;
+    }
     
+    [self son_shareToScene:scene];
     
+}
+
+-(void)son_shareToScene:(NSInteger)scene
+{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        
+        WXMediaMessage *messsage = [WXMediaMessage message];
+        
+        messsage.title = kStringIsEmpty(self.productName)?self.pushTitle:self.productName;
+        
+        messsage.description = kStringIsEmpty(self.pushDesc)?self.pushUrl:self.pushDesc;
+        if(!kObjectIsEmpty(self.pushImage)) [messsage setThumbImage:self.pushImage];
+        
+        WXWebpageObject *obj = [WXWebpageObject object];
+        obj.webpageUrl = self.pushUrl;
+        
+        SendMessageToWXReq *req = [[SendMessageToWXReq alloc]init];
+        req.message = messsage;
+        req.bText = NO;
+        
+        messsage.mediaObject = obj;
+        req.scene = scene;
+        [WXApi sendReq:req];
+    });
+   
+}
+
+-(void)setShareValue:(NSDictionary *)dic
+{
+    NSString *title = [dic objectForKey:@"title"];
+
+    if ([title isEqualToString:self.pushTitle]) {
+        self.pushDesc = dic[@"des"];
+        NSString *url = dic[@"iconUrl"];
+        NSString *imageName =kStringIsEmpty(url)?@"share_home_icon":url;
+        UIImage *image = [UIImage imageNamed:imageName];
+        self.pushImage = [UIImage IMGCompressed:image targetWidth:200];
+        
+    }
     
-    SendMessageToWXReq *req = [[SendMessageToWXReq alloc]init];
-    req.message = messsage;
-    req.bText = NO;
-    
-    messsage.mediaObject = obj;
-    req.scene = scene;
-    [WXApi sendReq:req];
+}
+
+
+
+
+- (void)registShareFunction
+{
+    [_bridge registerHandler:@"webPushNotify" handler:^(id data, WVJBResponseCallback responseCallback) {
+        // data 的类型与 JS中传的参数有关
+        NSDictionary *tempDic = data;
+        // 在这里执行分享的操作
+        
+        NSString *title = [tempDic objectForKey:@"title"];
+        NSString *url = [tempDic objectForKey:@"url"];
+        self.pushTitle = title;
+
+        
+        NSMutableString *urlmut = url.mutableCopy;
+        if([urlmut hasPrefix:@"/"]){
+            [urlmut deleteCharactersInRange: [urlmut rangeOfString:@"/"]];
+        }
+        
+        if([title isEqualToString:@"产品详情"]){
+            //获取goodsId
+            NSArray *array = [url componentsSeparatedByString:@"?"];
+            NSMutableString *goodStr = [[array lastObject] mutableCopy];
+            [goodStr deleteCharactersInRange:[goodStr rangeOfString:@"goodsId="]];
+            self.produtId = goodStr;
+            
+        }
+ 
+        
+        
+        //判断4个tab页，隐藏导航栏返回按钮
+        self.pushUrl = [NSString stringWithFormat:@"%@%@",Base_H5URL,urlmut];
+        NSArray *urls = @[@"/",@"/shoppingCart",@"/newsIndex",@"/showPClass"];
+        [self hiddenLeftBarItem:[urls containsObject:url]?YES:NO];
+        // 将分享的结果返回到JS中
+        self.navItem.title = title;
+        NSLog(@"------%@",url);
+        //        responseCallback(result);
+        
+        
+        
+    }];
     
 }
 
@@ -270,7 +361,6 @@ static const CGFloat VHeight = 180;
         manager.responseSerializer = [AFHTTPResponseSerializer serializer];//响应
         [manager.requestSerializer setValue:token forHTTPHeaderField:@"token"];
         
-  
         [manager POST:Third_WXPay parameters:Dic progress:^(NSProgress * _Nonnull uploadProgress) {
             
             
@@ -300,7 +390,7 @@ static const CGFloat VHeight = 180;
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
             
             LoADING_FAIL
-            
+
         }];
       
     }];
@@ -308,37 +398,90 @@ static const CGFloat VHeight = 180;
 }
 
 
-- (void)registShareFunction
+-(void)ProductDetailInfo:(NSInteger)scene
 {
-    [_bridge registerHandler:@"webPushNotify" handler:^(id data, WVJBResponseCallback responseCallback) {
-        // data 的类型与 JS中传的参数有关
-        NSDictionary *tempDic = data;
-        // 在这里执行分享的操作
-        NSString *title = [tempDic objectForKey:@"title"];
-//        NSString *content = [tempDic objectForKey:@"content"];
-        self.pushTitle = title;
-        NSString *url = [tempDic objectForKey:@"url"];
+   
+    
+    
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    manager.requestSerializer = [AFJSONRequestSerializer new];
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];//请求
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];//响应
+//    [manager.requestSerializer setValue:token forHTTPHeaderField:@"token"];
+    LOADING_SHOW
+    [manager GET:Product_detail(self.produtId) parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
+   
         
-        NSMutableString *urlmut = url.mutableCopy;
-        if([urlmut hasPrefix:@"/"]){
-            [urlmut deleteCharactersInRange: [urlmut rangeOfString:@"/"]];
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        LOADING_HIDE
+        NSDictionary *Dic = [NSJSONSerialization JSONObjectWithData:responseObject options:0 error:nil];
+        
+        NSLog(@"----%@",Dic);
+        NSDictionary *dataDic = [Dic objectForKey:@"data"];
+        
+        if(!kObjectIsEmpty(dataDic)){
+            
+            NSString *imageUrl = [dataDic objectForKey:@"imageUrl"];
+            self.productName = [dataDic objectForKey:@"goodsName"];
+            NSArray *array = [imageUrl componentsSeparatedByString:@","];
+            if(!kArrayIsEmpty(array)) {
+                
+            NSString *imageStr = array[0];
+                
+                [[SDWebImageDownloader sharedDownloader]downloadImageWithURL:[NSURL URLWithString:imageStr] options:SDWebImageDownloaderProgressiveDownload progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+                    
+                    
+                    
+                } completed:^(UIImage *image, NSData *data, NSError *error, BOOL finished) {
+                    
+                    if (finished) {
+                        
+                        self.pushImage = [UIImage IMGCompressed:image targetWidth:200];
+                        [self son_shareToScene:scene];
+
+                    }
+                    
+                    
+                }];
+                
+            }
+            
+          
+            
         }
         
-        self.pushUrl = [NSString stringWithFormat:@"%@%@",Base_H5URL,urlmut];
-        
-        
-        NSArray *urls = @[@"/mine",@"/",@"/shoppingCart",@"/newsIndex",@"/showPClass"];
-      
-        [self hiddenLeftBarItem:[urls containsObject:url]?YES:NO];
-        // 将分享的结果返回到JS中
-        self.navItem.title = title;
-        NSLog(@"------%@",url);
-//        responseCallback(result);
+
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+       
+        LoADING_FAIL
         
     }];
+
+    
+    
     
 }
 
+
+
+-(NSArray *)shareArr
+{
+    
+    return @[
+             @{@"title":@"艾美e族商城",@"des":@"品质优选 全新升级上线",@"iconUrl":@""},
+             @{@"title":@"积分商城",@"des":@"美物随心兑，多·快·好·省",@"iconUrl":@"integralShop"},
+             @{@"title":@"积分商城详情",@"des":@"美物随心兑，多·快·好·省",@"iconUrl":@"integralShop"},
+             @{@"title":@"产品详情",@"des":@"品质优选，购品质省更多",@"iconUrl":@""},
+             @{@"title":@"店铺详情",@"des":@"艾美购物 品质优选",@"iconUrl":@""},
+             @{@"title":@"艾美头条",@"des":@"每日精彩等你来",@"iconUrl":@"amtv"},
+             @{@"title":@"货栈美链",@"des":@"被千万用户认可的经典爆款",@"iconUrl":@"Boutique"},
+             @{@"title":@"热卖榜",@"des":@"发现最热销的商品，更优享品质！",@"iconUrl":@"hotsale"},
+             @{@"title":@"商家榜",@"des":@"聚焦最佳店铺，收藏精选商家",@"iconUrl":@""},
+             @{@"title":@"粉丝收益榜",@"des":@"粉丝收益排名，掀起涨粉丝的大热",@"iconUrl":@""},
+             @{@"title":@"一卡通",@"des":@"一卡在手，支付无忧更优惠",@"iconUrl":@""},
+
+             ];
+}
 
 - (void)registAPPGetInfoFunction:(WebViewJavascriptBridge *)webViewBridge{
     
@@ -360,15 +503,14 @@ static const CGFloat VHeight = 180;
 
 -(void)webViewDidStartLoad:(UIWebView *)webView
 {
-    
     [self.progressLine startLoadingAnimation];
 }
 
 -(void)webViewDidFinishLoad:(UIWebView *)webView
 {
-//    LOADING_HIDE
-    UIWebView *web = webView;
     [PPHudLoading closeLoading];
+    UIWebView *web = webView;
+  
 
 //    NSString *allHtml = @"document.documentElement.innerHTML";
 //    NSString *htmlNum = @"document.getElementById('title').innerText";
