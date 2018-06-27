@@ -26,7 +26,6 @@ static CGFloat const kTopScrollowH = 180.0f;
     [super viewDidLoad];
     
  
-    [self setStatusBarBackgroundColor:[UIColor clearColor]];
     self.navItem.title = @"首页";
     [self hiddenLeftBarItem:YES];
     
@@ -190,6 +189,18 @@ static CGFloat const kTopScrollowH = 180.0f;
     
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    [self setStatusBarBackgroundColor:[UIColor clearColor]];
+}
 
+-(void)viewWillDisappear:(BOOL)animated
+{
+    
+    [self setStatusBarBackgroundColor:Door_BGGlobal_color];
+    
+}
 
 @end

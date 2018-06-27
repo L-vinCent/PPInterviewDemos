@@ -272,7 +272,7 @@ const CGFloat sectionHeadViewH = 40;
 -(void)viewWillDisappear:(BOOL)animated
 {
     
-//    [self setStatusBarBackgroundColor:Door_BGGlobal_color];
+    [self setStatusBarBackgroundColor:Door_BGGlobal_color];
 
 }
 

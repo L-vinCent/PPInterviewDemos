@@ -30,6 +30,14 @@ static const CGFloat VHeight = 180;
 @property(nonatomic,strong)NSString *pushTitle;  //跳转链接
 @property(nonatomic,strong)NSString *produtId;  //产品ID
 @property(nonatomic,strong)NSString *productName;  //产品名称
+
+@property(nonatomic,strong)NSString *inviteGoodsID;  //ID
+@property(nonatomic,strong)NSString *inviteStoreId;  //门店Id
+@property(nonatomic,strong)NSString *inviteUrl;  //分享链接
+
+@property(nonatomic,strong)NSString *globalToken;  //产品名称
+
+
 @property(nonatomic,strong)NSURLRequest *globalRequest;
 @property(nonatomic,copy)WVJBResponseCallback callBack;
 @end
@@ -38,12 +46,16 @@ static const CGFloat VHeight = 180;
 
 
 
+
+
+#pragma mark-- init
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-//    [self hiddenLeftBarItem:YES];
+    //    [self hiddenLeftBarItem:YES];
     
-
+    
     self.navItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"gd_icon"] style:UIBarButtonItemStylePlain target:self action:@selector(rightClick)];
     
     
@@ -53,7 +65,7 @@ static const CGFloat VHeight = 180;
     [self regist_wxPayFunction];
     self.navItem.title = @"艾美e族商城";
     self.isCanSideBack = YES;
- 
+    
     LISTEN_NOTIFY(noti_PayResult, self, @selector(payResult:));
     
     
@@ -63,7 +75,7 @@ static const CGFloat VHeight = 180;
     
     __weak PPMainWebVIewVC *weakSelf = self;
     shareV.btnClickBlock = ^(NSInteger tag) {
-      
+        
         NSLog(@"%ld",(long)tag);
         [weakSelf.showV exitClick];
         [weakSelf shareEventDeal:tag];
@@ -84,183 +96,17 @@ static const CGFloat VHeight = 180;
     [cache removeAllCachedResponses];
     [cache setDiskCapacity:0];
     [cache setMemoryCapacity:0];
- 
-}
--(void)shareEventDeal:(NSInteger )tag
-{
-    
-    switch (tag) {
-        case 0:
-        {
-            //刷新
-            [self reloadWebview];
-        }
-            break;
-        case 1:
-        {
-            //分享给朋友
-            [self shareToScene:WXSceneSession];
-           
-        }
-            break;
-        case 2:
-        {
-            //分享给朋友圈
-            
-            [self shareToScene:WXSceneTimeline];
-        }
-            break;
-        default:
-        {
-            //复制链接
-//            NSLog(@"%@",)
-            UIPasteboard *pab = [UIPasteboard generalPasteboard];
-            [pab setURL:[NSURL URLWithString:self.pushUrl]];
-            if(nil != pab) [PPHUDHelp showMessage:@"复制成功"];
-        }
-            break;
-    }
-}
-
--(void)shareToScene:(NSInteger)scene
-{
- 
-    self.pushDesc = @"";
-    self.pushImage = [UIImage IMGCompressed:[UIImage imageNamed:@"share_home_icon"] targetWidth:200];
-    self.productName = @"";
-    NSArray *desArray = [self shareArr];
-    for (NSDictionary *dic in desArray) {
-        [self setShareValue:dic];
-    }
-    
-    //如果是详情页，需要获取详情页图片，这里的分享放到获取到图片之后
-    if ([self.pushTitle isEqualToString:@"产品详情"]) {
-        
-        [self ProductDetailInfo:scene];
-        return;
-    }
-    
-    [self son_shareToScene:scene];
-    
-}
-
--(void)son_shareToScene:(NSInteger)scene
-{
-    dispatch_async(dispatch_get_main_queue(), ^{
-        
-        WXMediaMessage *messsage = [WXMediaMessage message];
-        
-        messsage.title = kStringIsEmpty(self.productName)?self.pushTitle:self.productName;
-        
-        messsage.description = kStringIsEmpty(self.pushDesc)?self.pushUrl:self.pushDesc;
-        if(!kObjectIsEmpty(self.pushImage)) [messsage setThumbImage:self.pushImage];
-        
-        WXWebpageObject *obj = [WXWebpageObject object];
-        obj.webpageUrl = self.pushUrl;
-        
-        SendMessageToWXReq *req = [[SendMessageToWXReq alloc]init];
-        req.message = messsage;
-        req.bText = NO;
-        
-        messsage.mediaObject = obj;
-        req.scene = scene;
-        [WXApi sendReq:req];
-    });
-   
-}
-
--(void)setShareValue:(NSDictionary *)dic
-{
-    NSString *title = [dic objectForKey:@"title"];
-
-    if ([title isEqualToString:self.pushTitle]) {
-        self.pushDesc = dic[@"des"];
-        NSString *url = dic[@"iconUrl"];
-        NSString *imageName =kStringIsEmpty(url)?@"share_home_icon":url;
-        UIImage *image = [UIImage imageNamed:imageName];
-        self.pushImage = [UIImage IMGCompressed:image targetWidth:200];
-        
-    }
-    
-}
-
-
-
-
-- (void)registShareFunction
-{
-    [_bridge registerHandler:@"webPushNotify" handler:^(id data, WVJBResponseCallback responseCallback) {
-        // data 的类型与 JS中传的参数有关
-        NSDictionary *tempDic = data;
-        // 在这里执行分享的操作
-        
-        NSString *title = [tempDic objectForKey:@"title"];
-        NSString *url = [tempDic objectForKey:@"url"];
-        self.pushTitle = title;
-
-        
-        NSMutableString *urlmut = url.mutableCopy;
-        if([urlmut hasPrefix:@"/"]){
-            [urlmut deleteCharactersInRange: [urlmut rangeOfString:@"/"]];
-        }
-        
-        if([title isEqualToString:@"产品详情"]){
-            //获取goodsId
-            NSArray *array = [url componentsSeparatedByString:@"?"];
-            NSMutableString *goodStr = [[array lastObject] mutableCopy];
-            [goodStr deleteCharactersInRange:[goodStr rangeOfString:@"goodsId="]];
-            self.produtId = goodStr;
-            
-        }
- 
-        
-        
-        //判断4个tab页，隐藏导航栏返回按钮
-        self.pushUrl = [NSString stringWithFormat:@"%@%@",Base_H5URL,urlmut];
-        NSArray *urls = @[@"/",@"/shoppingCart",@"/newsIndex",@"/showPClass"];
-        [self hiddenLeftBarItem:[urls containsObject:url]?YES:NO];
-        // 将分享的结果返回到JS中
-        self.navItem.title = title;
-        NSLog(@"------%@",url);
-        //        responseCallback(result);
-        
-        
-        
-    }];
-    
-}
-
--(void)rightClick
-{
-   
-    [_showV showWithHeight:VHeight];
-
-    
-}
-
--(void)payResult:(NSNotification *)noti
-{
-    PayResp *resp = (PayResp *)noti.object;
-    
-    NSString *result = [NSString stringWithFormat:@"%d",resp.errCode];
-    
-    if (self.callBack) {
-        
-        self.callBack(result);
-        
-    }
-    
-
     
 }
 
 -(void)webviewConfig
 {
+    
     if (@available(iOS 11.0, *)) {
         self.webView.scrollView.contentInsetAdjustmentBehavior = UIApplicationBackgroundFetchIntervalNever;
     }
     self.view.backgroundColor = [UIColor whiteColor];
- 
+    
     CGFloat webHeight = DeviceIsiPhoneX()?SCREEN_HEIGHT-kDoorNavStatusHeight-0:SCREEN_HEIGHT-kDoorNavStatusHeight;
     
     CGRect rect = CGRectMake(0, kDoorNavStatusHeight, SCREEN_WIDTH, webHeight);
@@ -271,9 +117,9 @@ static const CGFloat VHeight = 180;
     self.webView.delegate = self;
     self.webView.scrollView.bounces = NO;
     [self.view addSubview:self.webView];
-
-//    NSURLRequest *request  = [[NSURLRequest alloc]initWithURL:[NSURL URLWithString:Base_H5URL]];
-     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:Base_H5URL] cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:5.0];
+    
+    //    NSURLRequest *request  = [[NSURLRequest alloc]initWithURL:[NSURL URLWithString:Base_H5URL]];
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:Base_H5URL] cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:5.0];
     self.globalRequest = request;
     [self.webView loadRequest:request];
     [WebViewJavascriptBridge enableLogging];
@@ -291,15 +137,182 @@ static const CGFloat VHeight = 180;
         
     }];
     
-//    [self.bridge callHandler:@"payResult" data:@{@"result":@"1"} responseCallback:^(id responseData) {
-//
-//        NSLog(@"------------%@",responseData);
-//
-//    }];
+    //    [self.bridge callHandler:@"payResult" data:@{@"result":@"1"} responseCallback:^(id responseData) {
+    //
+    //        NSLog(@"------------%@",responseData);
+    //
+    //    }];
     
 }
 
-#pragma mark--WX
+
+-(NSArray *)shareArr
+{
+    
+    return @[
+             @{@"title":@"艾美e族商城",@"des":@"品质优选 全新升级上线",@"iconUrl":@""},
+             @{@"title":@"积分商城",@"des":@"美物随心兑，多·快·好·省",@"iconUrl":@"integralShop"},
+             @{@"title":@"积分商城详情",@"des":@"美物随心兑，多·快·好·省",@"iconUrl":@"integralShop"},
+             @{@"title":@"产品详情",@"des":@"品质优选，购品质省更多",@"iconUrl":@""},
+             @{@"title":@"店铺详情",@"des":@"艾美购物 品质优选",@"iconUrl":@""},
+             @{@"title":@"艾美头条",@"des":@"每日精彩等你来",@"iconUrl":@"amtv"},
+             @{@"title":@"货栈美链",@"des":@"被千万用户认可的经典爆款",@"iconUrl":@"Boutique"},
+             @{@"title":@"热卖榜",@"des":@"发现最热销的商品，更优享品质！",@"iconUrl":@"hotsale"},
+             @{@"title":@"商家榜",@"des":@"聚焦最佳店铺，收藏精选商家",@"iconUrl":@""},
+             @{@"title":@"粉丝收益榜",@"des":@"粉丝收益排名，掀起涨粉丝的大热",@"iconUrl":@""},
+             @{@"title":@"一卡通",@"des":@"一卡在手，支付无忧更优惠",@"iconUrl":@""},
+             @{@"title":@"邀请好友",@"des":@"送你一份新人见面礼，限量派送，先买先得!",@"iconUrl":@""},
+             ];
+    
+}
+
+-(void)initShareArg
+{
+    self.inviteGoodsID = @"";
+    self.inviteStoreId = @"";
+    self.pushDesc = @"";
+    self.pushImage = [UIImage IMGCompressed:[UIImage imageNamed:@"share_home_icon"] targetWidth:200];
+    self.productName = @"";
+    self.pushTitle = @"";
+    self.inviteUrl = @"";
+}
+
+-(void)rightClick
+{
+    
+    [_showV showWithHeight:VHeight];
+    
+    
+}
+
+
+#pragma mark--WX Share pay
+
+
+-(void)shareEventDeal:(NSInteger )tag
+{
+    
+    switch (tag) {
+        case 0:
+        {
+            //刷新
+            [self reloadWebview];
+        }
+            break;
+        case 1:
+        {
+            //分享给朋友
+            [self shareToScene:WXSceneSession];
+            
+        }
+            break;
+        case 2:
+        {
+            //分享给朋友圈
+            
+            [self shareToScene:WXSceneTimeline];
+        }
+            break;
+        default:
+        {
+            //复制链接
+            //            NSLog(@"%@",)
+            UIPasteboard *pab = [UIPasteboard generalPasteboard];
+            [pab setURL:[NSURL URLWithString:self.pushUrl]];
+            if(nil != pab) [PPHUDHelp showMessage:@"复制成功"];
+        }
+            break;
+    }
+}
+
+-(void)shareToScene:(NSInteger)scene
+{
+    
+    
+    NSArray *desArray = [self shareArr];
+    for (NSDictionary *dic in desArray) {
+        [self setShareValue:dic];
+    }
+    
+    //如果是详情页，需要获取详情页图片，这里的分享放到获取到图片之后
+    if ([self.pushTitle isEqualToString:@"产品详情"]) {
+        
+        [self ProductDetailInfo:scene];
+        return;
+    }
+    
+    if ([self.pushTitle isEqualToString:@"邀请好友"]) {
+        
+        
+        [self inviteFriendShare:scene];  // 邀请好友的分享
+        
+        return;
+        
+    }
+    
+    
+    [self son_shareToScene:scene];
+    
+}
+
+-(void)son_shareToScene:(NSInteger)scene
+{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        
+        WXMediaMessage *messsage = [WXMediaMessage message];
+        
+        messsage.title = kStringIsEmpty(self.productName)?self.pushTitle:self.productName;
+        
+        messsage.description = kStringIsEmpty(self.pushDesc)?self.pushUrl:self.pushDesc;
+        if(!kObjectIsEmpty(self.pushImage)) [messsage setThumbImage:self.pushImage];
+        
+        WXWebpageObject *obj = [WXWebpageObject object];
+        obj.webpageUrl = kStringIsEmpty(self.inviteUrl)?self.pushUrl:self.inviteUrl;  // inviteUrl 为空 就直接分享跳转的页面
+        
+        SendMessageToWXReq *req = [[SendMessageToWXReq alloc]init];
+        req.message = messsage;
+        req.bText = NO;
+        
+        messsage.mediaObject = obj;
+        req.scene = scene;
+        [WXApi sendReq:req];
+    });
+    
+}
+
+-(void)setShareValue:(NSDictionary *)dic
+{
+    NSString *title = [dic objectForKey:@"title"];
+    
+    if ([title isEqualToString:self.pushTitle]) {
+        self.pushDesc = dic[@"des"];
+        NSString *url = dic[@"iconUrl"];
+        NSString *imageName =kStringIsEmpty(url)?@"share_home_icon":url;
+        UIImage *image = [UIImage imageNamed:imageName];
+        self.pushImage = [UIImage IMGCompressed:image targetWidth:200];
+        
+    }
+    
+}
+
+
+-(void)payResult:(NSNotification *)noti
+{
+    PayResp *resp = (PayResp *)noti.object;
+    
+    NSString *result = [NSString stringWithFormat:@"%d",resp.errCode];
+    
+    if (self.callBack) {
+        
+        self.callBack(result);
+        
+    }
+    
+    
+    
+}
+
+
 -(void)sendAuthRequest
 {
     //构造SendAuthReq结构体
@@ -319,13 +332,112 @@ static const CGFloat VHeight = 180;
     
 }
 
-#pragma mark -- registWebFuntion
+
+
+#pragma mark-- web To OC 交互
+
+//处理指定分享事件
+
+
+-(void)dealPointShareEvent:(NSDictionary *)tempDic
+{
+    
+    NSString *title = [tempDic objectForKey:@"title"];
+    NSString *url = [tempDic objectForKey:@"url"];
+    
+    if([title isEqualToString:@"产品详情"]){
+        //获取goodsId
+        NSArray *array = [url componentsSeparatedByString:@"?"];
+        NSMutableString *goodStr = [[array lastObject] mutableCopy];
+        [goodStr deleteCharactersInRange:[goodStr rangeOfString:@"goodsId="]];
+        self.produtId = goodStr;
+        
+    }
+    
+    if([title isEqualToString:@"邀请好友"]){
+        
+        //  获取 门店id 和 商品 id  /invite?id=1112&memberId=10030&goodsId=1453
+        
+        NSArray *array = [url componentsSeparatedByString:@"&"];
+        
+        for (NSString *idStr in array) {
+            
+            NSLog(@"------%@",idStr);
+            
+            if([idStr containsString:@"goodsId"]){
+                
+                NSMutableString *goodStr = [idStr mutableCopy];
+                [goodStr deleteCharactersInRange:[goodStr rangeOfString:@"goodsId="]];
+                self.inviteGoodsID = goodStr;
+            }
+            
+            if([idStr containsString:@"?id"]){
+                 NSArray *array = [idStr componentsSeparatedByString:@"?"];
+                NSString *tempIdStr = [array lastObject];
+                NSMutableString *goodStr = [tempIdStr mutableCopy];
+                [goodStr deleteCharactersInRange:[goodStr rangeOfString:@"id="]];
+                
+                self.inviteStoreId = goodStr;
+            }
+            
+            
+        }
+    }
+    
+}
+
+//每push一个页面，获取到标题和url ， 因为网页端是 vue版，正常代理方法无法获取到页面跳转信息
+- (void)registShareFunction
+{
+    [_bridge registerHandler:@"webPushNotify" handler:^(id data, WVJBResponseCallback responseCallback) {
+        // data 的类型与 JS中传的参数有关
+        NSDictionary *tempDic = data;
+        
+        [self initShareArg];
+        
+        [self dealPointShareEvent:tempDic];
+        
+        // 获取分享信息
+        NSString *title = [tempDic objectForKey:@"title"];
+        NSString *url = [tempDic objectForKey:@"url"];
+        self.globalToken = [tempDic objectForKey:@"token"];
+        
+        self.pushTitle = title;
+        
+        NSMutableString *urlmut = url.mutableCopy;
+        if([urlmut hasPrefix:@"/"]){
+            [urlmut deleteCharactersInRange: [urlmut rangeOfString:@"/"]];
+        }
+        //判断4个tab页，隐藏导航栏返回按钮
+        self.pushUrl = [NSString stringWithFormat:@"%@%@",Base_H5URL,urlmut];
+        NSArray *urls = @[@"/",@"/shoppingCart",@"/newsIndex",@"/showPClass"];
+        [self hiddenLeftBarItem:[urls containsObject:url]?YES:NO];
+        // 将分享的结果返回到JS中
+        self.navItem.title = title;
+        NSLog(@"------%@",url);
+        //        responseCallback(result);
+        
+    }];
+    
+}
+
+- (void)registAPPGetInfoFunction:(WebViewJavascriptBridge *)webViewBridge{
+    
+    [webViewBridge registerHandler:@"getAppUserInfo" handler:^(id data, WVJBResponseCallback responseCallback) {
+        
+        NSDictionary *dict = @{@"from":@"iOS"};
+        responseCallback(dict);
+        
+    }];
+}
+
+
+//微信支付
 -(void)regist_wxPayFunction
 {
     
-    
     [_bridge registerHandler:@"wxPayFuntion" handler:^(id data, WVJBResponseCallback responseCallback) {
-       
+        
         self.callBack = responseCallback;
         if(![WXApi isWXAppInstalled])
         {
@@ -338,7 +450,7 @@ static const CGFloat VHeight = 180;
          "tradeNo" : "012018052410552258507971",
          "params" : "wxPay"
          */
-
+        
         
         LOADING_SHOW
         NSDictionary *payDic = (NSDictionary *)data;
@@ -353,7 +465,7 @@ static const CGFloat VHeight = 180;
                               @"tradeNo":tradeNo,
                               };
         
-
+        
         
         AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
         manager.requestSerializer = [AFJSONRequestSerializer new];
@@ -384,33 +496,89 @@ static const CGFloat VHeight = 180;
             {
                 [PPHUDHelp showMessage:[Dic objectForKey:@"msg"]];
             }
-           
+            
             
             
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
             
             LoADING_FAIL
-
+            
         }];
-      
+        
     }];
     
 }
 
 
--(void)ProductDetailInfo:(NSInteger)scene
+#pragma mark--API share
+
+//邀请好友分享
+-(void)inviteFriendShare:(NSInteger)scene
 {
-   
     
     
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.requestSerializer = [AFJSONRequestSerializer new];
     manager.requestSerializer = [AFJSONRequestSerializer serializer];//请求
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];//响应
-//    [manager.requestSerializer setValue:token forHTTPHeaderField:@"token"];
+    [manager.requestSerializer setValue:self.globalToken forHTTPHeaderField:@"token"];
+    LOADING_SHOW
+    [manager GET:InvitePeople(self.inviteStoreId, self.inviteGoodsID) parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        LOADING_HIDE
+        NSDictionary *Dic = [NSJSONSerialization JSONObjectWithData:responseObject options:0 error:nil];
+       
+        NSLog(@"----%@",Dic);
+        NSDictionary *dataDic = [Dic objectForKey:@"data"];
+        NSString *status = [Dic objectForKey:@"status"];
+        NSString *msg = [Dic objectForKey:@"msg"];
+
+        if ([status isEqualToString:@"SUCCESS"]) {
+            
+             // 不能正确分享
+                self.productName = [dataDic objectForKey:@"goodsName"];
+                NSArray *array = [dataDic objectForKey:@"imgUrlPathList"];
+                    if(!kArrayIsEmpty(array)) {
+                
+                    NSString *baseImageCode = array[0];
+                   
+                        self.inviteUrl = [dataDic objectForKey:@"url"];
+                        NSData *decodedImgData = [[NSData alloc] initWithBase64EncodedString:baseImageCode options:NSDataBase64DecodingIgnoreUnknownCharacters];
+                        UIImage *decodedImage = [UIImage imageWithData:decodedImgData];
+                        self.pushImage = [UIImage IMGCompressed:decodedImage targetWidth:200];
+                    }
+
+        }else
+        {
+            [PPHUDHelp showMessage:msg afterDelayTime:1.5];
+        }
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+        LoADING_FAIL
+        
+    }];
+    
+    
+  
+    
+}
+
+//详情分享
+-(void)ProductDetailInfo:(NSInteger)scene
+{
+    
+
+    
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    manager.requestSerializer = [AFJSONRequestSerializer new];
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];//请求
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];//响应
+    //    [manager.requestSerializer setValue:token forHTTPHeaderField:@"token"];
     LOADING_SHOW
     [manager GET:Product_detail(self.produtId) parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
-   
+        
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         LOADING_HIDE
@@ -426,7 +594,7 @@ static const CGFloat VHeight = 180;
             NSArray *array = [imageUrl componentsSeparatedByString:@","];
             if(!kArrayIsEmpty(array)) {
                 
-            NSString *imageStr = array[0];
+                NSString *imageStr = array[0];
                 
                 [[SDWebImageDownloader sharedDownloader]downloadImageWithURL:[NSURL URLWithString:imageStr] options:SDWebImageDownloaderProgressiveDownload progress:^(NSInteger receivedSize, NSInteger expectedSize) {
                     
@@ -438,7 +606,7 @@ static const CGFloat VHeight = 180;
                         
                         self.pushImage = [UIImage IMGCompressed:image targetWidth:200];
                         [self son_shareToScene:scene];
-
+                        
                     }
                     
                     
@@ -446,54 +614,24 @@ static const CGFloat VHeight = 180;
                 
             }
             
-          
+            
             
         }
         
-
+        
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-       
+        
         LoADING_FAIL
         
     }];
-
+    
     
     
     
 }
 
 
-
--(NSArray *)shareArr
-{
-    
-    return @[
-             @{@"title":@"艾美e族商城",@"des":@"品质优选 全新升级上线",@"iconUrl":@""},
-             @{@"title":@"积分商城",@"des":@"美物随心兑，多·快·好·省",@"iconUrl":@"integralShop"},
-             @{@"title":@"积分商城详情",@"des":@"美物随心兑，多·快·好·省",@"iconUrl":@"integralShop"},
-             @{@"title":@"产品详情",@"des":@"品质优选，购品质省更多",@"iconUrl":@""},
-             @{@"title":@"店铺详情",@"des":@"艾美购物 品质优选",@"iconUrl":@""},
-             @{@"title":@"艾美头条",@"des":@"每日精彩等你来",@"iconUrl":@"amtv"},
-             @{@"title":@"货栈美链",@"des":@"被千万用户认可的经典爆款",@"iconUrl":@"Boutique"},
-             @{@"title":@"热卖榜",@"des":@"发现最热销的商品，更优享品质！",@"iconUrl":@"hotsale"},
-             @{@"title":@"商家榜",@"des":@"聚焦最佳店铺，收藏精选商家",@"iconUrl":@""},
-             @{@"title":@"粉丝收益榜",@"des":@"粉丝收益排名，掀起涨粉丝的大热",@"iconUrl":@""},
-             @{@"title":@"一卡通",@"des":@"一卡在手，支付无忧更优惠",@"iconUrl":@""},
-
-             ];
-}
-
-- (void)registAPPGetInfoFunction:(WebViewJavascriptBridge *)webViewBridge{
-    
-    [webViewBridge registerHandler:@"getAppUserInfo" handler:^(id data, WVJBResponseCallback responseCallback) {
-        
-        NSDictionary *dict = @{@"from":@"iOS"};
-        responseCallback(dict);
-        
-    }];
-}
-
-
+#pragma mark--webview delegate
 
 -(NSCachedURLResponse*)cachedResponseForRequest:(NSURLRequest*)request
 {
@@ -536,14 +674,10 @@ static const CGFloat VHeight = 180;
 }
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
-    NSString * requestString = [[request URL] absoluteString];
-    requestString = [requestString stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     //获取H5页面里面按钮的操作方法,根据这个进行判断返回是内部的还是push的上一级页面
-  
-//    NSLog(@"url-----%@",request);
+
     return YES;
 }
-
 
 
 -(void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error

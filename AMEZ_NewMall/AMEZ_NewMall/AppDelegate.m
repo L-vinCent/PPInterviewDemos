@@ -24,10 +24,6 @@
     // Override point for customization after application launch.
     [WXApi registerApp:Third_WXAppid];
     
-    
-    
-    
-    
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds]; //创建新的窗口
     [self.window makeKeyAndVisible];
 

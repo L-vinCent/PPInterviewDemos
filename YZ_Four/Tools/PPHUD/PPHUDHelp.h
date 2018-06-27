@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+
 #import <MBProgressHUD/MBProgressHUD.h>
 
 typedef NS_ENUM(NSUInteger,YJProgressMode){
