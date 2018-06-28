@@ -357,12 +357,21 @@ static const CGFloat VHeight = 180;
     if([title isEqualToString:@"邀请好友"]){
         
         //  获取 门店id 和 商品 id  /invite?id=1112&memberId=10030&goodsId=1453
+        //  没有驿站  邀请好友进的界面  invite?goodsId=16803
         
-        NSArray *array = [url componentsSeparatedByString:@"&"];
+        NSArray *arguArray = [url componentsSeparatedByString:@"?"];
+        if(kArrayIsEmpty(arguArray)) return;
+        NSString *arguStr = [arguArray lastObject];
+        
+        
+        NSArray *array = [arguStr componentsSeparatedByString:@"&"];
         
         for (NSString *idStr in array) {
             
             NSLog(@"------%@",idStr);
+            
+            NSRange rangge = [idStr rangeOfString:@"id"];
+            
             
             if([idStr containsString:@"goodsId"]){
                 
@@ -371,13 +380,14 @@ static const CGFloat VHeight = 180;
                 self.inviteGoodsID = goodStr;
             }
             
-            if([idStr containsString:@"?id"]){
+            if([idStr containsString:@"id"]&&rangge.location > 1){
                  NSArray *array = [idStr componentsSeparatedByString:@"?"];
                 NSString *tempIdStr = [array lastObject];
                 NSMutableString *goodStr = [tempIdStr mutableCopy];
                 [goodStr deleteCharactersInRange:[goodStr rangeOfString:@"id="]];
                 
                 self.inviteStoreId = goodStr;
+                
             }
             
             
@@ -523,7 +533,8 @@ static const CGFloat VHeight = 180;
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];//响应
     [manager.requestSerializer setValue:self.globalToken forHTTPHeaderField:@"token"];
     LOADING_SHOW
-    [manager GET:InvitePeople(self.inviteStoreId, self.inviteGoodsID) parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
+    NSLog(@"---%@",InvitePeople(kStringIsEmpty(self.inviteStoreId)?@"-1":self.inviteStoreId, self.inviteGoodsID));
+    [manager GET:InvitePeople(kStringIsEmpty(self.inviteStoreId)?@"-1":self.inviteStoreId, self.inviteGoodsID) parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         LOADING_HIDE
@@ -541,12 +552,13 @@ static const CGFloat VHeight = 180;
                 NSArray *array = [dataDic objectForKey:@"imgUrlPathList"];
                     if(!kArrayIsEmpty(array)) {
                 
-                    NSString *baseImageCode = array[0];
+                        NSString *baseImageCode = array[0];
                    
                         self.inviteUrl = [dataDic objectForKey:@"url"];
                         NSData *decodedImgData = [[NSData alloc] initWithBase64EncodedString:baseImageCode options:NSDataBase64DecodingIgnoreUnknownCharacters];
                         UIImage *decodedImage = [UIImage imageWithData:decodedImgData];
                         self.pushImage = [UIImage IMGCompressed:decodedImage targetWidth:200];
+                        [self son_shareToScene:scene];
                     }
 
         }else
@@ -560,9 +572,7 @@ static const CGFloat VHeight = 180;
         
     }];
     
-    
-  
-    
+
 }
 
 //详情分享

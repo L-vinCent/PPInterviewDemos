@@ -20,28 +20,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AMEZ_NewMall/Classes/Main/PPMainWebVIewVC.m"
-            timestampString = "551788205.626168"
+            timestampString = "551860532.51921"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "428"
-            endingLineNumber = "428"
+            startingLineNumber = "438"
+            endingLineNumber = "438"
             landmarkName = "-registAPPGetInfoFunction:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "AMEZ_NewMall/Classes/Main/PPMainWebVIewVC.m"
-            timestampString = "551788300.381893"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "544"
-            endingLineNumber = "544"
-            landmarkName = "-inviteFriendShare:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -11,13 +11,13 @@
 ////
 //#define Base_H5URL @"http://h5.amez999.com/" //H5正式服务器
 //#define Third_WXPay @"https://gateway.amez999.com/mobile/user/pay/weixin/app" //支付正式环境
-//#define Base_APIURL @"https://gateway.amez999.com/mobile/user/" //接口测试服务器
+//#define Base_APIURL @"https://gateway.amez999.com/mobile/user" //接口测试服务器
 
 
 
 #define Base_H5URL @"http://mobile.test.amyun.cn/" //H5测试服务器
 #define Third_WXPay @"http://test.amyun.cn:18121/pay/weixin/app" //支付测试环境
-#define Base_APIURL @"http://api.amez999.com/mobile/user/" //接口测试服务器
+#define Base_APIURL @"http://api.amez999.com/mobile/user" //接口测试服务器
 
 
 
