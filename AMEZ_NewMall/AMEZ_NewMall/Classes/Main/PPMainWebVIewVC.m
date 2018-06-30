@@ -17,9 +17,13 @@
 #import "shareView.h"
 #import "UIImage+compressIMG.h"
 #import "UIImageView+WebCache.h"
+#import "LCActionSheet.h"
+
+
+#import "NSString+CZBase64.h"
 
 static const CGFloat VHeight = 180;
-@interface PPMainWebVIewVC ()<UIWebViewDelegate,WXApiDelegate>
+@interface PPMainWebVIewVC ()<UIWebViewDelegate,WXApiDelegate,UIGestureRecognizerDelegate>
 
 @property (nonatomic, strong) WebViewJavascriptBridge *bridge;
 @property(nonatomic,strong)webProgressLine *progressLine;
@@ -85,6 +89,8 @@ static const CGFloat VHeight = 180;
     
 }
 
+
+
 -(void)reloadWebview
 {
     
@@ -137,6 +143,10 @@ static const CGFloat VHeight = 180;
         
     }];
     
+    [self longGestureWebviewClick];
+    
+
+    
     //    [self.bridge callHandler:@"payResult" data:@{@"result":@"1"} responseCallback:^(id responseData) {
     //
     //        NSLog(@"------------%@",responseData);
@@ -144,6 +154,8 @@ static const CGFloat VHeight = 180;
     //    }];
     
 }
+
+
 
 
 -(NSArray *)shareArr
@@ -336,9 +348,103 @@ static const CGFloat VHeight = 180;
 
 #pragma mark-- web To OC 交互
 
+//长按手势处理
+-(void)longGestureWebviewClick
+{
+    UILongPressGestureRecognizer* longPressed = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressed:)];
+    longPressed.delegate = self;
+    [self.webView addGestureRecognizer:longPressed];
+    
+}
+
+- (void)longPressed:(UILongPressGestureRecognizer*)recognizer
+{
+    if (recognizer.state != UIGestureRecognizerStateBegan) {
+        return;
+    }
+    
+    CGPoint touchPoint = [recognizer locationInView:self.webView];
+    
+    NSString *imgURL = [NSString stringWithFormat:@"document.elementFromPoint(%f, %f).src", touchPoint.x, touchPoint.y];
+    NSString *urlToSave = [self.webView stringByEvaluatingJavaScriptFromString:imgURL];
+    
+    
+    if (urlToSave.length == 0) {
+        return;
+    }
+    
+//    NSArray *baseArr = [urlToSave componentsSeparatedByString:@"base64,"];
+//    if (kArrayIsEmpty(baseArr)) return;
+//    NSString *base64Str = [baseArr lastObject];
+
+    
+    if (![self.pushTitle isEqualToString:@"邀请好友"]) return;
+        
+    
+    [self showImageOptionsWithUrl:urlToSave];
+}
+
+-(void)showImageOptionsWithUrl:(NSString *)base64Url
+{
+    kWeakSelf(self)
+    LCActionSheet *sheet=[LCActionSheet sheetWithTitle:@"" cancelButtonTitle:@"取消" clicked:^(LCActionSheet * _Nonnull actionSheet, NSInteger buttonIndex) {
+        kStrongSelf(self)
+        NSLog(@"didDismissWithButtonIndex: %d", (int)buttonIndex);
+        
+        if (buttonIndex) {
+            
+            [[SDWebImageDownloader sharedDownloader]downloadImageWithURL:[NSURL URLWithString:base64Url] options:SDWebImageDownloaderProgressiveDownload progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+                
+                
+                
+            } completed:^(UIImage *image, NSData *data, NSError *error, BOOL finished) {
+                
+                if (finished) {
+                    
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        
+                        UIImageWriteToSavedPhotosAlbum(image, self, @selector(image:didFinishSavingWithError:contextInfo:), NULL);
+                        
+                    });
+                    
+                }
+                
+                
+            }];
+            
+         
+       
+        }
+        
+        
+    } otherButtonTitles:@"保存图片", nil];
+    
+    [sheet show];
+    
+}
+
+- (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo
+{
+    if (error) {
+        
+        [PPHUDHelp showMessage:@"保存失败" afterDelayTime:1.5];
+        
+    }else{
+        
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            
+            [PPHUDHelp showMessage:@"已保存到系统相册" afterDelayTime:1.5];
+
+        });
+        
+
+
+    }
+}
+
+
 //处理指定分享事件
-
-
 -(void)dealPointShareEvent:(NSDictionary *)tempDic
 {
     
@@ -555,10 +661,31 @@ static const CGFloat VHeight = 180;
                         NSString *baseImageCode = array[0];
                    
                         self.inviteUrl = [dataDic objectForKey:@"url"];
-                        NSData *decodedImgData = [[NSData alloc] initWithBase64EncodedString:baseImageCode options:NSDataBase64DecodingIgnoreUnknownCharacters];
-                        UIImage *decodedImage = [UIImage imageWithData:decodedImgData];
-                        self.pushImage = [UIImage IMGCompressed:decodedImage targetWidth:200];
-                        [self son_shareToScene:scene];
+//                        NSData *decodedImgData = [[NSData alloc] initWithBase64EncodedString:baseImageCode options:NSDataBase64DecodingIgnoreUnknownCharacters];
+//                        UIImage *decodedImage = [UIImage imageWithData:decodedImgData];
+//                        self.pushImage = [UIImage IMGCompressed:decodedImage targetWidth:200];
+//                        [self son_shareToScene:scene];
+                        
+                        [[SDWebImageDownloader sharedDownloader]downloadImageWithURL:[NSURL URLWithString:baseImageCode] options:SDWebImageDownloaderProgressiveDownload progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+                            
+                            
+                            
+                        } completed:^(UIImage *image, NSData *data, NSError *error, BOOL finished) {
+                            
+                            if (finished) {
+                                
+                                dispatch_async(dispatch_get_main_queue(), ^{
+                                    
+                                    self.pushImage = [UIImage IMGCompressed:image targetWidth:200];
+                                    [self son_shareToScene:scene];
+                                    
+                                });
+                                
+                            }
+                            
+                            
+                        }];
+                        
                     }
 
         }else

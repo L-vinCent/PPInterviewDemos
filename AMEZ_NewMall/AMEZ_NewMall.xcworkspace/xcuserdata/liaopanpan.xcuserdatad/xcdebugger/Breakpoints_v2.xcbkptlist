@@ -20,12 +20,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AMEZ_NewMall/Classes/Main/PPMainWebVIewVC.m"
-            timestampString = "551860532.51921"
+            timestampString = "552022459.830893"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "438"
-            endingLineNumber = "438"
-            landmarkName = "-registAPPGetInfoFunction:"
+            startingLineNumber = "613"
+            endingLineNumber = "613"
+            landmarkName = "-regist_wxPayFunction"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AMEZ_NewMall/Classes/Main/PPMainWebVIewVC.m"
+            timestampString = "552022459.831219"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "761"
+            endingLineNumber = "761"
+            landmarkName = "-ProductDetailInfo:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

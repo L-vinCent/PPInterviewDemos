@@ -35,7 +35,10 @@
     NSLog(@"----%@",[UIApplication sharedApplication].keyWindow);
     
     return YES;
+    
 }
+
+
 
 -(void)setUserAgentForWoapp
 

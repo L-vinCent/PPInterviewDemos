@@ -6,5 +6,6 @@ target 'AMEZ_NewMall' do
    pod 'WebViewJavascriptBridge', '~> 5.0'
    pod 'WechatOpenSDK'
    pod 'AFNetworking', '~> 3.2.0'	
-   pod 'SDWebImage', '~>3.8'		  	 
+   pod 'SDWebImage', '~>3.8'
+   pod 'Masonry', '~> 1.0.0'		  	 
 end
