@@ -848,6 +848,7 @@ static inline NSString *cachePath() {
                                                                                 @"text/xml",
                                                                                 @"image/*",
                                                                                 @"multipart/form-data",
+                                                                                
                                                                                 ]];
       
       manager.requestSerializer.timeoutInterval = sg_timeout;
@@ -1137,11 +1138,57 @@ static inline NSString *cachePath() {
     
 }
 
++(void)postWithUrl:(NSString *)url dict:(NSDictionary *)dic  success:(void(^)(NSDictionary *response))success failure:(void(^)(NSError *error))failure
+{
+    
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dic options:0 error:nil];
+
+    NSString *requestUrl = [NSString stringWithFormat:@"%@%@",Base_H5URL,url];
+    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+    
+    NSMutableURLRequest *request = [[AFHTTPRequestSerializer serializer] requestWithMethod:@"POST" URLString:requestUrl parameters:nil error:nil];
+    
+    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    // 设置body
+    [request setHTTPBody:jsonData];
+    
+    request.timeoutInterval=5;
+    
+    AFHTTPResponseSerializer *responseSerializer = [AFHTTPResponseSerializer serializer];
+    responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json",
+                                                 @"text/html",
+                                                 @"text/json",
+                                                 @"text/javascript",
+                                                 @"text/plain",
+                                                 nil];
+    manager.responseSerializer = responseSerializer;
+    
+    [[manager dataTaskWithRequest:request completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
+        
+        if (kObjectIsEmpty(error))
+        {
+            NSDictionary *jsonDict = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableLeaves error:nil];
+            success(jsonDict);
+            
+        }else
+        {
+            failure(error);
+        }
+        
+        
+    }] resume];
+    
+    
+    
+}
+
+
 
 +(void)postWithUrl:(NSString *)url body:(NSData *)body  success:(void(^)(NSDictionary *response))success failure:(void(^)(NSError *error))failure
 {
     
-    NSString *requestUrl = [NSString stringWithFormat:@"%@%@",@"",url];
+    
+    NSString *requestUrl = [NSString stringWithFormat:@"%@%@",Base_H5URL,url];
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
     
     NSMutableURLRequest *request = [[AFHTTPRequestSerializer serializer] requestWithMethod:@"POST" URLString:requestUrl parameters:nil error:nil];
@@ -1175,6 +1222,9 @@ static inline NSString *cachePath() {
         
  
     }] resume];
+    
+    
+    
 }
 
 @end

@@ -15,6 +15,7 @@ PODS:
   - AFNetworking/UIKit (3.2.0):
     - AFNetworking/NSURLSession
   - DZNEmptyDataSet (1.8.1)
+  - IQKeyboardManager (5.0.7)
   - MBProgressHUD (1.0.0)
   - MJExtension (3.0.13)
   - MJRefresh (3.1.15.3)
@@ -28,6 +29,7 @@ PODS:
 DEPENDENCIES:
   - AFNetworking (~> 3.2.0)
   - DZNEmptyDataSet
+  - IQKeyboardManager
   - MBProgressHUD (~> 1.0.0)
   - MJExtension
   - MJRefresh
@@ -38,6 +40,7 @@ SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - AFNetworking
     - DZNEmptyDataSet
+    - IQKeyboardManager
     - MBProgressHUD
     - MJExtension
     - MJRefresh
@@ -48,6 +51,7 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   AFNetworking: 8ac6017b94ea105479f7776e5288e48ae9c59bb4
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
+  IQKeyboardManager: 0bfa4607d39924116b5c0c8b55b5d789288b5cba
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   MJExtension: 5932755f451458eefa24239358817f8d291240c7
   MJRefresh: b48380ae2b927b46c4ef000de9adb8dc748e1df7
@@ -55,6 +59,6 @@ SPEC CHECKSUMS:
   SDCycleScrollView: 884b88f0266dd4708a0e1934975c69cb971707b1
   SDWebImage: 6da6c8bca115addc4de8613362e1b15f66333825
 
-PODFILE CHECKSUM: 5c610d1ddd5f79313f3aafa42ff26f5188ae3cda
+PODFILE CHECKSUM: ef5ffbfb9d9c5598a0dfc97817e81518d43088e3
 
 COCOAPODS: 1.5.2

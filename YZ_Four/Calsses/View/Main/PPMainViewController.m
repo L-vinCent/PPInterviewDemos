@@ -83,8 +83,8 @@
 {
     NSArray *array=@[
                     @{@"clsName":@"PPHomeMainVC",@"title":@"赛事",@"imageName":@"home"},
-                    @{@"clsName":@"PPLoginMainVC",@"title":@"礼品中心",@"imageName":@"message_center"},
-                    @{@"clsName":@"PPJWTMainHomeVC",@"title":@"奖武堂",@"imageName":@"discover"},
+//                    @{@"clsName":@"PPLoginMainVC",@"title":@"礼品中心",@"imageName":@"message_center"},
+//                    @{@"clsName":@"PPJWTMainHomeVC",@"title":@"奖武堂",@"imageName":@"discover"},
                     @{@"clsName":@"PPScoreMainVC",@"title":@"战绩",@"imageName":@"profile"},
                     @{@"clsName":@"PPMineMainVC",@"title":@"我的",@"imageName":@"profile"},
     ];

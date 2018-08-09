@@ -8,6 +8,9 @@
 
 #import "AppDelegate.h"
 #import "PPMainViewController.h"
+#import "PPNavViewController.h"
+#import "PPLoginMainVC.h"
+#import "IQKeyboardManager.h"
 @interface AppDelegate ()
 
 @end
@@ -19,11 +22,56 @@
     // Override point for customization after application launch.
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds]; //创建新的窗口
+    [HYBNetworking updateBaseUrl:Base_H5URL];
+    
+    
+    //键盘事件处理
+    [[IQKeyboardManager sharedManager] setEnable:YES];
+    [[IQKeyboardManager sharedManager] setEnableAutoToolbar:YES];
+    [[IQKeyboardManager sharedManager] setShouldResignOnTouchOutside:YES];
+    
     PPMainViewController *main=[[PPMainViewController alloc]init];
     [self.window setRootViewController:main];
     [self.window makeKeyAndVisible];
     
+    [self checkLogin];
+    
     return YES;
+    
+}
+
+
+
+-(void)checkLogin
+{
+    
+    if (!kStringIsEmpty(USER_SYN.token)) {
+
+        [self setRootVC];
+
+    }else
+    {
+        [self goLoginVC];
+
+
+    }
+ 
+}
+
+-(void)setRootVC
+{
+    PPMainViewController *main=[[PPMainViewController alloc]init];
+    [self.window setRootViewController:main];
+    [self.window makeKeyAndVisible];
+}
+
+-(void)goLoginVC
+{
+    PPLoginMainVC *vc=[[PPLoginMainVC alloc]init];
+    PPNavViewController *nav=[[PPNavViewController alloc]initWithRootViewController:vc];
+    [self.window setRootViewController:nav];
+    [self.window makeKeyAndVisible];
+    
 }
 
 

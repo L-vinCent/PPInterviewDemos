@@ -24,8 +24,7 @@
 #define WPWeakObj(o) autoreleasepool{} __weak typeof(o) o##Weak = o;
 #define WPStrongObj(o) autoreleasepool{} __strong typeof(o) o = o##Weak;
 
-#define WEAK  @weakify(self);
-#define STRONG  @strongify(self);
+
 
 #define XNFont(font) [UIFont systemFontOfSize:(font)]
 #define XNColor(r, g, b, a) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:(a)]
@@ -45,7 +44,9 @@
 
 #define kWeakSelf(type)  __weak typeof(type) weak##type = type;
 #define kStrongSelf(type) __strong typeof(type) type = weak##type;
-
+//
+//#define kWeakSelf(o) autoreleasepool{} __weak typeof(o) o##Weak = o;
+//#define kStrongSelf(o) autoreleasepool{} __strong typeof(o) o = o##Weak;
 
 
 #define DeviceIsiPhone5()				([[UIScreen mainScreen] bounds].size.height == 568.0)
@@ -53,7 +54,8 @@
 #define DeviceIsSmallScreen()           ([[UIScreen mainScreen] bounds].size.width == 320.0)
 
 #define DeviceIsiPhoneX()               ([[UIScreen mainScreen] bounds].size.height == 812.0)
-// 屏幕宽高及常用尺寸
+
+//---------------------------- 屏幕宽高及常用尺寸-----------------------------------
 
 #define SCREEN_WIDTH ([UIScreen mainScreen].bounds.size.width)
 #define SCREEN_HEIGHT ([UIScreen mainScreen].bounds.size.height)
@@ -75,6 +77,8 @@
 #define Open_Order_kBottomCartHeight 50
 #define Open_Order_kTopY (kDoorNavStatusHeight+44.0)
 #define Open_Order_kTotalHeight  (SCREEN_HEIGHT-Open_Order_kMySegmentControl_Height-Open_Order_kBottomCartHeight-kDoorNavStatusHeight)
+
+
 
 
 #define DoorFixScale 0.5
@@ -107,6 +111,7 @@
 #define Door_Tabbar_color  RGB(242,203,129)  //tabbar标题颜色
 
 #define Door_BGWhite_color RGB(255,255,255)  //背景白
+
 
 #define WPHexColorA(hex,a) [UIColor colorWithRed:((float)((hex & 0xFF0000) >> 16)) / 255.0 green:((float)((hex & 0xFF00) >> 8)) / 255.0 blue:((float)(hex & 0xFF)) / 255.0 alpha:(a)]
 // 通知
@@ -145,6 +150,8 @@
 #define kLoginStatus @"login_status" //登录状态
 
 
+
+
 //NSUserDefaults 实例化
 /**  以key,value存储信息 */
 #define USERDEFAULT_SET(key,value) [[NSUserDefaults standardUserDefaults] setObject:value forKey:key]
@@ -157,6 +164,8 @@
 
 #define STR_EQUAL(str1,str2) [str1 isEqualToString:str2]
 
+#define code_success(code) [code isEqualToString:@"111111"]
 
+#define YJ_loginToken @"YJ_loginToken"
 
 #endif /* Amez_const_h */

@@ -25,7 +25,12 @@ static CGFloat const kTopScrollowH = 180.0f;
     
     [super viewDidLoad];
     
- 
+    if (@available(iOS 11.0, *)) {
+        self.tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+    } else {
+        self.automaticallyAdjustsScrollViewInsets = NO;
+    }
+    
     self.navItem.title = @"首页";
     [self hiddenLeftBarItem:YES];
     

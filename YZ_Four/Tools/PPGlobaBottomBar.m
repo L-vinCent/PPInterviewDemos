@@ -69,9 +69,9 @@
             [btn setTitleColor:Door_Global_title forState:UIControlStateNormal];
 
  
-        WEAK
+        kWeakSelf(self)
         [[btn rac_signalForControlEvents:UIControlEventTouchUpInside]subscribeNext:^(__kindof UIControl * _Nullable x) {
-            STRONG
+            kStrongSelf(self)
             
             if (self.block) {
                 self.block(btn.tag);

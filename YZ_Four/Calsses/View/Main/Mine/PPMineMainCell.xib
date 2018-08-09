@@ -46,7 +46,6 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
             <connections>
-                <outlet property="iconImageV" destination="7o1-74-bSg" id="Uip-f6-xAN"/>
                 <outlet property="titleLael" destination="Rtp-Kx-2mg" id="Urs-4R-t1I"/>
             </connections>
         </tableViewCell>

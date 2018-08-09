@@ -240,6 +240,8 @@ typedef void(^HYBResponseFail)(NSError *error);
                             params:(NSDictionary *)params
                            success:(HYBResponseSuccess)success
                               fail:(HYBResponseFail)fail;
+
+
 + (HYBURLSessionTask *)postWithUrl:(NSString *)url
                       refreshCache:(BOOL)refreshCache
                             params:(NSDictionary *)params
@@ -330,4 +332,6 @@ typedef void(^HYBResponseFail)(NSError *error);
 
 
 +(void)postWithUrl:(NSString *)url body:(NSData *)body  success:(void(^)(NSDictionary *response))success failure:(void(^)(NSError *error))failure;
++(void)postWithUrl:(NSString *)url dict:(NSDictionary *)dic  success:(void(^)(NSDictionary *response))success failure:(void(^)(NSError *error))failure;
+
 @end

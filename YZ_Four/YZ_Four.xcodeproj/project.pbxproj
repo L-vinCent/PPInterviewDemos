@@ -36,6 +36,13 @@
 		673ADF5820CA6DDB006334EA /* PPLoginMainVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 673ADF5620CA6DDB006334EA /* PPLoginMainVC.xib */; };
 		673ADF5C20CA7B49006334EA /* PPRegistVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 673ADF5A20CA7B49006334EA /* PPRegistVC.m */; };
 		673ADF5D20CA7B49006334EA /* PPRegistVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 673ADF5B20CA7B49006334EA /* PPRegistVC.xib */; };
+		67783B50211BDDB600F5C490 /* JKCountDownButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 67783B4F211BDDB600F5C490 /* JKCountDownButton.m */; };
+		67783B56211C405600F5C490 /* BindGameInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 67783B55211C405600F5C490 /* BindGameInfoVC.m */; };
+		67783B5A211C40A000F5C490 /* PPBindMainView.m in Sources */ = {isa = PBXBuildFile; fileRef = 67783B59211C40A000F5C490 /* PPBindMainView.m */; };
+		67783B5C211C40D200F5C490 /* PPBindMainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67783B5B211C40D200F5C490 /* PPBindMainView.xib */; };
+		67783B5F211C490C00F5C490 /* PPVerifyUserVIew.m in Sources */ = {isa = PBXBuildFile; fileRef = 67783B5E211C490C00F5C490 /* PPVerifyUserVIew.m */; };
+		67783B61211C491600F5C490 /* PPVerifyUserVIew.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67783B60211C491600F5C490 /* PPVerifyUserVIew.xib */; };
+		67783B64211C4AB200F5C490 /* PPVerifyUserVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 67783B63211C4AB200F5C490 /* PPVerifyUserVC.m */; };
 		6786F02220C9272B00848F7B /* PPMineMainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6786F02120C9272B00848F7B /* PPMineMainVC.m */; };
 		6786F02620C9281600848F7B /* PPMineMainCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6786F02420C9281600848F7B /* PPMineMainCell.m */; };
 		6786F02720C9281600848F7B /* PPMineMainCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6786F02520C9281600848F7B /* PPMineMainCell.xib */; };
@@ -80,6 +87,10 @@
 		6790D84620C5326D00D5B791 /* PPHomeMainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6790D84520C5326D00D5B791 /* PPHomeMainVC.m */; };
 		6790D84A20C5349A00D5B791 /* PPHomeMainCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6790D84820C5349A00D5B791 /* PPHomeMainCell.m */; };
 		6790D84B20C5349A00D5B791 /* PPHomeMainCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6790D84920C5349A00D5B791 /* PPHomeMainCell.xib */; };
+		67B08D61211AC00A0063562C /* PPBaseApiDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 67B08D60211AC00A0063562C /* PPBaseApiDataModel.m */; };
+		67B08D6A211ACCE00063562C /* PPUserDefault.m in Sources */ = {isa = PBXBuildFile; fileRef = 67B08D64211ACCE00063562C /* PPUserDefault.m */; };
+		67B08D6B211ACCE00063562C /* PPUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 67B08D67211ACCE00063562C /* PPUserModel.m */; };
+		67B08D6C211ACCE00063562C /* PPUserOBJ.m in Sources */ = {isa = PBXBuildFile; fileRef = 67B08D69211ACCE00063562C /* PPUserOBJ.m */; };
 		A8D31AA1086271AE15EA3641 /* Pods_YZ_Four.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF4496839502869F733CC066 /* Pods_YZ_Four.framework */; };
 /* End PBXBuildFile section */
 
@@ -150,6 +161,18 @@
 		673ADF5920CA7B49006334EA /* PPRegistVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PPRegistVC.h; sourceTree = "<group>"; };
 		673ADF5A20CA7B49006334EA /* PPRegistVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PPRegistVC.m; sourceTree = "<group>"; };
 		673ADF5B20CA7B49006334EA /* PPRegistVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PPRegistVC.xib; sourceTree = "<group>"; };
+		67783B4E211BDDB600F5C490 /* JKCountDownButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKCountDownButton.h; sourceTree = "<group>"; };
+		67783B4F211BDDB600F5C490 /* JKCountDownButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKCountDownButton.m; sourceTree = "<group>"; };
+		67783B54211C405600F5C490 /* BindGameInfoVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BindGameInfoVC.h; sourceTree = "<group>"; };
+		67783B55211C405600F5C490 /* BindGameInfoVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BindGameInfoVC.m; sourceTree = "<group>"; };
+		67783B58211C40A000F5C490 /* PPBindMainView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PPBindMainView.h; sourceTree = "<group>"; };
+		67783B59211C40A000F5C490 /* PPBindMainView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PPBindMainView.m; sourceTree = "<group>"; };
+		67783B5B211C40D200F5C490 /* PPBindMainView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PPBindMainView.xib; sourceTree = "<group>"; };
+		67783B5D211C490C00F5C490 /* PPVerifyUserVIew.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PPVerifyUserVIew.h; sourceTree = "<group>"; };
+		67783B5E211C490C00F5C490 /* PPVerifyUserVIew.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PPVerifyUserVIew.m; sourceTree = "<group>"; };
+		67783B60211C491600F5C490 /* PPVerifyUserVIew.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PPVerifyUserVIew.xib; sourceTree = "<group>"; };
+		67783B62211C4AB200F5C490 /* PPVerifyUserVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PPVerifyUserVC.h; sourceTree = "<group>"; };
+		67783B63211C4AB200F5C490 /* PPVerifyUserVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PPVerifyUserVC.m; sourceTree = "<group>"; };
 		6786F02020C9272B00848F7B /* PPMineMainVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PPMineMainVC.h; sourceTree = "<group>"; };
 		6786F02120C9272B00848F7B /* PPMineMainVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PPMineMainVC.m; sourceTree = "<group>"; };
 		6786F02320C9281600848F7B /* PPMineMainCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PPMineMainCell.h; sourceTree = "<group>"; };
@@ -241,6 +264,15 @@
 		6790D84720C5349A00D5B791 /* PPHomeMainCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PPHomeMainCell.h; sourceTree = "<group>"; };
 		6790D84820C5349A00D5B791 /* PPHomeMainCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PPHomeMainCell.m; sourceTree = "<group>"; };
 		6790D84920C5349A00D5B791 /* PPHomeMainCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PPHomeMainCell.xib; sourceTree = "<group>"; };
+		67B08D5F211AC00A0063562C /* PPBaseApiDataModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PPBaseApiDataModel.h; sourceTree = "<group>"; };
+		67B08D60211AC00A0063562C /* PPBaseApiDataModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PPBaseApiDataModel.m; sourceTree = "<group>"; };
+		67B08D63211ACCE00063562C /* PPUserDefault.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPUserDefault.h; sourceTree = "<group>"; };
+		67B08D64211ACCE00063562C /* PPUserDefault.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPUserDefault.m; sourceTree = "<group>"; };
+		67B08D65211ACCE00063562C /* PPUserdefaultDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPUserdefaultDefine.h; sourceTree = "<group>"; };
+		67B08D66211ACCE00063562C /* PPUserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPUserModel.h; sourceTree = "<group>"; };
+		67B08D67211ACCE00063562C /* PPUserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPUserModel.m; sourceTree = "<group>"; };
+		67B08D68211ACCE00063562C /* PPUserOBJ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPUserOBJ.h; sourceTree = "<group>"; };
+		67B08D69211ACCE00063562C /* PPUserOBJ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPUserOBJ.m; sourceTree = "<group>"; };
 		C04BCCADA85E45E6FF35C7AB /* Pods-YZ_Four.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YZ_Four.release.xcconfig"; path = "Pods/Target Support Files/Pods-YZ_Four/Pods-YZ_Four.release.xcconfig"; sourceTree = "<group>"; };
 		FF4496839502869F733CC066 /* Pods_YZ_Four.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YZ_Four.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -337,6 +369,32 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
+		67783B4D211BDDB600F5C490 /* JKCountDownButton */ = {
+			isa = PBXGroup;
+			children = (
+				67783B4E211BDDB600F5C490 /* JKCountDownButton.h */,
+				67783B4F211BDDB600F5C490 /* JKCountDownButton.m */,
+			);
+			path = JKCountDownButton;
+			sourceTree = "<group>";
+		};
+		67783B57211C407800F5C490 /* Bind */ = {
+			isa = PBXGroup;
+			children = (
+				67783B54211C405600F5C490 /* BindGameInfoVC.h */,
+				67783B55211C405600F5C490 /* BindGameInfoVC.m */,
+				67783B58211C40A000F5C490 /* PPBindMainView.h */,
+				67783B59211C40A000F5C490 /* PPBindMainView.m */,
+				67783B5B211C40D200F5C490 /* PPBindMainView.xib */,
+				67783B62211C4AB200F5C490 /* PPVerifyUserVC.h */,
+				67783B63211C4AB200F5C490 /* PPVerifyUserVC.m */,
+				67783B5D211C490C00F5C490 /* PPVerifyUserVIew.h */,
+				67783B5E211C490C00F5C490 /* PPVerifyUserVIew.m */,
+				67783B60211C491600F5C490 /* PPVerifyUserVIew.xib */,
+			);
+			path = Bind;
+			sourceTree = "<group>";
+		};
 		6790D79620C5181C00D5B791 = {
 			isa = PBXGroup;
 			children = (
@@ -409,6 +467,7 @@
 		6790D7D520C5198F00D5B791 /* Additions */ = {
 			isa = PBXGroup;
 			children = (
+				67783B4D211BDDB600F5C490 /* JKCountDownButton */,
 				6790D7D620C5198F00D5B791 /* CZAdditions.h */,
 				6790D7D720C5198F00D5B791 /* FXLabel.h */,
 				6790D7D820C5198F00D5B791 /* FXLabel.m */,
@@ -511,6 +570,8 @@
 				6790D84220C52A0900D5B791 /* PPTBBaseVC.m */,
 				6790D83020C51A7000D5B791 /* PPBaseViewController.h */,
 				6790D83120C51A7600D5B791 /* PPBaseViewController.m */,
+				67B08D5F211AC00A0063562C /* PPBaseApiDataModel.h */,
+				67B08D60211AC00A0063562C /* PPBaseApiDataModel.m */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -526,6 +587,7 @@
 		6790D83820C528B000D5B791 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				67B08D62211ACCE00063562C /* User */,
 				673ADF5320CA6AC2006334EA /* Login */,
 				6790D84020C529E500D5B791 /* Score */,
 				6790D83F20C529DE00D5B791 /* JWT */,
@@ -554,6 +616,7 @@
 		6790D83D20C529C000D5B791 /* Mine */ = {
 			isa = PBXGroup;
 			children = (
+				67783B57211C407800F5C490 /* Bind */,
 				673ADF3620CA24AA006334EA /* Order */,
 				673ADF2D20CA1AAD006334EA /* Record */,
 				6786F02020C9272B00848F7B /* PPMineMainVC.h */,
@@ -600,6 +663,20 @@
 				672BB7AF20C7E394006C06CC /* PPJWTHeadVIew.xib */,
 			);
 			path = Score;
+			sourceTree = "<group>";
+		};
+		67B08D62211ACCE00063562C /* User */ = {
+			isa = PBXGroup;
+			children = (
+				67B08D65211ACCE00063562C /* PPUserdefaultDefine.h */,
+				67B08D63211ACCE00063562C /* PPUserDefault.h */,
+				67B08D64211ACCE00063562C /* PPUserDefault.m */,
+				67B08D66211ACCE00063562C /* PPUserModel.h */,
+				67B08D67211ACCE00063562C /* PPUserModel.m */,
+				67B08D68211ACCE00063562C /* PPUserOBJ.h */,
+				67B08D69211ACCE00063562C /* PPUserOBJ.m */,
+			);
+			path = User;
 			sourceTree = "<group>";
 		};
 		ABE1C2B508E43BF5D42257FF /* Frameworks */ = {
@@ -727,9 +804,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				67783B5C211C40D200F5C490 /* PPBindMainView.xib in Resources */,
 				672BB7B020C7E394006C06CC /* PPJWTHeadVIew.xib in Resources */,
 				6786F02720C9281600848F7B /* PPMineMainCell.xib in Resources */,
 				6790D7AC20C5181D00D5B791 /* Assets.xcassets in Resources */,
+				67783B61211C491600F5C490 /* PPVerifyUserVIew.xib in Resources */,
 				672BB79E20C7D226006C06CC /* PPDetailTwoCell.xib in Resources */,
 				672BB7AB20C7E15A006C06CC /* PPJWTMainCell.xib in Resources */,
 				673ADF5220CA5DD1006334EA /* PPJWTMainHomeCell.xib in Resources */,
@@ -788,6 +867,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-YZ_Four/Pods-YZ_Four-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
 				"${BUILT_PRODUCTS_DIR}/DZNEmptyDataSet/DZNEmptyDataSet.framework",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManager/IQKeyboardManager.framework",
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/MJExtension/MJExtension.framework",
 				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
@@ -799,6 +879,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DZNEmptyDataSet.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManager.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJExtension.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
@@ -822,8 +903,10 @@
 				6790D81320C5198F00D5B791 /* NSArray+Log.m in Sources */,
 				6790D81C20C5198F00D5B791 /* UIActionSheet+Front.m in Sources */,
 				6790D84320C52A0900D5B791 /* PPTBBaseVC.m in Sources */,
+				67783B5F211C490C00F5C490 /* PPVerifyUserVIew.m in Sources */,
 				673ADF4820CA542A006334EA /* PPGlobaBottomBar.m in Sources */,
 				673ADF5720CA6DDB006334EA /* PPLoginMainVC.m in Sources */,
+				67783B50211BDDB600F5C490 /* JKCountDownButton.m in Sources */,
 				6790D84A20C5349A00D5B791 /* PPHomeMainCell.m in Sources */,
 				672BB7AA20C7E15A006C06CC /* PPJWTMainCell.m in Sources */,
 				672BB79320C7874F006C06CC /* PPHomeDetailVC.m in Sources */,
@@ -841,8 +924,10 @@
 				6790D82920C5198F00D5B791 /* UIViewController+CZAddition.m in Sources */,
 				6786F02620C9281600848F7B /* PPMineMainCell.m in Sources */,
 				673ADF5C20CA7B49006334EA /* PPRegistVC.m in Sources */,
+				67B08D6C211ACCE00063562C /* PPUserOBJ.m in Sources */,
 				6790D82420C5198F00D5B791 /* UILabel+CZAddition.m in Sources */,
 				6790D81E20C5198F00D5B791 /* UIButton+LCAlignment.m in Sources */,
+				67783B64211C4AB200F5C490 /* PPVerifyUserVC.m in Sources */,
 				672BB79820C7CAAF006C06CC /* PPDetailTypeOneCell.m in Sources */,
 				673ADF3520CA1B33006334EA /* PPMineRecordVC.m in Sources */,
 				6790D81620C5198F00D5B791 /* NSObject+PPCommon.m in Sources */,
@@ -850,11 +935,15 @@
 				6786F02B20C92B1A00848F7B /* PPMainTopUserCell.m in Sources */,
 				672BB7AE20C7E38C006C06CC /* PPJWTHeadVIew.m in Sources */,
 				6790D82120C5198F00D5B791 /* UIControl+PPClick.m in Sources */,
+				67B08D6B211ACCE00063562C /* PPUserModel.m in Sources */,
 				6790D81A20C5198F00D5B791 /* NSString+PPValidStr.m in Sources */,
+				67B08D6A211ACCE00063562C /* PPUserDefault.m in Sources */,
 				6790D83720C51D4500D5B791 /* PPHUDHelp.m in Sources */,
 				673ADF4520CA52A6006334EA /* PPNavViewController.m in Sources */,
 				6790D81720C5198F00D5B791 /* NSString+CZBase64.m in Sources */,
+				67783B5A211C40A000F5C490 /* PPBindMainView.m in Sources */,
 				6790D84620C5326D00D5B791 /* PPHomeMainVC.m in Sources */,
+				67783B56211C405600F5C490 /* BindGameInfoVC.m in Sources */,
 				6790D83220C51A7600D5B791 /* PPBaseViewController.m in Sources */,
 				6790D81D20C5198F00D5B791 /* UIButton+CZAddition.m in Sources */,
 				672D7D3820D8A56D00CA0957 /* PPLoginViewModel.m in Sources */,
@@ -873,6 +962,7 @@
 				6790D82C20C5198F00D5B791 /* webProgressLine.m in Sources */,
 				6790D82220C5198F00D5B791 /* UIImage+compressIMG.m in Sources */,
 				6790D82A20C5198F00D5B791 /* HYBNetworking.m in Sources */,
+				67B08D61211AC00A0063562C /* PPBaseApiDataModel.m in Sources */,
 				6790D81B20C5198F00D5B791 /* PPBaseField.m in Sources */,
 				6790D7A420C5181D00D5B791 /* AppDelegate.m in Sources */,
 			);

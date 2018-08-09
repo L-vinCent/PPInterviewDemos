@@ -9,6 +9,8 @@
 #import "PPMineMainVC.h"
 #import "PPMineMainCell.h"
 #import "PPMainTopUserCell.h"
+#import "PPLoginMainVC.h"
+#import "PPNavViewController.h"
 static NSString *const kCellIdentify_PPMineMainCell = @"kCellIdentify_PPMineMainCell";
 static NSString *const kCellIdentify_PPMainTopUserCell = @"kCellIdentify_PPMainTopUserCell";
 
@@ -52,7 +54,7 @@ static NSString *const kCellIdentify_PPMainTopUserCell = @"kCellIdentify_PPMainT
                                           ],
                                       
                                       @[
-                                          @{@"title":@"昵称",@"iconName":@" ",@"vcName":@""},
+                                          @{@"title":@"绑定游戏账户",@"iconName":@" ",@"vcName":@"BindGameInfoVC"},
                                           
                                           ],
                                       @[
@@ -66,7 +68,10 @@ static NSString *const kCellIdentify_PPMainTopUserCell = @"kCellIdentify_PPMainT
                                           @{@"title":@"我的订单",@"iconName":@"home_account",@"vcName":@"PPMineOrderVC"},
                                           
                                           ],
-                                      
+                                      @[
+                                          @{@"title":@"退出登录",@"iconName":@"home_account",@"vcName":@"123"},
+                                          
+                                          ],
                                       ].mutableCopy;
         _dataArr = tempArray.mutableCopy;
     }
@@ -135,6 +140,22 @@ static NSString *const kCellIdentify_PPMainTopUserCell = @"kCellIdentify_PPMainT
     return headerView;
 }
 
+-(void)logout
+{
+    
+    [USER_SYN removeAllUserInfo];
+    [self goLoginVC];
+    
+}
+
+-(void)goLoginVC
+{
+    PPLoginMainVC *vc=[[PPLoginMainVC alloc]init];
+    PPNavViewController *nav=[[PPNavViewController alloc]initWithRootViewController:vc];
+    [kKeyWindow setRootViewController:nav];
+    [kKeyWindow makeKeyAndVisible];
+    
+}
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -149,6 +170,11 @@ static NSString *const kCellIdentify_PPMainTopUserCell = @"kCellIdentify_PPMainT
 //        [PPHUDHelp showMessage:@"请先登录" afterDelayTime:1];
 //        return;
 //    }
+    
+    if ([className isEqualToString:@"123"]) {
+        [self logout];
+        return;
+    }
     
     [self pushWithVCName:className];
 
