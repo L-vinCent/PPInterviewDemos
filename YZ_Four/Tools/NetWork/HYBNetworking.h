@@ -332,6 +332,6 @@ typedef void(^HYBResponseFail)(NSError *error);
 
 
 +(void)postWithUrl:(NSString *)url body:(NSData *)body  success:(void(^)(NSDictionary *response))success failure:(void(^)(NSError *error))failure;
-+(void)postWithUrl:(NSString *)url dict:(NSDictionary *)dic  success:(void(^)(NSDictionary *response))success failure:(void(^)(NSError *error))failure;
++(void)postWithUrl:(NSString *)url bodyDict:(NSDictionary *)dic  success:(void(^)(NSDictionary *response))success failure:(void(^)(NSError *error))failure;
 
 @end

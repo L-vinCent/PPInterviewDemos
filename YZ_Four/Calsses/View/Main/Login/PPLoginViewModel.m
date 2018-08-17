@@ -52,7 +52,7 @@
                            @"loginType":@"loginByPwd",
                            };
 
-    [HYBNetworking postWithUrl:Login_login dict:dict success:^(NSDictionary *response) {
+    [HYBNetworking postWithUrl:Login_login bodyDict:dict success:^(NSDictionary *response) {
 
        
         PPBaseApiDataModel *data=[PPBaseApiDataModel mj_objectWithKeyValues:response];
@@ -107,7 +107,7 @@
                            @"smsCode":code,
                            };
     
-    [HYBNetworking postWithUrl:Login_regist dict:dict success:^(NSDictionary *response) {
+    [HYBNetworking postWithUrl:Login_regist bodyDict:dict success:^(NSDictionary *response) {
         
         
         PPBaseApiDataModel *data=[PPBaseApiDataModel mj_objectWithKeyValues:response];

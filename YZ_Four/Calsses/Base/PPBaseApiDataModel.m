@@ -10,4 +10,13 @@
 
 @implementation PPBaseApiDataModel
 
++(PPBaseApiDataModel *)getGlobalModel:(NSDictionary *)dic
+{
+    
+    PPBaseApiDataModel *model=[PPBaseApiDataModel mj_objectWithKeyValues:dic];
+    return model;
+    
+}
+
+
 @end

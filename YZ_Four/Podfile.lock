@@ -25,6 +25,7 @@ PODS:
   - SDWebImage (4.3.0):
     - SDWebImage/Core (= 4.3.0)
   - SDWebImage/Core (4.3.0)
+  - ZJPickerView (1.0.0)
 
 DEPENDENCIES:
   - AFNetworking (~> 3.2.0)
@@ -35,6 +36,7 @@ DEPENDENCIES:
   - MJRefresh
   - ReactiveObjC (~> 2.1.0)
   - SDCycleScrollView (~> 1.75)
+  - ZJPickerView
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -47,6 +49,7 @@ SPEC REPOS:
     - ReactiveObjC
     - SDCycleScrollView
     - SDWebImage
+    - ZJPickerView
 
 SPEC CHECKSUMS:
   AFNetworking: 8ac6017b94ea105479f7776e5288e48ae9c59bb4
@@ -58,7 +61,8 @@ SPEC CHECKSUMS:
   ReactiveObjC: 7b6782ae39f9ac0f57205c3b0c0b69b9dd7048c0
   SDCycleScrollView: 884b88f0266dd4708a0e1934975c69cb971707b1
   SDWebImage: 6da6c8bca115addc4de8613362e1b15f66333825
+  ZJPickerView: 9cec65c042bf465309cbb792b018f50f0f381c72
 
-PODFILE CHECKSUM: ef5ffbfb9d9c5598a0dfc97817e81518d43088e3
+PODFILE CHECKSUM: f5dfb2be75d542ef4d3bdceb19a031820c05d0dc
 
 COCOAPODS: 1.5.2

@@ -10,5 +10,7 @@
 
 @interface PPBindMainView : UIView
 @property (weak, nonatomic) IBOutlet UIButton *BindBtn;
+@property (weak, nonatomic) IBOutlet UIButton *chooseAreaBtn;
+@property (weak, nonatomic) IBOutlet UITextField *areaNameFiled;
 
 @end

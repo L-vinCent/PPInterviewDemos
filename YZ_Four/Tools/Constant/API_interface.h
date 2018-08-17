@@ -22,8 +22,15 @@
 
 #define Bind_User @"member/bindGameInfo" //绑定用户
 #define Bind_isSuccess @"member/checkBind" //校验 是否绑定成功
+#define Bind_LoLAreaList @"common/getArea" //获取大区列表信息
+#define Bind_specialCHaractar @"/common/getSpecialCharacter" //特殊字符列表
+
 
 #define Third_WXAppid @"wxe6ab9ac49ee9fe48"
 #define THird_WXAppsecret @"32bd5f82fc868ed84309c78a76b72430"
+
+
+
+
 
 #endif /* API_interface_h */

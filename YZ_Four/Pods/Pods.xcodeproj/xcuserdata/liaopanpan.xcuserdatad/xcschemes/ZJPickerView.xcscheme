@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F3EAC3D5885E0578C68969CF806A4164"
-               BlueprintName = "ReactiveObjC"
+               BlueprintIdentifier = "2CC8D2978CBCD02A66435E4A973A5057"
+               BlueprintName = "ZJPickerView"
                ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "ReactiveObjC.framework">
+               BuildableName = "ZJPickerView.framework">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

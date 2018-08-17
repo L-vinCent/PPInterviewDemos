@@ -1138,8 +1138,9 @@ static inline NSString *cachePath() {
     
 }
 
-+(void)postWithUrl:(NSString *)url dict:(NSDictionary *)dic  success:(void(^)(NSDictionary *response))success failure:(void(^)(NSError *error))failure
++(void)postWithUrl:(NSString *)url bodyDict:(NSDictionary *)dic  success:(void(^)(NSDictionary *response))success failure:(void(^)(NSError *error))failure
 {
+    
     
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dic options:0 error:nil];
 
@@ -1148,7 +1149,10 @@ static inline NSString *cachePath() {
     
     NSMutableURLRequest *request = [[AFHTTPRequestSerializer serializer] requestWithMethod:@"POST" URLString:requestUrl parameters:nil error:nil];
     
+    
     [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [request setValue:USER_SYN.token forHTTPHeaderField:@"AuthToken"];
+    
     // 设置body
     [request setHTTPBody:jsonData];
     

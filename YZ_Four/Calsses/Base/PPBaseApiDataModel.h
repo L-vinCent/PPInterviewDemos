@@ -10,8 +10,10 @@
 
 @interface PPBaseApiDataModel : NSObject
 
-@property(nonatomic,strong)NSDictionary *data;
+@property(nonatomic,strong)id data;
 @property(nonatomic,strong)NSString *message;
 @property(nonatomic,strong)NSString *code;
+
++(PPBaseApiDataModel *)getGlobalModel:(NSDictionary *)dic;
 
 @end
