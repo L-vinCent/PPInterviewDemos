@@ -36,7 +36,7 @@
         if (index==i+1) {
             //从1开始
             [btn setBackgroundColor:Door_BGGlobal_color];
-            [btn setTitleColor:Door_Global_title forState:UIControlStateNormal];
+            [btn setTitleColor:Door_title_color forState:UIControlStateNormal];
 
         }else
         {
@@ -66,7 +66,7 @@
         btn.PP_centerY=25;
         
        [btn setBackgroundColor:Door_BGGlobal_color];
-            [btn setTitleColor:Door_Global_title forState:UIControlStateNormal];
+            [btn setTitleColor:Door_title_color forState:UIControlStateNormal];
 
  
         kWeakSelf(self)

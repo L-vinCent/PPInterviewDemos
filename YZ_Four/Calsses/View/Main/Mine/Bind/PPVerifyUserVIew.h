@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+typedef void(^verifyBlock)(void);
+
 @interface PPVerifyUserVIew : UIView
+@property (weak, nonatomic) IBOutlet UIButton *verifyBtn;
+@property(nonatomic,copy)verifyBlock verifyBlock;
+@property (weak, nonatomic) IBOutlet UIImageView *verifyImage;
+@property (weak, nonatomic) IBOutlet UIImageView *tempImageV;
 
 @end

@@ -20,6 +20,7 @@
 #import "UIView+PPRedPoint.h"
 #import "UILabel+CZAddition.h"
 #import "UIButton+CZAddition.h"
+#import "UIImageView+WebCache.h"
 
 #import "PPHUDHelp.h"
 

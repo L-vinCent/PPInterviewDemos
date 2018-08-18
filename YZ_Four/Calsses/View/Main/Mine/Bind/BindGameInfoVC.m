@@ -13,7 +13,7 @@
 #import "ZJPickerView.h"
 #import "PPVerifyUserVIew.h"
 #import "LewPopupViewController.h"
-
+#import "UIImageView+WebCache.h"
 @interface BindGameInfoVC ()<UIPickerViewDelegate,UIPickerViewDataSource>
 
 @property(nonatomic,strong)UIPickerView *areaPickerView;
@@ -22,6 +22,7 @@
 @property(nonatomic,strong)PPLOLAreaModel *selectModel;
 @property(nonatomic,strong)PPBindMainView *bindView;
 @property(nonatomic,strong)PPVerifyUserVIew *userView;
+@property(nonatomic,strong)NSString *verifyImageUrl;
 
 @end
 
@@ -33,16 +34,16 @@
     self.modelArray = @[].mutableCopy;
     self.titleArray = @[].mutableCopy;
     _bindView= [[[NSBundle mainBundle]loadNibNamed:@"PPBindMainView" owner:self options:0]lastObject];
-    _bindView.frame = self.view.bounds;
+    _bindView.frame = CGRectMake(0, kDoorNavStatusHeight, SCREEN_WIDTH, SCREEN_HEIGHT-kDoorNavStatusHeight);
     [self.view addSubview:_bindView];
+    
     
     
     [_bindView.chooseAreaBtn addTarget:self action:@selector(showAreaChooseList) forControlEvents:UIControlEventTouchUpInside];
     [_bindView.BindBtn addTarget:self action:@selector(applyBind) forControlEvents:UIControlEventTouchUpInside];
     
 
-
-    
+    [self getSpecialCharacter];
     [self getLoLAreaList];
     
 }
@@ -56,6 +57,8 @@
         
     }];
     
+
+    
     
 }
 
@@ -64,7 +67,14 @@
     if (!_userView) {
         
         _userView= [[[NSBundle mainBundle]loadNibNamed:@"PPVerifyUserVIew" owner:self options:0]lastObject];
-        _userView.frame = CGRectMake(0, 0, 300, 300);
+        _userView.frame = CGRectMake(0, 0, 300, 240);
+        kWeakSelf(self)
+        _userView.verifyBlock = ^{
+          kStrongSelf(self)
+            [self verifyAccount];
+            
+        };
+        
     }
     return _userView;
 }
@@ -88,6 +98,42 @@
     PPVerifyUserVC *vc = [[PPVerifyUserVC alloc]init];
     [self.navigationController pushViewController:vc animated:YES];
 }
+
+
+
+-(void)getSpecialCharacter
+{
+    
+    LOADING_SHOW
+    [HYBNetworking getWithUrl:Bind_specialCHaractar refreshCache:NO success:^(id response) {
+    LOADING_HIDE
+        PPBaseApiDataModel *model = [PPBaseApiDataModel getGlobalModel:response];
+        if (code_success(model.code)) {
+            NSArray *charArr = (NSArray *)model.data;
+            
+            [self.bindView loadFuZhuArrays:charArr ClickContents:^(NSString *character) {
+               
+                NSLog(@"%@",character);
+                NSMutableString *tempStr = self.bindView.areaNameFiled.text.mutableCopy;
+                [tempStr appendString:character];
+                self.bindView.areaNameFiled.text = tempStr;
+            }];
+            
+        }else
+        {
+            
+              [PPHUDHelp showMessage:model.message afterDelayTime:1.5];
+//            [self message_setAlertCT:model.message alertBlock:nil];
+            
+        }
+        
+    } fail:^(NSError *error) {
+        
+        LoADING_FAIL
+        
+    }];
+}
+
 
 -(void)showAreaChooseList
 {
@@ -117,6 +163,38 @@
     
 }
 
+-(void)verifyAccount
+{
+    
+    LOADING_SHOW
+    
+    [HYBNetworking postWithUrl:Bind_isSuccess bodyDict:@{} success:^(NSDictionary *response) {
+        
+        LOADING_HIDE
+        PPBaseApiDataModel *model = [PPBaseApiDataModel getGlobalModel:response];
+        if (code_success(model.code)) {
+            
+            //verificationTime   imageUrl
+            NSLog(@"%@",model.data);
+   
+            
+       
+            
+        }else
+        {
+            
+//            [PPHUDHelp showMessage:model.message afterDelayTime:1.5];
+            [self message_setAlertCT:model.message alertBlock:nil];
+            
+        }
+        
+        
+    } failure:^(NSError *error) {
+       
+        LoADING_FAIL
+        
+    }];
+}
 -(void)applyBind
 {
     
@@ -145,10 +223,12 @@
             
             //verificationTime   imageUrl
             NSLog(@"%@",model.data);
-            
+            NSString *imageUrl = [model.data objectForKey:@"imageUrl"];
             [self showVerify];
             
             
+            [self.userView.verifyImage sd_setImageWithURL:[NSURL URLWithString:imageUrl]];
+
         }else
         {
             

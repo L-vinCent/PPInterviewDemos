@@ -7,15 +7,39 @@
 //
 
 #import "PPVerifyUserVIew.h"
+@interface PPVerifyUserVIew()
+@end
 
 @implementation PPVerifyUserVIew
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        
+    }
+    return self;
 }
-*/
+- (void)awakeFromNib
+{
+    [super awakeFromNib];
+    [_verifyImage radiusSetByRect:CGSizeMake(32, 32) byRoundingCorners:UIRectCornerAllCorners];
+
+}
+
+-(void)layoutSubviews
+{
+    [super layoutSubviews];
+
+}
+- (IBAction)verifyClick:(id)sender {
+    
+    if (self.verifyBlock) {
+        
+        self.verifyBlock();
+        
+    }
+    
+}
 
 @end

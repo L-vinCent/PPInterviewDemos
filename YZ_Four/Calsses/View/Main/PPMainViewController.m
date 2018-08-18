@@ -69,7 +69,7 @@
     [UITabBar appearance].translucent=NO;
     [[UITabBar appearance]setBarTintColor:RGB(254, 254, 254)];
     baseVC.tabBarItem.selectedImage=[[UIImage imageNamed:selectImageName] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    [baseVC.tabBarItem setTitleTextAttributes:@{NSForegroundColorAttributeName:Door_Global_title} forState:UIControlStateSelected];
+    [baseVC.tabBarItem setTitleTextAttributes:@{NSForegroundColorAttributeName:Door_title_color} forState:UIControlStateSelected];
 
     PPNavViewController *nav=[[PPNavViewController alloc]initWithRootViewController:baseVC];
     

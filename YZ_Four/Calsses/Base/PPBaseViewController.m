@@ -164,7 +164,7 @@
         
 #endif
 //        _navigationBar.barTintColor=[UIColor cz_colorWithHex:0xF6F6F6];
-        _navigationBar.barTintColor=Door_BGGlobal_color;
+        _navigationBar.barTintColor=Door_NavBar_color;
         _navigationBar.translucent = NO;
         _navigationBar.titleTextAttributes=@{NSForegroundColorAttributeName:[UIColor whiteColor]};
         _navigationBar.tintColor=[UIColor whiteColor];
@@ -173,7 +173,7 @@
         view.backgroundColor=RGB(216, 216, 216);
         [_navigationBar addSubview:view];
         
-        [self setStatusBarBackgroundColor:Door_BGGlobal_color];
+        [self setStatusBarBackgroundColor:Door_NavBar_color];
         
     }
     return _navigationBar;

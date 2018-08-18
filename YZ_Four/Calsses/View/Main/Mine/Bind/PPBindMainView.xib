@@ -16,17 +16,41 @@
             <rect key="frame" x="0.0" y="0.0" width="289" height="517"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HX9-5F-enY">
-                    <rect key="frame" x="32" y="251" width="224" height="40"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" red="0.28472214940000001" green="0.60072171689999998" blue="0.81501591210000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HX9-5F-enY">
+                    <rect key="frame" x="16" y="348" width="257" height="36"/>
+                    <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="36" id="5yk-TF-J8t"/>
+                    </constraints>
                     <state key="normal" title="申请绑定">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
                 </button>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zt1-fH-fue">
-                    <rect key="frame" x="16" y="114" width="257" height="36"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PXf-OJ-nms">
+                    <rect key="frame" x="16" y="282" width="257" height="36"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="角色名称:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lxs-NO-gzW">
+                            <rect key="frame" x="11" y="6" width="67" height="25"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入该大区游戏昵称" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xux-dM-rTk">
+                            <rect key="frame" x="99" y="4" width="158" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <textInputTraits key="textInputTraits" textContentType="username"/>
+                        </textField>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="36" id="3XI-e5-evO"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zt1-fH-fue">
+                    <rect key="frame" x="16" y="135" width="257" height="36"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="所在大区: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gaQ-bt-SUw">
                             <rect key="frame" x="12" y="6" width="68" height="25"/>
@@ -45,36 +69,53 @@
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="36" id="Xh7-2C-pQ1"/>
+                    </constraints>
                 </view>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PXf-OJ-nms">
-                    <rect key="frame" x="16" y="177" width="257" height="36"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="角色名称:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lxs-NO-gzW">
-                            <rect key="frame" x="11" y="6" width="67" height="25"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入该大区游戏昵称" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xux-dM-rTk">
-                            <rect key="frame" x="99" y="4" width="158" height="30"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                            <textInputTraits key="textInputTraits" textContentType="password"/>
-                        </textField>
-                    </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="辅助输入:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jb9-rQ-bmK">
+                    <rect key="frame" x="16" y="190" width="114" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="toR-FT-fDO"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VVB-I3-c8l">
+                    <rect key="frame" x="16" y="228" width="257" height="31"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="31" id="x6M-RQ-6Tj"/>
+                    </constraints>
                 </view>
             </subviews>
             <color key="backgroundColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="PXf-OJ-nms" firstAttribute="top" secondItem="Zt1-fH-fue" secondAttribute="bottom" constant="111" id="04O-ZQ-6MA"/>
+                <constraint firstItem="jb9-rQ-bmK" firstAttribute="top" secondItem="Zt1-fH-fue" secondAttribute="bottom" constant="19" id="6A7-9b-D0d"/>
+                <constraint firstItem="VOd-WG-aEf" firstAttribute="trailing" secondItem="Zt1-fH-fue" secondAttribute="trailing" constant="16" id="AAz-1f-Uue"/>
+                <constraint firstItem="VOd-WG-aEf" firstAttribute="trailing" secondItem="VVB-I3-c8l" secondAttribute="trailing" constant="16" id="BTd-iq-5sJ"/>
+                <constraint firstItem="PXf-OJ-nms" firstAttribute="leading" secondItem="VOd-WG-aEf" secondAttribute="leading" constant="16" id="D9Y-hl-F1b"/>
+                <constraint firstItem="HX9-5F-enY" firstAttribute="width" secondItem="PXf-OJ-nms" secondAttribute="width" id="JMH-Z6-SM5"/>
+                <constraint firstItem="HX9-5F-enY" firstAttribute="top" secondItem="PXf-OJ-nms" secondAttribute="bottom" constant="30" id="Vqa-a2-St9"/>
+                <constraint firstItem="HX9-5F-enY" firstAttribute="centerX" secondItem="VOd-WG-aEf" secondAttribute="centerX" id="ZoT-MK-jS7"/>
+                <constraint firstItem="Zt1-fH-fue" firstAttribute="top" secondItem="VOd-WG-aEf" secondAttribute="top" constant="115" id="f6B-IZ-oGx"/>
+                <constraint firstItem="Zt1-fH-fue" firstAttribute="leading" secondItem="VOd-WG-aEf" secondAttribute="leading" constant="16" id="fIL-oE-EiW"/>
+                <constraint firstItem="Zt1-fH-fue" firstAttribute="centerX" secondItem="VOd-WG-aEf" secondAttribute="centerX" id="hWS-yP-HuY"/>
+                <constraint firstItem="VVB-I3-c8l" firstAttribute="leading" secondItem="VOd-WG-aEf" secondAttribute="leading" constant="16" id="nw1-fi-e1z"/>
+                <constraint firstItem="VOd-WG-aEf" firstAttribute="trailing" secondItem="PXf-OJ-nms" secondAttribute="trailing" constant="16" id="qu8-Ca-5Gf"/>
+                <constraint firstItem="VOd-WG-aEf" firstAttribute="trailing" secondItem="jb9-rQ-bmK" secondAttribute="trailing" constant="159" id="rnc-J9-b4l"/>
+                <constraint firstItem="jb9-rQ-bmK" firstAttribute="leading" secondItem="VOd-WG-aEf" secondAttribute="leading" constant="16" id="sfQ-qt-Avb"/>
+                <constraint firstItem="VVB-I3-c8l" firstAttribute="top" secondItem="jb9-rQ-bmK" secondAttribute="bottom" constant="17" id="yYC-co-LVi"/>
+            </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="VOd-WG-aEf"/>
             <connections>
                 <outlet property="BindBtn" destination="HX9-5F-enY" id="h18-v7-oiP"/>
                 <outlet property="areaNameFiled" destination="Xux-dM-rTk" id="diy-m1-Ttq"/>
                 <outlet property="chooseAreaBtn" destination="lBD-5Q-hqp" id="erU-qC-ptK"/>
+                <outlet property="fuzhuBGView" destination="VVB-I3-c8l" id="2er-G2-4Yu"/>
             </connections>
             <point key="canvasLocation" x="-359.5" y="-11.5"/>
         </view>

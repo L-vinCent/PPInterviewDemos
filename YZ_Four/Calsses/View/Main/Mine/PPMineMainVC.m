@@ -24,14 +24,27 @@ static NSString *const kCellIdentify_PPMainTopUserCell = @"kCellIdentify_PPMainT
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    if (@available(iOS 11.0, *)) {
+        self.tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+    } else {
+        self.automaticallyAdjustsScrollViewInsets = NO;
+    }
+    
     [self setupUI_door];
+    
+    self.navItem.title =@"";
+    
+    
+
+  
+    
 }
 
 
 -(void)setupUI_door
 {
     
-    self.tableView.frame = CGRectMake(0, kDoorStatusBarHeight, SCREEN_WIDTH,SCREEN_HEIGHT-kDoorNavStatusHeight);
+    self.tableView.frame = CGRectMake(0, 0, SCREEN_WIDTH,SCREEN_HEIGHT-kDoorNavStatusHeight);
     self.tableView.bounces = NO;
     self.tableView.backgroundColor = WPHexColorA(0xeeeeee, 1);
     self.tableView.tableFooterView = [[UIView alloc]initWithFrame:CGRectZero];
@@ -180,4 +193,17 @@ static NSString *const kCellIdentify_PPMainTopUserCell = @"kCellIdentify_PPMainT
 
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+
+    [self setStatusBarBackgroundColor:[UIColor clearColor]];
+}
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+
+    [self setStatusBarBackgroundColor:Door_NavBar_color];
+
+}
 @end

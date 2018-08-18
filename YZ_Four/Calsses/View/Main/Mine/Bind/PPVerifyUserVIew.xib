@@ -12,47 +12,68 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="G08-ug-VTz">
-            <rect key="frame" x="0.0" y="0.0" width="261" height="314"/>
+        <view contentMode="scaleToFill" id="G08-ug-VTz" customClass="PPVerifyUserVIew">
+            <rect key="frame" x="0.0" y="0.0" width="261" height="241"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PWR-Qf-IqC">
-                    <rect key="frame" x="9" y="60" width="240" height="59"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <string key="text">资料审核中，请尽快去LOL端口更换指定头像，完成账号验证
-</string>
-                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                    <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请在10分钟内将英雄联盟中的头像更换为下图，更换成功后点击校验完成绑定" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PWR-Qf-IqC">
+                    <rect key="frame" x="10" y="57" width="240" height="50.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f2X-UH-7JW">
-                    <rect key="frame" x="9" y="138" width="114" height="83"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <string key="text">大区：黑色玫瑰
-
-
-昵称：团战之魂</string>
-                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                    <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="绑定校验" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f2X-UH-7JW">
+                    <rect key="frame" x="75" y="20" width="110" height="29"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="110" id="Jp3-ZA-oUk"/>
+                        <constraint firstAttribute="height" constant="29" id="dWF-AD-M4T"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" red="0.20029480760000001" green="0.2039083391" blue="0.28230759500000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="global" translatesAutoresizingMaskIntoConstraints="NO" id="E2H-gd-O2D">
-                    <rect key="frame" x="182" y="153" width="59" height="59"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="global" translatesAutoresizingMaskIntoConstraints="NO" id="E2H-gd-O2D">
+                    <rect key="frame" x="98" y="125" width="64" height="64"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="64" id="W8x-sw-POg"/>
+                        <constraint firstAttribute="height" constant="64" id="WD0-Qm-3jy"/>
+                    </constraints>
                 </imageView>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dis-NH-n6D">
-                    <rect key="frame" x="9" y="242" width="240" height="40"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dis-NH-n6D">
+                    <rect key="frame" x="0.0" y="203" width="261" height="38"/>
                     <color key="backgroundColor" red="0.28472214940000001" green="0.60072171689999998" blue="0.81501591210000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                    <state key="normal" title="账号验证">
+                    <constraints>
+                        <constraint firstAttribute="height" constant="38" id="zWR-GX-gfY"/>
+                    </constraints>
+                    <state key="normal" title="校验">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
+                    <connections>
+                        <action selector="verifyClick:" destination="G08-ug-VTz" eventType="touchUpInside" id="2eZ-aO-djc"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="E2H-gd-O2D" firstAttribute="centerX" secondItem="9QG-Ek-dYQ" secondAttribute="centerX" id="6Nz-pk-mkc"/>
+                <constraint firstItem="9QG-Ek-dYQ" firstAttribute="trailing" secondItem="PWR-Qf-IqC" secondAttribute="trailing" constant="11" id="EK5-Ab-bth"/>
+                <constraint firstItem="f2X-UH-7JW" firstAttribute="top" secondItem="9QG-Ek-dYQ" secondAttribute="top" constant="20" id="Et0-ee-qpc"/>
+                <constraint firstItem="E2H-gd-O2D" firstAttribute="top" secondItem="PWR-Qf-IqC" secondAttribute="bottom" constant="17.5" id="HPb-UH-DPe"/>
+                <constraint firstItem="f2X-UH-7JW" firstAttribute="centerX" secondItem="9QG-Ek-dYQ" secondAttribute="centerX" id="KvI-c3-CHd"/>
+                <constraint firstItem="PWR-Qf-IqC" firstAttribute="leading" secondItem="9QG-Ek-dYQ" secondAttribute="leading" constant="10" id="ODe-oq-Coi"/>
+                <constraint firstItem="dis-NH-n6D" firstAttribute="leading" secondItem="9QG-Ek-dYQ" secondAttribute="leading" id="Uxv-QJ-zMT"/>
+                <constraint firstItem="9QG-Ek-dYQ" firstAttribute="trailing" secondItem="dis-NH-n6D" secondAttribute="trailing" id="mvu-SB-66B"/>
+                <constraint firstItem="9QG-Ek-dYQ" firstAttribute="bottom" secondItem="dis-NH-n6D" secondAttribute="bottom" id="nYz-5K-Itk"/>
+                <constraint firstItem="PWR-Qf-IqC" firstAttribute="top" secondItem="f2X-UH-7JW" secondAttribute="bottom" constant="8" id="uTQ-P0-t8V"/>
+                <constraint firstItem="PWR-Qf-IqC" firstAttribute="centerX" secondItem="9QG-Ek-dYQ" secondAttribute="centerX" id="zw3-PS-aqa"/>
+            </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="9QG-Ek-dYQ"/>
-            <point key="canvasLocation" x="-77.5" y="14"/>
+            <connections>
+                <outlet property="verifyBtn" destination="dis-NH-n6D" id="M1N-Le-RNs"/>
+                <outlet property="verifyImage" destination="E2H-gd-O2D" id="9MZ-gE-SOB"/>
+            </connections>
+            <point key="canvasLocation" x="-207.5" y="49.5"/>
         </view>
     </objects>
     <resources>

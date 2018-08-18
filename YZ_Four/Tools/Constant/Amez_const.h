@@ -89,26 +89,19 @@
 #define RGBA(r,g,b,a) [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:(a)]
 #define RGB(r,g,b) RGBA(r,g,b,1.0f)
 
-#define Door_line_color RGB(34,34,34)   //线条色
 
-#define Door_title_color RGB(34,34,34)   //线条色
+#define Door_title_color RGB(34,34,34)   //字体色
 
-#define Door_Global_title  RGB(255,199,60)  //主题色
-
-//#define Door_BGGlobal_color RGB(78,83,108) //主题背景色
-#define Door_BGGlobal_color RGB(43,101,102) //主题背景色
-
-#define Door_progressLine_color RGB(248,76,132) //进度条颜色
+#define Door_NavBar_color  RGB(51,51,51)  //导航栏色
 
 
+#define Door_BGGlobal_color RGB(252,216,10) //主题背景色
 
-#define Door_BtnGray_color RGB(143,146,161) //按钮背景色_灰
+
 
 #define Door_TitleGray_color RGB(102,102,102) //灰字体
 
 #define Door_BGGray_color RGB(235,235,235) //灰背景
-
-#define Door_Tabbar_color  RGB(242,203,129)  //tabbar标题颜色
 
 #define Door_BGWhite_color RGB(255,255,255)  //背景白
 

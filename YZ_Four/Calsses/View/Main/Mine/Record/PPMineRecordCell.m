@@ -13,7 +13,7 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
-    [self.bgView borderCorlor_set:Door_line_color width:0.5 radius:5.0f];
+    [self.bgView borderCorlor_set:Door_title_color width:0.5 radius:5.0f];
     self.selectionStyle = UITableViewCellSelectionStyleNone;
 }
 
